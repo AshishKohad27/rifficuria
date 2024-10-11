@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import MediaSection from "@/components/songs/media-section";
 import Newsletter from "@/components/site/newsletter";
 import WeeksTop10 from "@/components/site//weeks-top-10";

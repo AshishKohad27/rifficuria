@@ -22,7 +22,7 @@ export default function RatingsHistory({ RatingsHistoryData }) {
                                         // require(`@/assets/profile/${image}`).default ||
                                         defaultProfileImage
                                     }
-                                    alt=""
+                                    alt={image}
                                 />
                             </div>
                             <article>

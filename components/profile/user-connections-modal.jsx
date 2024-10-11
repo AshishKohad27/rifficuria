@@ -68,6 +68,7 @@ const UserConnectionsModal = ({
                                                                 //     .default ||
                                                                 defaultProfileImage
                                                             }
+                                                            data-src-next={profileImage}
                                                             alt={name}
                                                         />
                                                     </div>

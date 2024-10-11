@@ -50,6 +50,7 @@ export default function UserConnectionsMobile({
                                                             //     .default || 
                                                             defaultProfileImage
                                                         }
+                                                        data-src-next={profileImage}
                                                         alt={name}
                                                     />
                                                 </div>
@@ -79,6 +80,7 @@ export default function UserConnectionsMobile({
                                                                     //     .default ||
                                                                     defaultProfileImage
                                                                 }
+                                                                data-src-next={profileImage}
                                                                 alt={name}
                                                             />
                                                         </div>

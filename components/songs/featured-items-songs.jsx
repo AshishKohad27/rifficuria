@@ -26,6 +26,7 @@ export default function FeaturedItemsSongs({
                                             // require(`@/assets/profile/${image}`).default ||
                                             defaultProfileImage
                                         }
+                                        data-src-next={image}
                                         alt={title}
                                     />
                                 </div>

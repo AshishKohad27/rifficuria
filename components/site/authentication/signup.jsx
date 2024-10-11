@@ -13,7 +13,6 @@ const initialState = {
 
 export default function SignUp() {
     const [formData, setFormData] = useState(initialState);
-    const [isUserLogin, setIsUserLogin] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => { }, [formData]);
@@ -47,7 +46,7 @@ export default function SignUp() {
     return (
         <>
             <div>
-                {isUserLogin ? (
+                {true ? (
                     <Link href="/profile" className="px-4 w-auto block">
                         <Image
                             src={UserIcon}

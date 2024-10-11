@@ -18,10 +18,10 @@ export default function About() {
                     </h2>
                     <p className="text-indigo text-center text-base font-semibold">
                         Are you an active music listener (meticulously curate your own
-                        playlists, and think you are better than the “algorithm”)?
+                        playlists, and think you are better than the &ldquo;algorithm&rdquo;)?
                         <br className="hidden lg:block" /> Are some of your favourite topics
-                        of debate “Is Badshah a genius?” or “The house believes Arijit Singh
-                        is an average vocalist”?
+                        of debate &ldquo;Is Badshah a genius?&rdquo; or &ldquo;The house believes Arijit Singh
+                        is an average vocalist&rdquo;?
                         <br className="hidden lg:block" />
                         Do you think you have a better opinion than all the Fantanos of the
                         world?
@@ -61,7 +61,7 @@ export default function About() {
                                 <li>
                                     <Link
                                         href=""
-                                        title="=Linkedin"
+                                        title="LinkedIn"
                                         className="w-6 h-6 flex justify-center items-center"
                                     >
                                         <Image
@@ -80,7 +80,7 @@ export default function About() {
                                 It started with watching Almost Famous in high-school and
                                 wishing my mum someday would utter the words
                                 <span className="font-bold">
-                                    “Rock stars have kidnapped my son".
+                                    &ldquo;Rock stars have kidnapped my son&rdquo;.
                                 </span>
                             </p>
                             <p className="text-textColor text-base font-normal capitalize">
@@ -96,9 +96,9 @@ export default function About() {
                             </p>
                             <p className="text-textColor text-base font-normal capitalize">
                                 Come dive in, dissect every note, and keep the conversation
-                                loud. And remember Cameron Crowe's immortalised words, “The only
+                                loud. And remember Cameron Crowe&apos;s immortalised words, &ldquo;The only
                                 true currency in this bankrupt world is what you share with
-                                someone else when you're uncool.”
+                                someone else when you&apos;re uncool.&rdquo;
                             </p>
                         </article>
                     </div>

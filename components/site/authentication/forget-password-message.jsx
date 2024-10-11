@@ -45,14 +45,14 @@ export default function ForgetPasswordMessage() {
                         </div>
                         <article className="flex flex-col justify-center items-center gap-4">
                             <p className="text-textColor text-sm font-normal leading-4.5 text-center">
-                                We've sent a verification email to <span className="font-bold">user@gmail.com</span>. Please check
+                                We&#39;ve sent a verification email to <span className="font-bold">user@gmail.com</span>. Please check
                                 your inbox and click on the verification link provided in the
-                                email. If you don't see the email in your inbox, please check
+                                email. If you don&#39;t see the email in your inbox, please check
                                 your spam or junk folder.
                             </p>
                             <p className="text-textColor text-sm font-normal leading-4.5 flex gap-1">
-                                <Link href="" title="Didn't receive the email?" className="text-coral underline">
-                                    Didn't receive the email?
+                                <Link href="" title="Didn&#39;t receive the email?" className="text-coral underline">
+                                    Didn&#39;t receive the email?
                                 </Link>
                                 <Link href="" title="Click here to resend" className="underline">
                                     Click here to resend.

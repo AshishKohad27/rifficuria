@@ -29,6 +29,7 @@ const Footer = () => {
                                                     // require(`@/assets/social-icon/${icon}`).default ||
                                                     InstagramIcon
                                                 }
+                                                data-src-next={icon}
                                                 alt={`${platform}`}
                                                 className="w-full h-full"
                                             />

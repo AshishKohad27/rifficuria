@@ -17,7 +17,7 @@ const MediaSection = ({
     isLoadMore,
 }) => {
 
-    useEffect(() => { console.log("MediaType:", MediaType) }, [])
+    useEffect(() => { console.log("MediaType:", MediaType) }, [MediaType])
     const settings = {
         dots: true,
         infinite: false,

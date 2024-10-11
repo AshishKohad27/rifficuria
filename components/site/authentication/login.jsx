@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { HiXMark } from "react-icons/hi2";
 import UserIcon from "@/assets/icon/user-icon.png";
+import Image from "next/image";
 
 const initialState = {
     username: "",
@@ -10,11 +11,10 @@ const initialState = {
 
 export default function Login({ Title, ButtonClass }) {
     const [formData, setFormData] = useState(initialState);
-    const [isUserLogin, setIsUserLogin] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     // const [tabs, setTabs] = useState('login_tab');
 
-    useEffect(() => { }, [formData, tabs]);
+    useEffect(() => { }, [formData]);
 
     const toggleModal = () => {
         setIsOpen(!isOpen);
@@ -45,7 +45,7 @@ export default function Login({ Title, ButtonClass }) {
     return (
         <>
             <div>
-                {isUserLogin ? (
+                {true ? (
                     <Link href="/profile" className="px-4 w-auto block">
                         <Image
                             src={UserIcon}

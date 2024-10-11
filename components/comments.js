@@ -15,7 +15,7 @@ const Comments = () => {
             <span className="text-btn1">selecta19</span> commented:
           </p>
           <p className="py-4">
-            taylor will win but only because its a popularity contest
+            taylor will win but only because it&apos;s a popularity contest
           </p>
           <div className="flex gap-3 my-3 mb-6">
             <div>
@@ -37,7 +37,7 @@ const Comments = () => {
           <p>
             <span className="text-btn1">keane </span> replied:
           </p>
-          <p className="py-4">@selecta19 i don't think so tbh</p>
+          <p className="py-4">@selecta19 i don&apos;t think so tbh</p>
           <div className="flex gap-3 my-3 mb-6">
             <div>
               <MdOutlineIosShare className="w-[18px] h-[18px]" />
@@ -65,7 +65,7 @@ const Comments = () => {
           </p>
           <p className="py-4">
             Do you think any male artists are gonna get nominated for AotY 😆
-            For some reason I can't think of any that would
+            For some reason I can&apos;t think of any that would
           </p>
           <div className="flex gap-3 my-3 mb-6">
             <div>
@@ -89,7 +89,7 @@ const Comments = () => {
           </p>
           <p className="py-4">
             <span className="text-btn1">@jerryjo</span> probably would be
-            futures we don’t trust you but even then idk
+            futures we don&apos;t trust you but even then idk
           </p>
           <div className="flex gap-3 my-3 mb-6">
             <div>
@@ -125,7 +125,7 @@ const Comments = () => {
             </div>
             <div>
               <p className="text-textColor text-sm my-4">
-                <span className="text-btn1">@nick05</span> yeah that's what I
+                <span className="text-btn1">@nick05</span> yeah that&apos;s what I
                 thought. But it will probs just get nominated for best rap album
                 and not of the year{" "}
               </p>

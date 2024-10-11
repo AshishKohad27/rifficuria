@@ -33,7 +33,7 @@ export default function Favourites({
                                                 // require(`@/assets/profile/${image}`).default ||
                                                 defaultProfileImage
                                             }
-                                            alt={title}
+                                            alt={image}
                                         />
                                     </div>
                                 )
