@@ -1,17 +1,11 @@
 import React from 'react'
 import star from "@/assets/artist/Star.png";
-import reviewsmodal from "@/assets/artist/Mask group.png";
 import singlereviewavtar from "@/assets/review/singlereviewavtar.png"
 import Image from "next/image";
-import { MdOutlineIosShare } from "react-icons/md";
-import { IoMdHeart } from "react-icons/io";
-import { TbMessageCircleFilled } from "react-icons/tb";
-import { IoFlag } from "react-icons/io5";
 
 const Morereviews = () => {
   return (
     <>
-
        <div className=' w-[248px]'>
          <p className='uppercase text-2xl text-textColor leading-[30px] mt-10 font-bold'>more reviews</p>
          <div className='box'>
@@ -19,7 +13,7 @@ const Morereviews = () => {
             <p className="text-xs mb-2">May 1, 2024</p>
             {/* <p className="text-sm">dfsdf</p> */}
             <div>
-                <Image src={singlereviewavtar}></Image>
+                <Image src={singlereviewavtar} alt="logo"></Image>
             </div>
           </div>
           <div className="flex my-4 gap-5">
@@ -51,7 +45,7 @@ const Morereviews = () => {
             <p className="text-xs mb-2">May 1, 2024</p>
             {/* <p className="text-sm">dfsdf</p> */}
             <div>
-                <Image src={singlereviewavtar}></Image>
+                <Image src={singlereviewavtar} alt="singlereviewavtar"></Image>
             </div>
           </div>
           <div className="flex my-4 gap-5">
@@ -83,7 +77,7 @@ const Morereviews = () => {
             <p className="text-xs mb-2">May 1, 2024</p>
             {/* <p className="text-sm">dfsdf</p> */}
             <div>
-                <Image src={singlereviewavtar}></Image>
+                <Image src={singlereviewavtar} alt="singlereviewavtar"></Image>
             </div>
           </div>
           <div className="flex my-4 gap-5">

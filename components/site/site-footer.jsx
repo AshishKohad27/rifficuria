@@ -3,6 +3,7 @@ import React from "react";
 import FooterLogo from "@/assets/mobile-logo.png";
 import Image from "next/image";
 import Link from "next/link";
+import InstagramIcon from "@/assets/social-icon/instagram.png"
 
 import FooterData from "@/json/footer.json";
 
@@ -25,7 +26,8 @@ const Footer = () => {
                                         <Link className="w-4 h-4 block" href={url} key={index} title={`${platform}`} target="_blank">
                                             <Image
                                                 src={
-                                                    require(`@/assets/social-icon/${icon}`).default
+                                                    // require(`@/assets/social-icon/${icon}`).default ||
+                                                    InstagramIcon
                                                 }
                                                 alt={`${platform}`}
                                                 className="w-full h-full"

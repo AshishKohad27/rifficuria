@@ -7,10 +7,6 @@ import { HiMenu, HiX } from "react-icons/hi";
 import Image from "next/image";
 import HeaderData from "@/json/header.json";
 import Login from "@/components/site/authentication/login";
-import SignUp from "@/components/site/authentication/signup";
-import EmailVerification from "@/components/site/authentication/email-verification";
-import ForgetPasswordMessage from "@/components/site/authentication/forget-password-message";
-import ForgetPassword from "@/components/site/authentication/forget-password";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);

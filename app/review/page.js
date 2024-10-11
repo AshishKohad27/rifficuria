@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import Reviewhero from "@/components/reviewhero";
 import Ratingbox from "@/components/ratingbox";
 import Singlereview from "@/components/singlereview";

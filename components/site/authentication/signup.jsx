@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { HiXMark } from "react-icons/hi2";
+import Image from "next/image";
 
 const initialState = {
     full_name: "",

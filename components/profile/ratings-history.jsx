@@ -6,9 +6,9 @@ export default function RatingsHistory({ RatingsHistoryData }) {
     return (
         <div className="">
             {
-                RatingsHistoryData && RatingsHistoryData.map(({ image, title, subtitle }) => (
+                RatingsHistoryData && RatingsHistoryData.map(({ image, title, subtitle }, index) => (
 
-                    <div className="w-full flex justify-between gap-6 p-4 even:bg-seashell">
+                    <div key={index} className="w-full flex justify-between gap-6 p-4 even:bg-seashell">
                         <div className="flex justify-center items-center gap-6">
                             <div className="rounded-lg w-16 h-16 py-2 px-3.5 border-0.5 border-textColor">
                                 <p className="text-textColor font-base font-bold leading-5.5 text-center -mt-1.5">27</p>
@@ -19,7 +19,7 @@ export default function RatingsHistory({ RatingsHistoryData }) {
                                 <Image
                                     className="w-full h-full rounded-lg object-cover"
                                     src={
-                                        require(`@/assets/profile/${image}`).default ||
+                                        // require(`@/assets/profile/${image}`).default ||
                                         defaultProfileImage
                                     }
                                     alt=""

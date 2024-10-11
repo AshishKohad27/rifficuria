@@ -1,6 +1,5 @@
 import React from 'react'
 import star from "@/assets/artist/Star.png";
-import reviewsmodal from "@/assets/artist/Mask group.png";
 import singlereviewavtar from "@/assets/review/singlereviewavtar.png"
 import Image from "next/image";
 import { MdOutlineIosShare } from "react-icons/md";
@@ -15,7 +14,7 @@ const Singlereview = () => {
             <p className="text-xs mb-2">May 1, 2024</p>
             {/* <p className="text-sm">dfsdf</p> */}
             <div>
-                <Image src={singlereviewavtar}></Image>
+                <Image src={singlereviewavtar} alt="singlereviewavtar"></Image>
             </div>
           </div>
           <div className="flex my-4 gap-5">

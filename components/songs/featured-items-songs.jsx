@@ -23,7 +23,7 @@ export default function FeaturedItemsSongs({
                                     <Image
                                         className="w-full h-full rounded-xl object-cover"
                                         src={
-                                            require(`@/assets/profile/${image}`).default ||
+                                            // require(`@/assets/profile/${image}`).default ||
                                             defaultProfileImage
                                         }
                                         alt={title}

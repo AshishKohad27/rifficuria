@@ -2,11 +2,7 @@ import { useState, useEffect } from "react";
 import { HiXMark } from "react-icons/hi2";
 import ArtistPhoto from "@/assets/artist/ArtistPhoto.png";
 import Image from "next/image";
-
 import Richtexteditor from "@/components/richtexteditor";
-
-import Link from "next/link";
-
 import star from "@/assets/artist/Star.png";
 import writereviewavtar from "@/assets/write-review/write-rivew-avtar.png";
 
@@ -16,7 +12,6 @@ const initialState = {
 
 export default function WriteReview({ ReviewFor, Title, ButtonClass }) {
     const [formData, setFormData] = useState(initialState);
-    const [isUserLogin, setIsUserLogin] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => { }, [formData]);

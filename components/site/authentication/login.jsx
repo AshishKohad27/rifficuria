@@ -12,7 +12,7 @@ export default function Login({ Title, ButtonClass }) {
     const [formData, setFormData] = useState(initialState);
     const [isUserLogin, setIsUserLogin] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
-    const [tabs, setTabs] = useState('login_tab');
+    // const [tabs, setTabs] = useState('login_tab');
 
     useEffect(() => { }, [formData, tabs]);
 

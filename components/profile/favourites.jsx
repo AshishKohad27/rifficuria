@@ -25,12 +25,12 @@ export default function Favourites({
                     <div className="grid grid-cols-3 gap-3 mt-8">
                         {FavouritesData &&
                             FavouritesData.slice(0, `${limit ? limit : 12}`).map(
-                                ({ image }) => (
-                                    <div className="w-full h-full rounded-lg">
+                                ({ image }, index) => (
+                                    <div key={index} className="w-full h-full rounded-lg">
                                         <Image
                                             className="w-full h-full rounded-lg object-cover"
                                             src={
-                                                require(`@/assets/profile/${image}`).default ||
+                                                // require(`@/assets/profile/${image}`).default ||
                                                 defaultProfileImage
                                             }
                                             alt={title}

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import reviewsmodal from "@/assets/artist/Mask group.png";
 import star from "@/assets/artist/Star.png";
 import Image from "next/image";

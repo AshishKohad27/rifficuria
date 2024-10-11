@@ -43,8 +43,9 @@ export default function UserConnectionsDesk({
                                                 <Image
                                                     className="w-full h-full rounded-full"
                                                     src={
-                                                        require(`@/assets/profile/${profileImage}`)
-                                                            .default || defaultProfileImage
+                                                        // require(`@/assets/profile/${profileImage}`)
+                                                        //     .default ||
+                                                        defaultProfileImage
                                                     }
                                                     alt={name}
                                                 />

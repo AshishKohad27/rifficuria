@@ -10,14 +10,6 @@ import ArtistData from "@/json/artist";
 import DropDownListItem from "@/json/dropdown-listitem.json";
 
 export default function Search() {
-    // State to track which dropdown is open
-    const [openDropdown, setOpenDropdown] = useState(null);
-
-    // Function to toggle dropdown visibility
-    const toggleDropdown = (id) => {
-        setOpenDropdown((prevId) => (prevId === id ? null : id)); // Toggle logic
-    };
-
     return (
         <main className="mt-10 md:mt-16 overflow-hidden">
             <section className="site-container">

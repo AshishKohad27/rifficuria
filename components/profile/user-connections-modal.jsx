@@ -64,8 +64,9 @@ const UserConnectionsModal = ({
                                                         <Image
                                                             className="w-full h-full rounded-full"
                                                             src={
-                                                                require(`@/assets/profile/${profileImage}`)
-                                                                    .default || defaultProfileImage
+                                                                // require(`@/assets/profile/${profileImage}`)
+                                                                //     .default ||
+                                                                defaultProfileImage
                                                             }
                                                             alt={name}
                                                         />
@@ -76,8 +77,8 @@ const UserConnectionsModal = ({
                                                     href=""
                                                     title="View Profile"
                                                     className={`py-2 px-4 border-2 border-textColor rounded-3xl hover:text-seashell hover:bg-textColor transition-all ${isFollowing
-                                                            ? "text-seashell bg-textColor"
-                                                            : "text-textColor bg-seashell"
+                                                        ? "text-seashell bg-textColor"
+                                                        : "text-textColor bg-seashell"
                                                         }`}
                                                 >
                                                     <span className="text-sm font-normal leading-4.5">

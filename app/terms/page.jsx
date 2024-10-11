@@ -23,7 +23,7 @@ export default function Terms() {
                     </ul>
                     {
                         TermsData && TermsData['content']['finalParagraphs'].map(({ text }, index) => (
-                            <p className="text-textColor text-base font-normal">
+                            <p key={index} className="text-textColor text-base font-normal">
                                 {text}
                             </p>
                         ))

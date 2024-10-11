@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { HiXMark } from "react-icons/hi2";
-import UserIcon from "@/assets/icon/user-icon.png";
 
 const initialState = {
     email: "",
@@ -9,7 +8,6 @@ const initialState = {
 
 export default function Login() {
     const [formData, setFormData] = useState(initialState);
-    const [isUserLogin, setIsUserLogin] = useState(false);
     const [isOpen, setIsOpen] = useState(true);
 
     useEffect(() => { }, [formData]);

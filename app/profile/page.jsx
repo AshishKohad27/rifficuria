@@ -23,8 +23,6 @@ import TopRatedData from "@/json/top-rated.json";
 import RatingsHistoryData from "@/json/top-rated.json";
 import ArtistData from "@/json/artist.json";
 
-const tabs = ["past_reviews", "ratings_history", "favourites"];
-
 export default function Profile() {
     const [tabs, setTabs] = useState("top reviews");
 

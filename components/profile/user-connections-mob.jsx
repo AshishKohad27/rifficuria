@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import defaultProfileImage from "@/assets/profile/profile_img-1.png";
 import Link from "next/link";
@@ -46,8 +46,9 @@ export default function UserConnectionsMobile({
                                                     <Image
                                                         className="w-full h-full rounded-full"
                                                         src={
-                                                            require(`@/assets/profile/${profileImage}`)
-                                                                .default || defaultProfileImage
+                                                            // require(`@/assets/profile/${profileImage}`)
+                                                            //     .default || 
+                                                            defaultProfileImage
                                                         }
                                                         alt={name}
                                                     />
@@ -74,8 +75,9 @@ export default function UserConnectionsMobile({
                                                             <Image
                                                                 className="w-full h-full rounded-full"
                                                                 src={
-                                                                    require(`@/assets/profile/${profileImage}`)
-                                                                        .default || defaultProfileImage
+                                                                    // require(`@/assets/profile/${profileImage}`)
+                                                                    //     .default ||
+                                                                    defaultProfileImage
                                                                 }
                                                                 alt={name}
                                                             />

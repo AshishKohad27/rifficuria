@@ -1,12 +1,11 @@
 import React from "react";
-import star from "@/assets/artist/Star.png";
-import singlereviewavtar from "@/assets/review/singlereviewavtar.png"
+import singlereviewavtar from "@/assets/review/singlereviewavtar.png";
 import Image from "next/image";
 import { MdOutlineIosShare } from "react-icons/md";
 import { IoMdHeart } from "react-icons/io";
-import { TbMessageCircleFilled } from "react-icons/tb";
 import { IoFlag } from "react-icons/io5";
 import { BiSolidShare } from "react-icons/bi";
+
 const Comments = () => {
   return (
     <div className="comments py-16">
@@ -30,7 +29,7 @@ const Comments = () => {
               <IoFlag className="w-[18px] h-[18px]" />
             </div>
             <div className="flex items-center gap-1">
-              <BiSolidShare  className="w-[18px] h-[18px]" />
+              <BiSolidShare className="w-[18px] h-[18px]" />
             </div>
           </div>
         </div>
@@ -38,9 +37,7 @@ const Comments = () => {
           <p>
             <span className="text-btn1">keane </span> replied:
           </p>
-          <p className="py-4">
-          @selecta19 i don't think so tbh
-          </p>
+          <p className="py-4">@selecta19 i don't think so tbh</p>
           <div className="flex gap-3 my-3 mb-6">
             <div>
               <MdOutlineIosShare className="w-[18px] h-[18px]" />
@@ -53,11 +50,11 @@ const Comments = () => {
               <IoFlag className="w-[18px] h-[18px]" />
             </div>
             <div className="flex items-center gap-1">
-              <BiSolidShare  className="w-[18px] h-[18px]" />
+              <BiSolidShare className="w-[18px] h-[18px]" />
             </div>
           </div>
         </div>
-      <p className="border border-btn1 my-3"></p>
+        <p className="border border-btn1 my-3"></p>
       </div>
 
       {/* comment 2 */}
@@ -67,7 +64,8 @@ const Comments = () => {
             <span className="text-btn1">jerryjo</span> commented:
           </p>
           <p className="py-4">
-          Do you think any male artists are gonna get nominated for AotY 😆 For some reason I can't think of any that would
+            Do you think any male artists are gonna get nominated for AotY 😆
+            For some reason I can't think of any that would
           </p>
           <div className="flex gap-3 my-3 mb-6">
             <div>
@@ -81,7 +79,7 @@ const Comments = () => {
               <IoFlag className="w-[18px] h-[18px]" />
             </div>
             <div className="flex items-center gap-1">
-              <BiSolidShare  className="w-[18px] h-[18px]" />
+              <BiSolidShare className="w-[18px] h-[18px]" />
             </div>
           </div>
         </div>
@@ -90,7 +88,8 @@ const Comments = () => {
             <span className="text-btn1">nick05 </span> replied:
           </p>
           <p className="py-4">
-          <span className="text-btn1">@jerryjo</span> probably would be futures we don’t trust you but even then idk
+            <span className="text-btn1">@jerryjo</span> probably would be
+            futures we don’t trust you but even then idk
           </p>
           <div className="flex gap-3 my-3 mb-6">
             <div>
@@ -104,47 +103,51 @@ const Comments = () => {
               <IoFlag className="w-[18px] h-[18px]" />
             </div>
             <div className="flex items-center gap-1">
-              <BiSolidShare  className="w-[18px] h-[18px]" />
+              <BiSolidShare className="w-[18px] h-[18px]" />
             </div>
           </div>
-          
+
           <p className="border border-btn1 my-3"></p>
-      {/* again reply  */}
-      {/* box 2 */}
-      <div className='box'>
-          <div className="my-4">
-            <div>
+          {/* again reply  */}
+          {/* box 2 */}
+          <div className="box">
+            <div className="my-4">
+              <div>
                 <Image src={singlereviewavtar} alt="singlereviewavtar"></Image>
+              </div>
             </div>
-          </div>
-          <div className="flex my-4 gap-5">
+            <div className="flex my-4 gap-5">
+              <div>
+                <p>
+                  <span className="text-btn1">jerryjo</span> replied:
+                </p>
+              </div>
+            </div>
             <div>
-              <p>
-              <span className="text-btn1">jerryjo</span> replied:
+              <p className="text-textColor text-sm my-4">
+                <span className="text-btn1">@nick05</span> yeah that's what I
+                thought. But it will probs just get nominated for best rap album
+                and not of the year{" "}
               </p>
+              <div className="flex gap-3 my-3 mb-6">
+                <div>
+                  <MdOutlineIosShare className="w-[18px] h-[18px]" />
+                </div>
+                <div className="flex items-center gap-1">
+                  <IoMdHeart className="w-[18px] h-[18px]" />
+                  <p className="text-xs text-textColor">130</p>
+                </div>
+                <div>
+                  <IoFlag className="w-[18px] h-[18px]" />
+                </div>
+                <div className="flex items-center gap-1">
+                  <BiSolidShare className="w-[18px] h-[18px]" />
+                </div>
+              </div>
             </div>
           </div>
-          <div>
-            <p className="text-textColor text-sm my-4"><span className="text-btn1">@nick05</span> yeah that's what I thought. But it will probs just get nominated for best rap album and not of the year </p>
-            <div className="flex gap-3 my-3 mb-6">
-            <div>
-              <MdOutlineIosShare className="w-[18px] h-[18px]" />
-            </div>
-            <div className="flex items-center gap-1">
-              <IoMdHeart className="w-[18px] h-[18px]" />
-              <p className="text-xs text-textColor">130</p>
-            </div>
-            <div>
-              <IoFlag className="w-[18px] h-[18px]" />
-            </div>
-            <div className="flex items-center gap-1">
-              <BiSolidShare  className="w-[18px] h-[18px]" />
-            </div>
-          </div>
-          </div>
-          </div>
+        </div>
       </div>
-        </div>  
     </div>
   );
 };
