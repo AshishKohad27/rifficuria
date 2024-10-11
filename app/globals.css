@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css");
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --indigo: #6954D7;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #FFFAF9;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  /* color: var(--foreground);*/
+  background: var(--background);
+  font-family: "DM Sans", Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.hoverup:hover {
+  transform: translateY(-1px);
+}
+
+.sfBg {
+  background-image: url('../assets/subscribeform.png');
+}
+
+.custom-checkbox {
+  appearance: none;
+  /* width: 16px;
+  height: 16px; */
+  border: 2px solid #6f3fba;
+  /* Custom border color */
+  border-radius: 50%;
+  /* Making it circular */
+  position: relative;
+  cursor: pointer;
+}
+
+.custom-checkbox:checked {
+  background-color: #6f3fba;
+  /* Custom fill color */
+  border-color: #6f3fba;
+}
+
+.custom-checkbox:checked::after {
+  content: '✓';
+  /* Checkmark symbol */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  /* Adjust size of the checkmark */
+  color: white;
+  /* Checkmark color */
+  font-weight: bold;
+}
+
+.tox-statusbar {
+  display: none !important;
+}
+
+.tox-editor-header,
+.tox-toolbar__primary,
+.tox .tox-edit-area__iframe {
+  background-color: #FBF0EC !important;
+}
+
+.tox:not(.tox-tinymce-inline) .tox-editor-header {
+  box-shadow: none !important;
+  border-bottom: 1px solid #eee !important;
+}
+
+.tox .tox-tbtn--disabled,
+.tox .tox-tbtn {
+  background: transparent !important;
+}
+
+.tox-toolbar__primary {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tox.tox-tinymce {
+  width: 100% !important;
+  height: 347px !important;
+}
+
+.tox-editor-header {
+  padding: 9px 0 !important;
+}
+
+.tox-toolbar__group {
+  padding: 0 15px !important;
+  gap: 5px;
+}
+
+
+
+/* Site css */
+.site-container {
+  width: 100%;
+  max-width: calc(1144px + 2*32px);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+@media (max-width:767px) {
+  .slick-list {
+    padding-left: 32px !important;
+  }
+}
+
+/* social-media */
+.social-media li:not(:last-child)::after {
+  content: '|';
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/* Custom Scrollbar */
+.cust-scrollbar {
+  position: relative;
+}
+
+.cust-scrollbar-track {
+  width: 1px;
+  background-color: var(--indigo);
+  height: calc(100% - 62px - 2*24px);
+  top: 86px;
+  right: 32px;
+}
+
+.cust-scrollbar::-webkit-scrollbar {
+  width: 16px;
+}
+
+.cust-scrollbar::-webkit-scrollbar-track {
+  background-color: transparent;
+  position: relative;
+
+  background: tomato;
+  border-left: 9px solid white;
+  border-right: 9px solid white;
+}
+
+.cust-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--indigo);
+  border-radius: 10px;
+
+  /* background: black;
+  border-left: 7px solid white;
+  border-right: 7px solid white; */
+}
+
+.cust-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: var(--indigo);
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, and Opera */
+}

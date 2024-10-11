@@ -1,0 +1,30 @@
+[
+    {
+        "id": "1",
+        "title": "Home",
+        "url": "/",
+        "isVisible": true,
+        "hasXPadding": true
+    },
+    {
+        "id": "2",
+        "title": "music",
+        "url": "/",
+        "isVisible": true,
+        "hasXPadding": true
+    },
+    {
+        "id": "3",
+        "title": "The scene",
+        "url": "/",
+        "isVisible": true,
+        "hasXPadding": false
+    },
+    {
+        "id": "4",
+        "title": "Search",
+        "url": "/search",
+        "isVisible": true,
+        "hasXPadding": true
+    }
+]
