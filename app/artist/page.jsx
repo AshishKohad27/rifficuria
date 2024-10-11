@@ -16,8 +16,12 @@ import ArtistData from "@/json/artist.json";
 import DropDownListItem from "@/json/dropdown-listitem.json";
 
 export default function Artist() {
+  
   useEffect(() => {
-    // console.log("ReviewsData:", ReviewsData);
+    if (typeof window !== 'undefined') {
+      // Code that uses 'window' goes here
+      console.log("ReviewsData:", ReviewsData);
+    }
   }, []);
 
   return (

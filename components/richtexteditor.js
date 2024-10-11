@@ -23,8 +23,8 @@ export default function Richtexteditor() {
           onInit={(_evt, editor) => (editorRef.current = editor)}
           initialValue=""
           init={{
-            height: 0.5 * window.innerHeight,
-            width: 0.75 * window.innerWidth,
+            height: 0.5,
+            width: 0.75,
             menubar: false,
             plugins: [
               "advlist",
