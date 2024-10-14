@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import DesktopLogo from "@/assets/Logo.png";
-import MobileLogo from "@/assets/mobile-logo.png";
+import DesktopLogo from "@/public/Logo.png";
+import MobileLogo from "@/public/mobile-logo.png";
 import { HiMenu, HiX } from "react-icons/hi";
 import Image from "next/image";
 import HeaderData from "@/json/header.json";

@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import DefaultProfileImage from "@/assets/profile/profile_img-1.png";
-import ProfileImage from "@/assets/profile/profile-image.png";
+import DefaultProfileImage from "@/public/profile/profile_img-1.png";
+import ProfileImage from "@/public/profile/profile-image.png";
 
 // components
 import UserConnectionsDesk from "@/components/profile/user-connections-desk";
@@ -183,6 +183,7 @@ export default function Profile() {
                                                 hasQuotes="true"
                                                 ReviewFor="profile"
                                                 showReviewResponses={true}
+                                                isDataAvailable={ReviewsData && ReviewsData.length > 0}
                                             />
                                         </div>
                                         <div
@@ -194,6 +195,7 @@ export default function Profile() {
                                                 hasQuotes="true"
                                                 ReviewFor="profile"
                                                 showReviewResponses={true}
+                                                isDataAvailable={ReviewsData && ReviewsData.length > 0}
                                             />
                                         </div>
                                         <div

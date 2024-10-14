@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import FooterLogo from "@/assets/mobile-logo.png";
+import FooterLogo from "@/public/mobile-logo.png";
 import Image from "next/image";
 import Link from "next/link";
 

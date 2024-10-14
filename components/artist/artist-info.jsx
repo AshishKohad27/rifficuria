@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ArtistPhoto from "@/assets/artist/ArtistPhoto.png";
+import ArtistPhoto from "@/public/artist/ArtistPhoto.png";
 import Image from "next/image";
 import { HiXMark } from "react-icons/hi2";
 import Login from "@/components/site/authentication/login";

@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "title": "Home",
+        "url": "/",
+        "isAccessible": true,
+        "warningComment": "",
+        "errorComment": ""
+    },
+    {
+        "id": 2,
+        "title": "About",
+        "url": "/about",
+        "isAccessible": true,
+        "warningComment": "",
+        "errorComment": ""
+    },
+    {
+        "id": 3,
+        "title": "Album",
+        "url": "/album",
+        "isAccessible": true,
+        "warningComment": "Warning: The editor in the modal is not functioning correctly in the development environment.",
+        "errorComment": ""
+    },
+    {
+        "id": 4,
+        "title": "Artist",
+        "url": "/artist",
+        "isAccessible": true,
+        "warningComment": "Warning: The editor in the modal is not functioning correctly in the development environment.",
+        "errorComment": ""
+    },
+    {
+        "id": 5,
+        "title": "Contact",
+        "url": "/contact",
+        "isAccessible": true,
+        "warningComment": "",
+        "errorComment": ""
+    },
+    {
+        "id": 6,
+        "title": "Profile",
+        "url": "/profile",
+        "isAccessible": true,
+        "warningComment": "",
+        "errorComment": ""
+    },
+    {
+        "id": 7,
+        "title": "Review",
+        "url": "/review",
+        "isAccessible": true,
+        "warningComment": "Warning: The editor in the modal is not functioning correctly in the development environment.",
+        "errorComment": ""
+    },
+    {
+        "id": 8,
+        "title": "Search",
+        "url": "/search",
+        "isAccessible": true,
+        "warningComment": "",
+        "errorComment": ""
+    },
+    {
+        "id": 9,
+        "title": "Terms",
+        "url": "/terms",
+        "isAccessible": true,
+        "warningComment": "",
+        "errorComment": ""
+    }
+]

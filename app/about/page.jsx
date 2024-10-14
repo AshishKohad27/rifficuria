@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Images or Icons
-import AboutImage from "@/assets/about/about.png";
-import InstagramIcon from "@/assets/social-icon/instagram.png";
-import LinkedinIcon from "@/assets/social-icon/linkedin.png";
+import AboutImage from "@/public/about/about.png";
+import InstagramIcon from "@/public/social-icon/instagram.png";
+import LinkedinIcon from "@/public/social-icon/linkedin.png";
 
 // Components
 import Newsletter from "@/components/site/newsletter";

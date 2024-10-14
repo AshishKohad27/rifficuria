@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import EmptyStar from "@/assets/icon/empty_star.png";
-import HalfStar from "@/assets/icon/half_star.png";
-import FullStar from "@/assets/icon/full_star.png";
+import EmptyStar from "@/public/icon/empty_star.png";
+import HalfStar from "@/public/icon/half_star.png";
+import FullStar from "@/public/icon/full_star.png";
 import Image from "next/image";
 
 export default function Stars({ StarCount, TotalStars = 5, ParentClass, ChildClass }) {

@@ -37,7 +37,7 @@ body {
 }
 
 .sfBg {
-  background-image: url('../assets/subscribeform.png');
+  background-image: url('../public/subscribeform.png');
 }
 
 .custom-checkbox {

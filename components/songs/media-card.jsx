@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import star from "@/assets/artist/Star.png";
-import likebtn from "@/assets/artist/likebutton3.png";
-import defaultArtistImage from "@/assets/artist/cardimg1.png"; // Default artist image
+import star from "@/public/artist/Star.png";
+import likebtn from "@/public/artist/likebutton3.png";
+import defaultArtistImage from "@/public/artist/cardimg1.png"; // Default artist image
 
 const MediaCard = ({ singleartist }) => {
   const [liked, setLiked] = useState(false);

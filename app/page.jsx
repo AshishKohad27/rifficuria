@@ -1,6 +1,6 @@
 "use client";
 import Newsletter from "@/components/site/newsletter";
-import BannerImage from "@/assets/home_banner.png";
+import BannerImage from "@/public/home_banner.png";
 
 // Components
 import MediaSection from "@/components/songs/media-section";

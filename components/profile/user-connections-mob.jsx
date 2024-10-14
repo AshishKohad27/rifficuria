@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
-import defaultProfileImage from "@/assets/profile/profile_img-1.png";
+import defaultProfileImage from "@/public/profile/profile_img-1.png";
 import Link from "next/link";
 import SubSectionHeading from "@/components/site/sub-section-heading";
 

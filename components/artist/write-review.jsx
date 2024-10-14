@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { HiXMark } from "react-icons/hi2";
-import ArtistPhoto from "@/assets/artist/ArtistPhoto.png";
-import star from "@/assets/artist/Star.png";
-import writereviewavtar from "@/assets/write-review/write-rivew-avtar.png";
+import ArtistPhoto from "@/public/artist/ArtistPhoto.png";
+import star from "@/public/artist/Star.png";
+import writereviewavtar from "@/public/write-review/write-rivew-avtar.png";
 import Image from "next/image";
-import Richtexteditor from "@/components/richtexteditor";
+// import Richtexteditor from "@/components/richtexteditor";
 
 const initialState = {
     search_term: "",
@@ -179,7 +179,7 @@ export default function WriteReview({ ReviewFor, Title, ButtonClass }) {
                                     <p className="text-textColor text-sm font-normal leading-4.5">
                                         Add a review
                                     </p>
-                                    <Richtexteditor />
+                                    {/* <Richtexteditor /> */}
                                 </div>
                                 <div className="flex justify-center">
                                     <button

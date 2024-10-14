@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import AlbumBanner from "@/assets/review/reviewhero.png";
-import ArtistProfile from "@/assets/review/reviewheroavtar.png";
+import AlbumBanner from "@/public/review/reviewhero.png";
+import ArtistProfile from "@/public/review/reviewheroavtar.png";
 
-import ArtistPhoto from "@/assets/artist/ArtistPhoto.png";
+import ArtistPhoto from "@/public/artist/ArtistPhoto.png";
 import Login from "@/components/site/authentication/login";
 import WriteReviewForTrack from "@/components/album/write-review-for-track";
 

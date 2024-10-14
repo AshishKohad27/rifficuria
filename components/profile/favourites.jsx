@@ -1,4 +1,4 @@
-import defaultProfileImage from "@/assets/profile/profile-image.png"
+import defaultProfileImage from "@/public/profile/profile-image.png"
 import SubSectionHeading from "@/components/site/sub-section-heading";
 
 export default function Favourites({

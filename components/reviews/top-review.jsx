@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import reviewsmodal from "@/assets/artist/Mask group.png";
-import star from "@/assets/artist/Star.png";
+import reviewsmodal from "@/public/artist/Mask group.png";
+import star from "@/public/artist/Star.png";
 import Image from "next/image";
 import { MdOutlineIosShare } from "react-icons/md";
 import { IoMdHeart } from "react-icons/io";
@@ -14,6 +14,7 @@ const TopReviews = ({
     hasQuotes,
     ReviewFor,
     showReviewResponses,
+    isDataAvailable,
 }) => {
     // State to control the number of reviews shown
     const [visibleReviews, setVisibleReviews] = useState(4);
@@ -23,7 +24,7 @@ const TopReviews = ({
         setVisibleReviews((prev) => prev + 4);
     };
 
-    return (
+    return isDataAvailable ? (
         <div className="">
             <div className="py-4 flex flex-col gap-8">
                 {ReviewsData &&
@@ -145,7 +146,7 @@ const TopReviews = ({
                 )}
             </div>
         </div>
-    );
+    ) : null;
 };
 
 export default TopReviews;

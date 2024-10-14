@@ -1,5 +1,5 @@
-import defaultProfileImage from "@/assets/profile/top-rated-1.png";
-import star from "@/assets/artist/Star.png";
+import defaultProfileImage from "@/public/profile/top-rated-1.png";
+import star from "@/public/artist/Star.png";
 import Image from "next/image";
 
 export default function FeaturedItemsSongs({

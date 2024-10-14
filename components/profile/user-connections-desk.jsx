@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import Image from "next/image";
-import defaultProfileImage from "@/assets/profile/profile_img-1.png";
+import defaultProfileImage from "@/public/profile/profile_img-1.png";
 import SubSectionHeading from "@/components/site/sub-section-heading";
 import UserConnectionsModal from "@/components/profile/user-connections-modal";
 

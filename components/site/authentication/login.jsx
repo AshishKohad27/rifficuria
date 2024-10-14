@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 // Images and Icons
 import { HiX } from "react-icons/hi";
 import { HiXMark } from "react-icons/hi2";
-import UserIcon from "@/assets/icon/user-icon.png";
-import DesktopLogo from "@/assets/Logo.png";
-import MobileLogo from "@/assets/mobile-logo.png";
+import UserIcon from "@/public/icon/user-icon.png";
+import DesktopLogo from "@/public/Logo.png";
+import MobileLogo from "@/public/mobile-logo.png";
 
 // Components
 import LoginForm from "@/components/site/authentication/login-form";
@@ -19,7 +19,7 @@ import EmailVerification from "@/components/site/authentication/email-verificati
 export default function Login({ Title, ButtonClass, ChildToggleMenu }) {
     const [isOpen, setIsOpen] = useState(false);
     const [tabs, setTabs] = useState("login_tab");
-    const [maxWidth, seMaxWidth] = useState("445px");
+    const [maxWidth, setMaxWidth] = useState("445px");
 
     useEffect(() => { }, [tabs, maxWidth]);
 
@@ -28,10 +28,10 @@ export default function Login({ Title, ButtonClass, ChildToggleMenu }) {
     };
 
     const closeModalOnCrossBtn = () => {
-        console.log("closeModalOnCrossBtn:", closeModalOnCrossBtn)
+        console.log("closeModalOnCrossBtn:", closeModalOnCrossBtn);
         setIsOpen(false);
         ChildToggleMenu();
-    }
+    };
 
     const closeModal = (e) => {
         // Close the modal if the click is outside the modal content
@@ -53,7 +53,7 @@ export default function Login({ Title, ButtonClass, ChildToggleMenu }) {
 
         const newMaxWidth = maxWidthMap[val];
         if (newMaxWidth) {
-            seMaxWidth(newMaxWidth);
+            setMaxWidth(newMaxWidth); // Fixed the typo here
         }
     };
 
@@ -92,7 +92,8 @@ export default function Login({ Title, ButtonClass, ChildToggleMenu }) {
                     <div
                         className={`bg-snow pb-8 lg:py-10 px-8 lg:px-14 lg:rounded-2xl shadow-lg w-full
                             h-[100vh] lg:h-auto border-0 lg:border border-textColor relative flex flex-col
-                           justify-center items-center lg:max-w-[${maxWidth}]`}
+                           justify-center items-center`}
+                        style={{ maxWidth: maxWidth }} // Using inline styles for maxWidth
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="hidden lg:flex justify-center items-center absolute top-6 right-5.625">
@@ -132,30 +133,21 @@ export default function Login({ Title, ButtonClass, ChildToggleMenu }) {
                         <div className="w-full">
                             {tabs === "login_tab" ? (
                                 <LoginForm childHandleTabs={handleTabs} />
-                            ) : (
-                                ""
-                            )}
+                            ) : null}
                             {tabs === "signup_tab" ? (
                                 <SignUpForm childHandleTabs={handleTabs} />
-                            ) : (
-                                ""
-                            )}
+                            ) : null}
                             {tabs === "forgetpassword_tab" ? (
                                 <ForgetPasswordForm childHandleTabs={handleTabs} />
-                            ) : (
-                                ""
-                            )}
+                            ) : null}
                             {tabs === "forgetpasswordmessage_tab" ? (
                                 <ForgetPasswordMessage />
-                            ) : (
-                                ""
-                            )}
-                            {tabs === "emailverification_tab" ? <EmailVerification /> : ""}
+                            ) : null}
+                            {tabs === "emailverification_tab" ? <EmailVerification /> : null}
                         </div>
                     </div>
-                </div >
-            )
-            }
+                </div>
+            )}
         </>
     );
 }
