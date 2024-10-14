@@ -19,13 +19,12 @@ export default function FeaturedItems({
                             className={`w-full flex gap-4 ${ChildClass && ChildClass}`}
                         >
                             <div className={`${ImgClass} rounded-xl`}>
-                                <Image
+                                <img
                                     className="w-full h-full rounded-xl object-cover"
                                     src={
-                                        // require(`@/assets/profile/${image}`).default ||
+                                        image ||
                                         defaultProfileImage
                                     }
-                                    data-src-next={image}
                                     alt={title}
                                 />
                             </div>
@@ -35,7 +34,7 @@ export default function FeaturedItems({
                                 >
                                     {title && title}
                                 </p>
-                                <p class="text-textColor text-sm font-normal leading-4.5 capitalize">
+                                <p className="text-textColor text-sm font-normal leading-4.5 capitalize">
                                     {subtitle && subtitle}
                                 </p>
 

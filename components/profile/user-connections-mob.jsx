@@ -40,17 +40,17 @@ export default function UserConnectionsMobile({
                                         ({ profileImage, name }, index) => {
                                             return (
                                                 <div
-                                                    className="w-12 lg:w-8 h-12 lg:h-8 rounded-full"
+                                                    className="w-12 h-12 rounded-full"
                                                     key={index}
                                                 >
                                                     <Image
-                                                        className="w-full h-full rounded-full"
+                                                        loading="lazy"
+                                                        width={48}
+                                                        height={48}
+                                                        className="w-12 lg:w-8 h-12 lg:h-8 rounded-full"
                                                         src={
-                                                            // require(`@/assets/profile/${profileImage}`)
-                                                            //     .default || 
-                                                            defaultProfileImage
+                                                            profileImage || defaultProfileImage
                                                         }
-                                                        data-src-next={profileImage}
                                                         alt={name}
                                                     />
                                                 </div>
@@ -74,13 +74,13 @@ export default function UserConnectionsMobile({
                                                     <article className="flex justify-start items-center gap-4">
                                                         <div className="w-10 h-10">
                                                             <Image
-                                                                className="w-full h-full rounded-full"
+                                                                loading="lazy"
+                                                                width={40}
+                                                                height={40}
+                                                                className="rounded-full"
                                                                 src={
-                                                                    // require(`@/assets/profile/${profileImage}`)
-                                                                    //     .default ||
-                                                                    defaultProfileImage
+                                                                    profileImage || defaultProfileImage
                                                                 }
-                                                                data-src-next={profileImage}
                                                                 alt={name}
                                                             />
                                                         </div>

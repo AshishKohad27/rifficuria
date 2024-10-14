@@ -1,5 +1,5 @@
 "use client";
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import star from "@/assets/artist/Star.png";
 import likebtn from "@/assets/artist/likebutton3.png";
@@ -29,15 +29,14 @@ const MediaCard = ({ singleartist }) => {
           <img
             src={image}
             alt={songName}
-            className="rounded-2xl relative w-full hover:scale-110 transition-all ease-out duration-500"
+            className="rounded-2xl relative w-full hover:scale-110 transition-all ease-out duration-500 aspect-square"
           />
 
           <div className="likebutton absolute bottom-[3%] right-[3%]">
             <div
               onClick={toggleLike}
-              className={`w-6 h-6 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 ${
-                liked ? "bg-red-500" : ""
-              }`}
+              className={`w-6 h-6 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 ${liked ? "bg-red-500" : ""
+                }`}
             >
               <Image
                 src={likebtn}

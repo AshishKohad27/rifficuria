@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DesktopLogo from "@/assets/Logo.png";
 import MobileLogo from "@/assets/mobile-logo.png";
 import { HiMenu, HiX } from "react-icons/hi";
@@ -10,16 +10,25 @@ import Login from "@/components/site/authentication/login";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    useEffect(() => { }, [isMenuOpen]);
+
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
+    const HandelCloseBtnOfMenu = () => {
+        setIsMenuOpen(false);
+    };
+
     return (
         <>
-            <header className="mt-0 md:mt-10 lg:mt-16">
+            <header className="mt-0 lg:mt-16">
                 <div className="site-container">
                     <div className="flex justify-between items-center gap-4">
-                        <Link href="/" className="block w-[66px] sm:w-[150px] lg:w-[332px] h-auto py-8 md:py-4 lg:py-0">
+                        <Link
+                            href="/"
+                            className="block w-[66px] sm:w-[150px] lg:w-[332px] h-auto py-8 lg:py-0 z-[1]"
+                        >
                             <Image
                                 src={DesktopLogo}
                                 alt="logo"
@@ -54,35 +63,17 @@ const Header = () => {
                                             )
                                     )}
                             </nav>
-
-                            {/* <div>
-                                {isUserLogin ? (
-                                    <Link href="/profile" className="px-4 w-auto block">
-                                        <Image
-                                            src={UserIcon}
-                                            alt="logo"
-                                            title="logo"
-                                            className="w-[37px] h-[37px]"
-                                        />
-                                    </Link>
-                                ) : (
-                                    <button
-                                        type="button"
-                                        className="px-4 pt-2.25 pb-1.75 rounded-3xl bg-indigo flex justify-center items-center"
-                                    >
-                                        <span className="text-seashell text-base font-normal uppercase">
-                                            LOGIN / SIGN UP
-                                        </span>
-                                    </button>
-                                )}
-                            </div> */}
-                            <Login Title="LOGIN / SIGN UP" ButtonClass="text-seashell bg-indigo uppercase" />
+                            <Login
+                                Title="LOGIN / SIGN UP"
+                                ButtonClass="text-seashell bg-indigo uppercase"
+                                ChildToggleMenu={HandelCloseBtnOfMenu}
+                            />
                         </div>
 
                         {/* Hamburger */}
-                        <div className="block lg:hidden" onClick={toggleMenu}>
+                        <div className="block lg:hidden z-[1]" onClick={toggleMenu}>
                             {isMenuOpen ? (
-                                <HiX className="w-6 h-6" />
+                                <HiX className="w-4 md:w-6 h-4 md:h-6" />
                             ) : (
                                 <HiMenu className="w-6 h-6" />
                             )}
@@ -92,14 +83,15 @@ const Header = () => {
 
                 {/* Dropdown menu for mobile view */}
                 {isMenuOpen && (
-                    <div className="site-container">
-                        <div className="flex flex-col gap-16 mt-11">
-                            <nav className="flex flex-col gap-16">
-                                {HeaderData &&
-                                    HeaderData.map(
-                                        ({ title, url, isVisible }, index) =>
+                    <section className="absolute h-[100vh] w-full left-0 top-[91px] md:top-[123.33px] bg-[#FBF0ECCC] z-[1]">
+                        <div className="site-container">
+                            <div className="flex flex-col gap-16 mt-11">
+                                <nav className="flex flex-col gap-16">
+                                    {HeaderData &&
+                                        HeaderData.map(({ title, url, isVisible }, index) =>
                                             isVisible ? (
                                                 <Link
+                                                    onClick={toggleMenu}
                                                     key={index}
                                                     href={`${url}`}
                                                     className={`text-textColor text-2xl font-semibold leading-7.5 uppercase block w-auto`}
@@ -110,36 +102,16 @@ const Header = () => {
                                             ) : (
                                                 ""
                                             )
-                                    )}
-                            </nav>
-
-                            {/* <div>
-                                {isUserLogin ? (
-                                    <Link href="/profile" className="w-auto flex justify-start items-center gap-4">
-                                        <Image
-                                            src={UserIcon}
-                                            alt="logo"
-                                            title="logo"
-                                            className="w-8 h-8"
-                                        />
-                                        <span className="text-indigo text-2xl font-medium leading-6.5">
-                                            Benjamin Tillman
-                                        </span>
-                                    </Link>
-                                ) : (
-                                    <button
-                                        type="button"
-                                        className="px-4 pt-2.25 pb-1.75 rounded-3xl bg-indigo flex justify-center items-center"
-                                    >
-                                        <span className="text-white text-base font-normal uppercase">
-                                            LOGIN / SIGN UP
-                                        </span>
-                                    </button>
-                                )}
-                            </div> */}
-                            <Login />
+                                        )}
+                                </nav>
+                                <Login
+                                    Title="LOGIN / SIGN UP"
+                                    ButtonClass="text-seashell bg-indigo uppercase"
+                                    ChildToggleMenu={HandelCloseBtnOfMenu}
+                                />
+                            </div>
                         </div>
-                    </div>
+                    </section>
                 )}
 
                 <div className="mt-10 lg:mt-16">

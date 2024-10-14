@@ -62,13 +62,13 @@ const UserConnectionsModal = ({
                                                 <article className="flex justify-start items-center gap-4">
                                                     <div className="w-10 h-10">
                                                         <Image
+                                                            loading="lazy"
+                                                            width={40}
+                                                            height={40}
                                                             className="w-full h-full rounded-full"
                                                             src={
-                                                                // require(`@/assets/profile/${profileImage}`)
-                                                                //     .default ||
-                                                                defaultProfileImage
+                                                                profileImage || defaultProfileImage
                                                             }
-                                                            data-src-next={profileImage}
                                                             alt={name}
                                                         />
                                                     </div>

@@ -1,6 +1,5 @@
 import defaultProfileImage from "@/assets/profile/profile-image.png"
 import SubSectionHeading from "@/components/site/sub-section-heading";
-import Image from "next/image";
 
 export default function Favourites({
     isDataAvailable,
@@ -27,13 +26,13 @@ export default function Favourites({
                             FavouritesData.slice(0, `${limit ? limit : 12}`).map(
                                 ({ image }, index) => (
                                     <div key={index} className="w-full h-full rounded-lg">
-                                        <Image
+                                        <img
                                             className="w-full h-full rounded-lg object-cover"
                                             src={
-                                                // require(`@/assets/profile/${image}`).default ||
+                                                image ||
                                                 defaultProfileImage
                                             }
-                                            alt={image}
+                                            alt={title}
                                         />
                                     </div>
                                 )

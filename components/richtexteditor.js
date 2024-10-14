@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import BundledEditor from "@/components/bundlededitor";
 
 export default function Richtexteditor() {
@@ -12,10 +12,6 @@ export default function Richtexteditor() {
     }
   };
 
-  useEffect(() => {
-    console.log("textValue:", textValue);
-  }, [textValue]); // Add 'textValue' to dependencies
-
   return (
     <div>
       <div className="editordiv">
@@ -23,8 +19,8 @@ export default function Richtexteditor() {
           onInit={(_evt, editor) => (editorRef.current = editor)}
           initialValue=""
           init={{
-            height: 0.5,
-            width: 0.75,
+            height: 0.5 * window.innerHeight,
+            width: 0.75 * window.innerWidth,
             menubar: false,
             plugins: [
               "advlist",
@@ -44,12 +40,11 @@ export default function Richtexteditor() {
               "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
           }}
           onChange={() => {
-            log(); // Call the log function properly
+            log(); // Call the log function
           }}
         />
-        {/* Uncomment if you want to display the HTML content */}
-        {/* <button onClick={log}>Get HTML</button>
-        <textarea value={textValue} readOnly></textarea> */}
+        <button onClick={log}>Get HTML</button>
+        <textarea value={textValue} readOnly></textarea>
       </div>
     </div>
   );

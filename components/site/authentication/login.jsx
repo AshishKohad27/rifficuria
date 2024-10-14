@@ -1,24 +1,37 @@
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
+
+// Images and Icons
+import { HiX } from "react-icons/hi";
 import { HiXMark } from "react-icons/hi2";
 import UserIcon from "@/assets/icon/user-icon.png";
-import Image from "next/image";
+import DesktopLogo from "@/assets/Logo.png";
+import MobileLogo from "@/assets/mobile-logo.png";
 
-const initialState = {
-    username: "",
-    password: "",
-};
+// Components
+import LoginForm from "@/components/site/authentication/login-form";
+import SignUpForm from "@/components/site/authentication/signup-form";
+import ForgetPasswordForm from "@/components/site/authentication/forget-password-form";
+import ForgetPasswordMessage from "@/components/site/authentication/forget-password-message";
+import EmailVerification from "@/components/site/authentication/email-verification";
 
-export default function Login({ Title, ButtonClass }) {
-    const [formData, setFormData] = useState(initialState);
+export default function Login({ Title, ButtonClass, ChildToggleMenu }) {
     const [isOpen, setIsOpen] = useState(false);
-    // const [tabs, setTabs] = useState('login_tab');
+    const [tabs, setTabs] = useState("login_tab");
+    const [maxWidth, seMaxWidth] = useState("445px");
 
-    useEffect(() => { }, [formData]);
+    useEffect(() => { }, [tabs, maxWidth]);
 
     const toggleModal = () => {
         setIsOpen(!isOpen);
     };
+
+    const closeModalOnCrossBtn = () => {
+        console.log("closeModalOnCrossBtn:", closeModalOnCrossBtn)
+        setIsOpen(false);
+        ChildToggleMenu();
+    }
 
     const closeModal = (e) => {
         // Close the modal if the click is outside the modal content
@@ -27,25 +40,27 @@ export default function Login({ Title, ButtonClass }) {
         }
     };
 
-    const handleOnChange = (e) => {
-        const { value, name } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
-    };
+    const handleTabs = (val) => {
+        setTabs(val);
 
-    const handleOnSubmit = (e) => {
-        e.preventDefault();
-        console.log("Login Form Submitted!", formData);
-    };
+        const maxWidthMap = {
+            login_tab: "445px",
+            signup_tab: "674px",
+            forgetpassword_tab: "557px",
+            forgetpasswordmessage_tab: "674px",
+            emailverification_tab: "674px",
+        };
 
-    const { username, password } = formData;
+        const newMaxWidth = maxWidthMap[val];
+        if (newMaxWidth) {
+            seMaxWidth(newMaxWidth);
+        }
+    };
 
     return (
         <>
             <div>
-                {true ? (
+                {false ? (
                     <Link href="/profile" className="px-4 w-auto block">
                         <Image
                             src={UserIcon}
@@ -56,13 +71,14 @@ export default function Login({ Title, ButtonClass }) {
                     </Link>
                 ) : (
                     <button
-                        onClick={toggleModal}
+                        onClick={() => {
+                            toggleModal();
+                            handleTabs("login_tab");
+                        }}
                         type="button"
                         className={`px-4 pt-2.25 pb-1.75 rounded-3xl flex justify-center items-center ${ButtonClass}`}
                     >
-                        <span className="text-base font-normal">
-                            {Title && Title}
-                        </span>
+                        <span className="text-base font-normal">{Title && Title}</span>
                     </button>
                 )}
             </div>
@@ -73,85 +89,73 @@ export default function Login({ Title, ButtonClass }) {
                     className="fixed inset-0 bg-seashell bg-opacity-50 backdrop-blur-5 flex items-center justify-center z-[100]"
                     onClick={closeModal}
                 >
-                    <div className="bg-snow py-8 md:py-10 px-8 md:px-14 lg:rounded-2xl shadow-lg w-full lg:max-w-[445px] h-[100vh] lg:h-auto border-0 lg:border border-textColor relative flex justify-center items-center"
-                        onClick={(e) => e.stopPropagation()}>
-                        <div className="flex justify-center items-center absolute top-6 right-5.625">
-                            <button onClick={toggleModal}>
+                    <div
+                        className={`bg-snow pb-8 lg:py-10 px-8 lg:px-14 lg:rounded-2xl shadow-lg w-full
+                            h-[100vh] lg:h-auto border-0 lg:border border-textColor relative flex flex-col
+                           justify-center items-center lg:max-w-[${maxWidth}]`}
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <div className="hidden lg:flex justify-center items-center absolute top-6 right-5.625">
+                            <button onClick={closeModalOnCrossBtn}>
                                 <HiXMark className="w-4 h-4 text-gray-700 hover:text-gray-900" />
                             </button>
                         </div>
-                        <form
-                            onSubmit={handleOnSubmit}
-                            action=""
-                            className="w-full flex flex-col gap-6"
-                        >
 
-                            <div className="w-full flex flex-col justify-center items-start gap-2 md:gap-4">
-                                <label
-                                    htmlFor="#username"
-                                    className="text-textColor text-sm font-normal leading-4.5 capitalize"
-                                >
-                                    username
-                                </label>
-                                <input
-                                    id="username"
-                                    type="text"
-                                    name="username"
-                                    value={username}
-                                    onChange={handleOnChange}
-                                    className="text-textColor text-sm font-normal leading-4.5 rounded-full bg-seashell py-2.75 md:py-3.75 px-5 w-full"
-                                    required
-                                />
-                            </div>
-                            <div className="w-full flex flex-col justify-center items-start gap-2 md:gap-4">
-                                <label
-                                    htmlFor="#password"
-                                    className="text-textColor text-sm font-normal leading-4.5 capitalize"
-                                >
-                                    password
-                                </label>
-                                <input
-                                    id="password"
-                                    type="text"
-                                    name="password"
-                                    value={password}
-                                    onChange={handleOnChange}
-                                    className="text-textColor text-sm font-normal leading-4.5 rounded-full bg-seashell py-2.75 md:py-3.75 px-5 w-full"
-                                    required
-                                />
-                            </div>
-                            <div className="w-full flex justify-center items-center gap-2 md:gap-4">
-                                <Link
-                                    href=""
-                                    title="Forgot Password?"
-                                    className="text-coral text-sm font-normal leading-4.5 underline"
-                                >
-                                    Forgot Password?
-                                </Link>
-                            </div>
-                            <div className="w-full flex flex-col justify-center items-start gap-2 md:gap-4">
-                                <input
-                                    className="w-full px-6 py-3.25 lg:py-3.5 bg-indigo rounded-full flex justify-center items-center text-seashell text-base font-normal uppercase cursor-pointer"
-                                    type="submit"
-                                    value="LOGIN"
-                                />
-                            </div>
-
-                            <div className="w-full flex justify-center items-center">
-                                <p className="text-textColor text-sm font-normal leading-4.5 flex justify-center items-center gap-0.5" >
-                                    <span>New to Riffcuria?</span>
-                                    <Link href="" title="Forgot Password?"
-                                        className="text-indigo underline"
+                        <div className="w-full lg:hidden absolute top-0 left-0">
+                            <div className="site-container">
+                                <div className="flex lg:hidden justify-between items-center gap-4 w-full">
+                                    <Link
+                                        href="/"
+                                        className="block w-[66px] sm:w-[150px] lg:w-[332px] h-auto py-8 lg:py-0 z-[1]"
                                     >
-                                        Click here to create account
+                                        <Image
+                                            src={DesktopLogo}
+                                            alt="logo"
+                                            title="logo"
+                                            className="w-full h-full hidden md:block"
+                                        />
+                                        <Image
+                                            src={MobileLogo}
+                                            alt="logo"
+                                            title="logo"
+                                            className="w-full h-full md:hidden"
+                                        />
                                     </Link>
-                                </p>
+                                    {/* Hamburger */}
+                                    <div className="block lg:hidden z-[1]" onClick={closeModalOnCrossBtn}>
+                                        <HiX className="w-4 md:w-6 h-4 md:h-6" />
+                                    </div>
+                                </div>
                             </div>
+                        </div>
 
-                        </form>
+                        <div className="w-full">
+                            {tabs === "login_tab" ? (
+                                <LoginForm childHandleTabs={handleTabs} />
+                            ) : (
+                                ""
+                            )}
+                            {tabs === "signup_tab" ? (
+                                <SignUpForm childHandleTabs={handleTabs} />
+                            ) : (
+                                ""
+                            )}
+                            {tabs === "forgetpassword_tab" ? (
+                                <ForgetPasswordForm childHandleTabs={handleTabs} />
+                            ) : (
+                                ""
+                            )}
+                            {tabs === "forgetpasswordmessage_tab" ? (
+                                <ForgetPasswordMessage />
+                            ) : (
+                                ""
+                            )}
+                            {tabs === "emailverification_tab" ? <EmailVerification /> : ""}
+                        </div>
                     </div>
-                </div>
-            )}
+                </div >
+            )
+            }
         </>
-    )
+    );
 }

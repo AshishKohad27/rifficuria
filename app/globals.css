@@ -99,7 +99,8 @@ body {
 
 .tox.tox-tinymce {
   width: 100% !important;
-  height: 347px !important;
+  height: 300px !important;
+  border-radius: 30px;
 }
 
 .tox-editor-header {
@@ -110,7 +111,9 @@ body {
   padding: 0 15px !important;
   gap: 5px;
 }
-
+.tox-toolbar {
+  background-color: transparent !important;
+}
 
 
 /* Site css */
@@ -147,6 +150,7 @@ body {
   height: calc(100% - 62px - 2*24px);
   top: 86px;
   right: 32px;
+  z-index: 1;
 }
 
 .cust-scrollbar::-webkit-scrollbar {
@@ -156,19 +160,11 @@ body {
 .cust-scrollbar::-webkit-scrollbar-track {
   background-color: transparent;
   position: relative;
-
-  background: tomato;
-  border-left: 9px solid white;
-  border-right: 9px solid white;
 }
 
 .cust-scrollbar::-webkit-scrollbar-thumb {
   background-color: var(--indigo);
   border-radius: 10px;
-
-  /* background: black;
-  border-left: 7px solid white;
-  border-right: 7px solid white; */
 }
 
 .cust-scrollbar::-webkit-scrollbar-thumb:hover {

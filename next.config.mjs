@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    output: 'export',
-    basePath: '/subfolder',
+    images: {
+        domains: ['achieveee.com'], // Add the domain here
+    },
 };
 
 export default nextConfig;

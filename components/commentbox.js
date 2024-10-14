@@ -10,11 +10,11 @@ const Commentbox = () => {
           <textarea
             id="comment"
             rows="6"
-            class="p-4 my-10 w-full text-sm text-textColor border-0 focus:ring-0 focus:outline-none bg-background2  rounded-2xl"></textarea>
+            className="p-4 my-10 w-full text-sm text-textColor border-0 focus:ring-0 focus:outline-none bg-background2  rounded-2xl"></textarea>
 
           <button
             type="submit"
-            class="p-2 text-background text-center bg-btn1 w-full rounded-3xl "
+            className="p-2 text-background text-center bg-btn1 w-full rounded-3xl "
           >
             SEND
           </button>

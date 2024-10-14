@@ -13,7 +13,7 @@ export default function SubSectionHeading({ SectionTitle }) {
     }, [SectionTitle]);
 
     return (
-        <h2 className="text-textColor text-2xl font-bold leading-7.5 uppercase">
+        <h2 className="text-textColor text-base md:text-2xl font-bold leading-5.5 md:leading-7.5 uppercase">
             {formattedTitle}
         </h2>
     );

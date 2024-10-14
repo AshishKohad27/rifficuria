@@ -37,17 +37,17 @@ export default function UserConnectionsDesk({
                                     ({ profileImage, name }, index) => {
                                         return (
                                             <div
-                                                className="w-12 lg:w-8 h-12 lg:h-8 rounded-full"
+                                                className="lg:w-8 lg:h-8 rounded-full"
                                                 key={index}
                                             >
                                                 <Image
+                                                    loading="lazy"
+                                                    width={32}
+                                                    height={32}
                                                     className="w-full h-full rounded-full"
                                                     src={
-                                                        // require(`@/assets/profile/${profileImage}`)
-                                                        //     .default ||
-                                                        defaultProfileImage
+                                                        profileImage || defaultProfileImage
                                                     }
-                                                    data-src-next={profileImage}
                                                     alt={name}
                                                 />
                                             </div>

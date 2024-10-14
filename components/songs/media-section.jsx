@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -16,8 +16,6 @@ const MediaSection = ({
     MobileLimits,
     isLoadMore,
 }) => {
-
-    useEffect(() => { console.log("MediaType:", MediaType) }, [MediaType])
     const settings = {
         dots: true,
         infinite: false,
@@ -37,7 +35,7 @@ const MediaSection = ({
     };
 
     return (
-        <div>
+        <div data-media-type={MediaType}>
             <article className="flex justify-between items-center gap-7.5 mb-8">
                 <SubSectionHeading SectionTitle={Title && Title} />
                 {ViewMoreLink ? (

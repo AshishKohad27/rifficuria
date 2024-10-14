@@ -17,12 +17,14 @@ export default function RatingsHistory({ RatingsHistoryData }) {
                             </div>
                             <div className="rounded-lg w-16 h-16">
                                 <Image
+                                    width={64}
+                                    height={64}
                                     className="w-full h-full rounded-lg object-cover"
                                     src={
-                                        // require(`@/assets/profile/${image}`).default ||
+                                        image ||
                                         defaultProfileImage
                                     }
-                                    alt={image}
+                                    alt=""
                                 />
                             </div>
                             <article>
@@ -31,7 +33,7 @@ export default function RatingsHistory({ RatingsHistoryData }) {
                                 >
                                     {title && title}
                                 </p>
-                                <p class="text-textColor text-sm font-normal leading-4.5 capitalize">
+                                <p className="text-textColor text-sm font-normal leading-4.5 capitalize">
                                     {subtitle && subtitle}
                                 </p>
                             </article>

@@ -47,28 +47,28 @@
         {
             "id": "1",
             "platform": "Instagram",
-            "icon": "instagram.png",
+            "icon": "https://achieveee.com/riffcuria/social-icon/instagram.png",
             "url": "#instagram",
             "isVisible": true
         },
         {
             "id": "2",
             "platform": "Youtube",
-            "icon": "youtube.png",
+            "icon": "https://achieveee.com/riffcuria/social-icon/youtube.png",
             "url": "#youtube",
             "isVisible": true
         },
         {
             "id": "3",
             "platform": "Facebook",
-            "icon": "facebook.png",
+            "icon": "https://achieveee.com/riffcuria/social-icon/facebook.png",
             "url": "#facebook",
             "isVisible": true
         },
         {
             "id": "4",
             "platform": "Twitter",
-            "icon": "twitter.png",
+            "icon": "https://achieveee.com/riffcuria/social-icon/twitter.png",
             "url": "#twitter",
             "isVisible": true
         }
