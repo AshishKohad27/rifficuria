@@ -9,7 +9,7 @@
 // import Newsletter from "@/components/site/newsletter";
 // import ArtisInfo from "@/components/artist/artist-info";
 // import Dropdown from "@/components/site/dropdown";
-// import Header from "@/components/site/site-header";
+import Header from "@/components/site/site-header";
 
 // // json
 // import ReviewsData from "@/json/reviews.json";
@@ -104,6 +104,9 @@
 
 export default function Artist() {
   return (
-    <div>Artist Page</div>
+    <>
+      <Header />
+      <div>Artist Page</div>
+    </>
   )
 }

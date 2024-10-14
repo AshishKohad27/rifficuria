@@ -1,7 +1,7 @@
 // import React from "react";
 
-// // Components
-// import Header from "@/components/site/site-header";
+// Components
+import Header from "@/components/site/site-header";
 // import AlbumInfo from "@/components/album/album-info";
 // import Newsletter from "@/components/site/newsletter";
 // import TopReviews from "@/components/reviews/top-review";
@@ -52,6 +52,9 @@
 // export default Reviews;
 export default function Reviews() {
   return (
-    <div>Reviews Page</div>
-  )
+    <>
+      <Header />
+      <div>Reviews Page</div>
+    </>
+  );
 }

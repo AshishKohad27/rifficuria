@@ -7,7 +7,7 @@
 // import Newsletter from "@/components/site/newsletter";
 // import AlbumInfo from "@/components/album/album-info";
 // import Dropdown from "@/components/site/dropdown";
-// import Header from "@/components/site/site-header";
+import Header from "@/components/site/site-header";
 // import AlbumTrackList from "@/components/album/album-track-list";
 
 // // json
@@ -111,6 +111,9 @@
 
 export default function Album() {
     return (
-      <div>Album Page</div>
+        <>
+            <Header />
+            <div>Album Page</div>
+        </>
     )
-  }
+}
