@@ -4,7 +4,7 @@
         "title": "Home",
         "url": "/",
         "isAccessible": true,
-        "warningComment": "",
+        "warningComment": "Warning: Mobile view not done yet.",
         "errorComment": ""
     },
     {
@@ -12,7 +12,7 @@
         "title": "About",
         "url": "/about",
         "isAccessible": true,
-        "warningComment": "",
+        "warningComment": "Warning: Mobile view not done yet.",
         "errorComment": ""
     },
     {
@@ -20,7 +20,7 @@
         "title": "Album",
         "url": "/album",
         "isAccessible": true,
-        "warningComment": "Warning: The editor in the modal is not functioning correctly in the development environment.",
+        "warningComment": "Warning: The editor in the modal is not functioning correctly in the development environment. Warning: Mobile view not done yet.",
         "errorComment": ""
     },
     {
@@ -28,7 +28,7 @@
         "title": "Artist",
         "url": "/artist",
         "isAccessible": true,
-        "warningComment": "Warning: The editor in the modal is not functioning correctly in the development environment.",
+        "warningComment": "Warning: The editor in the modal is not functioning correctly in the development environment. Warning: Mobile view not done yet.",
         "errorComment": ""
     },
     {
@@ -36,7 +36,7 @@
         "title": "Contact",
         "url": "/contact",
         "isAccessible": true,
-        "warningComment": "",
+        "warningComment": "Warning: Mobile view not done yet.",
         "errorComment": ""
     },
     {
@@ -44,7 +44,7 @@
         "title": "Profile",
         "url": "/profile",
         "isAccessible": true,
-        "warningComment": "",
+        "warningComment": "Warning: Mobile view not done yet.",
         "errorComment": ""
     },
     {
@@ -52,7 +52,7 @@
         "title": "Review",
         "url": "/review",
         "isAccessible": true,
-        "warningComment": "Warning: The editor in the modal is not functioning correctly in the development environment.",
+        "warningComment": "Warning: The editor in the modal is not functioning correctly in the development environment. Warning: Mobile view not done yet.",
         "errorComment": ""
     },
     {
@@ -60,7 +60,7 @@
         "title": "Search",
         "url": "/search",
         "isAccessible": true,
-        "warningComment": "",
+        "warningComment": "Warning: Mobile view not done yet.",
         "errorComment": ""
     },
     {
@@ -68,7 +68,7 @@
         "title": "Terms",
         "url": "/terms",
         "isAccessible": true,
-        "warningComment": "",
+        "warningComment": "Warning: Mobile view not done yet.",
         "errorComment": ""
     }
 ]
