@@ -4,7 +4,7 @@ import HalfStar from "@/public/icon/half_star.png";
 import FullStar from "@/public/icon/full_star.png";
 import Image from "next/image";
 
-export default function Stars({ StarCount, TotalStars = 5, ParentClass, ChildClass }) {
+export default function Stars({ StarCount, TotalStars = 5, ParentClass, ChildClass = "" }) {
     const [fullStars, setFullStars] = useState(0); // State for full stars
     const [hasHalfStar, setHasHalfStar] = useState(false); // State for half star
 
@@ -22,7 +22,7 @@ export default function Stars({ StarCount, TotalStars = 5, ParentClass, ChildCla
             {
                 // Render full stars
                 Array.from({ length: fullStars }).map((_, index) => (
-                    <div key={index} className={`w-2.25 h-2.25 ${ChildClass}`}>
+                    <div key={index} className={`${ChildClass && ChildClass ? ChildClass : "w-2.25 h-2.25"}`}>
                         <Image className="w-full h-full" src={FullStar} alt="Full Star" />
                     </div>
                 ))
@@ -30,7 +30,7 @@ export default function Stars({ StarCount, TotalStars = 5, ParentClass, ChildCla
             {
                 // Render half star if needed
                 hasHalfStar && (
-                    <div className={`w-2.25 h-2.25 ${ChildClass}`}>
+                    <div className={`${ChildClass && ChildClass ? ChildClass : "w-2.25 h-2.25"}`}>
                         <Image className="w-full h-full" src={HalfStar} alt="Half Star" />
                     </div>
                 )
@@ -38,7 +38,7 @@ export default function Stars({ StarCount, TotalStars = 5, ParentClass, ChildCla
             {
                 // Render empty stars for remaining slots
                 Array.from({ length: emptyStars }).map((_, index) => (
-                    <div key={index} className={`w-2.25 h-2.25 ${ChildClass}`}>
+                    <div key={index} className={`${ChildClass && ChildClass ? ChildClass : "w-2.25 h-2.25"}`}>
                         <Image className="w-full h-full" src={EmptyStar} alt="Empty Star" />
                     </div>
                 ))

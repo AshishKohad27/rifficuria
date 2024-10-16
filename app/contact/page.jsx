@@ -37,7 +37,7 @@ export default function Contact() {
             <Header />
             <main className="mt-20">
                 <div className="site-container">
-                    <article className="flex flex-col justify-center items-center gap-10 md:gap-8 mb-28 md:mb-20">
+                    <article className="flex flex-col justify-center items-center gap-10 md:gap-8 mb-20">
                         <h2 className="text-textColor text-center text-3.5xl font-bold leading-9.5">
                             Have a question, suggestion, or just want to chat about music?
                             <br className="hidden xl:block" /> We’re all ears! Whether you’re an
@@ -62,7 +62,7 @@ export default function Contact() {
                     </article>
                     <form
                         onSubmit={handleOnSubmit}
-                        className="mb-[168px] md:mb-[136px] mx-auto w-full max-w-[445px] flex justify-center items-center flex-col gap-12"
+                        className="mb-[168px] md:mb-[136px] mx-auto w-full max-w-[445px] flex justify-center items-center flex-col gap-10 md:gap-12"
                     >
                         <div className="w-full flex flex-col justify-center items-start gap-2 md:gap-4">
                             <label

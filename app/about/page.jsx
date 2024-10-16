@@ -25,13 +25,14 @@ export default function About() {
                         </h2>
                         <p className="text-indigo text-center text-base font-semibold">
                             Are you an active music listener (meticulously curate your own
-                            playlists, and think you are better than the &quot;algorithm&quot;)?
-                            <br className="hidden lg:block" /> Are some of your favourite topics
-                            of debate &quot;Is Badshah a genius?&quot; or &quot;The house believes
-                            Arijit Singh is an average vocalist&quot;?
+                            playlists, and think you are better than the
+                            &quot;algorithm&quot;)?
+                            <br className="hidden lg:block" /> Are some of your favourite
+                            topics of debate &quot;Is Badshah a genius?&quot; or &quot;The
+                            house believes Arijit Singh is an average vocalist&quot;?
                             <br className="hidden lg:block" />
-                            Do you think you have a better opinion than all the Fantanos of the
-                            world?
+                            Do you think you have a better opinion than all the Fantanos of
+                            the world?
                             <br className="hidden lg:block" />
                             <br className="hidden lg:block" />
                             If the answer to even one of the above is yes, then you are at the
@@ -91,9 +92,9 @@ export default function About() {
                                     </span>
                                 </p>
                                 <p className="text-textColor text-base font-normal capitalize">
-                                    Post-college, I got to work in the scene for seven years. I ran
-                                    a music publication, got hit by a curveball, and then shut it
-                                    down. But the bug to talk about music never died.
+                                    Post-college, I got to work in the scene for seven years. I
+                                    ran a music publication, got hit by a curveball, and then shut
+                                    it down. But the bug to talk about music never died.
                                 </p>
                                 <p className="text-textColor text-base font-normal capitalize">
                                     The need to rave about that killer riff, rant about those
@@ -103,9 +104,9 @@ export default function About() {
                                 </p>
                                 <p className="text-textColor text-base font-normal capitalize">
                                     Come dive in, dissect every note, and keep the conversation
-                                    loud. And remember Cameron Crowe&apos;s immortalised words, &quot;The only
-                                    true currency in this bankrupt world is what you share with
-                                    someone else when you&apos;re uncool.&quot;
+                                    loud. And remember Cameron Crowe&apos;s immortalised words,
+                                    &quot;The only true currency in this bankrupt world is what
+                                    you share with someone else when you&apos;re uncool.&quot;
                                 </p>
                             </article>
                         </div>

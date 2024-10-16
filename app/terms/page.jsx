@@ -34,8 +34,8 @@ export default function Terms() {
                         <p><span className="font-bold">Last updated:</span> October 16, 2024</p>
                     </article>
                 </div>
-                <Newsletter />
             </main>
+            <Newsletter />
         </>
     )
 }

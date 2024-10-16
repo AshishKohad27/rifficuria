@@ -16,7 +16,6 @@ import MediaSection from "@/components/media/media-section";
 import Newsletter from "@/components/site/newsletter";
 import Header from "@/components/site/site-header";
 
-
 // json
 import ProfileNumber from "@/json/profile-numbers.json";
 import UserConnectionsData from "@/json/user-connection.json";
@@ -69,9 +68,9 @@ export default function Profile() {
                                                         he/him
                                                     </p>
                                                     <p className="text-textColor text-sm md:text-base font-normal mt-4 md:mt-2.625 text-center md:text-left">
-                                                        I like a lot of different music and I hope that I can
-                                                        get more people to listen to some of these albums I
-                                                        like so they can get more attention.
+                                                        I like a lot of different music and I hope that I
+                                                        can get more people to listen to some of these
+                                                        albums I like so they can get more attention.
                                                     </p>
                                                 </article>
                                                 <button className="w-full md:w-auto mt-10 md:mt-0 px-4 py-2 bg-textColor rounded-3xl transition ease-in-out hover:bg-btn1">
@@ -89,8 +88,8 @@ export default function Profile() {
                                                 </p>
                                                 <p className="text-textColor text-base font-normal mt-2.625">
                                                     I like a lot of different music and I hope that I can
-                                                    get more people to listen to some of these albums I like
-                                                    so they can get more attention.
+                                                    get more people to listen to some of these albums I
+                                                    like so they can get more attention.
                                                 </p>
                                             </article>
                                         </div>
@@ -171,12 +170,16 @@ export default function Profile() {
 
                                     {/* Section of Tabs for Reviews, Ratings History, Favourties */}
                                     <div>
-                                        <div className={`mt-16 pb-4 ${tabs === "favourites" ? "hidden" : ""}`}>
+                                        <div
+                                            className={`mt-16 pb-4 ${tabs === "favourites" ? "hidden" : ""
+                                                }`}
+                                        >
                                             <SubSectionHeading SectionTitle={`${tabs && tabs}`} />
                                         </div>
 
                                         <div
-                                            className={`${tabs === "top reviews" ? "block" : "hidden"}`}
+                                            className={`${tabs === "top reviews" ? "block" : "hidden"
+                                                }`}
                                         >
                                             <TopReviews
                                                 ReviewsData={ReviewsData && ReviewsData}
@@ -240,7 +243,7 @@ export default function Profile() {
                                 </div>
                             </div>
                             <div className="col-span-12 lg:col-span-3">
-                                <div className="w-100 max-w-[225px] ml-auto">
+                                <div className="w-100 lg:max-w-[225px] ml-auto">
                                     {/* Follower, Following, Top Rated, favourites */}
                                     <div className="hidden lg:block">
                                         <UserConnectionsDesk
@@ -262,14 +265,25 @@ export default function Profile() {
                                             limit={16}
                                         />
                                     </div>
-                                    <div className={`mt-22 ${tabs === "top reviews" || tabs === "past_reviews" ? 'block' : 'hidden'}`}>
-                                        <TopRated
-                                            title="Top Rated"
-                                            isDataAvailable={TopRatedData.length > 0}
-                                            TopRatedData={TopRatedData}
-                                        />
+                                    <div className="hidden md:block">
+                                        {
+                                            tabs && tabs === "top reviews" || tabs === "past_reviews" ? (
+                                                <div
+                                                    className="mb-[136px] md:mb-0 mt-22"
+                                                >
+                                                    <TopRated
+                                                        title="Top Rated"
+                                                        isDataAvailable={TopRatedData.length > 0}
+                                                        TopRatedData={TopRatedData}
+                                                    />
+                                                </div>
+                                            ) : null
+                                        }
                                     </div>
-                                    <div className={`mt-22 ${tabs === "ratings_history" ? 'block' : 'hidden'}`}>
+                                    <div
+                                        className={`mt-22 ${tabs === "ratings_history" ? "hidden md:block" : "hidden"
+                                            }`}
+                                    >
                                         <Favourites
                                             title="Favourites"
                                             limit={12}
@@ -288,12 +302,31 @@ export default function Profile() {
                             ArtistData={ArtistData}
                         />
                     </div>
-                    <div className={`mt-20 mb:mt-22 ${tabs === "top reviews" ? "block" : "hidden"}`}>
+                    <div
+                        className={`mt-20 mb:mt-22 ${tabs === "top reviews" ? "block" : "hidden"
+                            }`}
+                    >
                         <MediaSection
                             Title="Favourite albums"
                             ViewMoreLink=""
                             ArtistData={ArtistData}
                         />
+                    </div>
+
+                    <div className="block md:hidden">
+                        {
+                            tabs && tabs === "top reviews" || tabs === "past_reviews" ? (
+                                <div
+                                    className={`mb-[136px] ${tabs === "past_reviews" ? "mb-0" : "mb-20"} md:mt-0`}
+                                >
+                                    <TopRated
+                                        title="Top Rated"
+                                        isDataAvailable={TopRatedData.length > 0}
+                                        TopRatedData={TopRatedData}
+                                    />
+                                </div>
+                            ) : null
+                        }
                     </div>
                 </div>
                 <div className="mt-[136px]">

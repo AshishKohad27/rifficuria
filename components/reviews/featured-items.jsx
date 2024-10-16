@@ -1,6 +1,5 @@
 import defaultProfileImage from "@/public/profile/top-rated-1.png";
-import star from "@/public/artist/Star.png";
-import Image from "next/image";
+import Stars from "@/components/site/stars";
 
 export default function FeaturedItems({
     FeaturedItemsData,
@@ -10,7 +9,7 @@ export default function FeaturedItems({
     ImgClass,
 }) {
     return (
-        <div className={`w-full flex flex-col ${ParentClass && ParentClass}`}>
+        <div className={`flex flex-col ${ParentClass && ParentClass}`}>
             {FeaturedItemsData &&
                 FeaturedItemsData.slice(0, `${limit ? limit : "1000"}`).map(
                     ({ image, title, subtitle }, index) => (
@@ -37,14 +36,7 @@ export default function FeaturedItems({
                                 <p className="text-textColor text-sm font-normal leading-4.5 capitalize">
                                     {subtitle && subtitle}
                                 </p>
-
-                                <div className="flex gap-1.25 mt-2">
-                                    <Image src={star} alt="star"></Image>
-                                    <Image src={star} alt="star"></Image>
-                                    <Image src={star} alt="star"></Image>
-                                    <Image src={star} alt="star"></Image>
-                                    <Image src={star} alt="star"></Image>
-                                </div>
+                                <Stars StarCount={3} ChildClass="w-3.25 h-3.25" ParentClass="mt-1.5 md:mt-2"/>
                             </div>
                         </div>
                     )

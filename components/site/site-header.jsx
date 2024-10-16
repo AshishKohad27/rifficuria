@@ -83,7 +83,65 @@ const Header = () => {
 
                 {/* Dropdown menu for mobile view */}
                 {isMenuOpen && (
-                    <section className="absolute h-[100vh] w-full left-0 top-[91px] md:top-[123.33px] bg-[#FBF0ECCC] z-[1]">
+
+                    <section className="fixed h-[100vh] w-full left-0 top-0 bg-[#FBF0ECCC] z-[1] backdrop-blur-5">
+                        <div className="site-container">
+                            <div className="flex justify-between items-center gap-4">
+                                <Link
+                                    href="/"
+                                    className="block w-[66px] sm:w-[150px] lg:w-[332px] h-auto py-8 lg:py-0 z-[1]"
+                                >
+                                    <Image
+                                        src={DesktopLogo}
+                                        alt="logo"
+                                        title="logo"
+                                        className="w-full h-full hidden md:block"
+                                    />
+                                    <Image
+                                        src={MobileLogo}
+                                        alt="logo"
+                                        title="logo"
+                                        className="w-full h-full md:hidden"
+                                    />
+                                </Link>
+
+                                <div className="hidden lg:flex gap-4 xl:gap-7.5 ">
+                                    <nav className="flex gap-4 xl:gap-7.5">
+                                        {HeaderData &&
+                                            HeaderData.map(
+                                                ({ title, url, isVisible, hasXPadding }, index) =>
+                                                    isVisible ? (
+                                                        <Link
+                                                            key={index}
+                                                            href={`${url}`}
+                                                            className={`text-textColor text-base font-bold leading-5.5 uppercase py-2 block w-auto ${hasXPadding ? "px-4" : "px-0"
+                                                                }`}
+                                                            title={`${title}`}
+                                                        >
+                                                            {title}
+                                                        </Link>
+                                                    ) : (
+                                                        ""
+                                                    )
+                                            )}
+                                    </nav>
+                                    <Login
+                                        Title="LOGIN / SIGN UP"
+                                        ButtonClass="text-seashell bg-indigo uppercase"
+                                        ChildToggleMenu={HandelCloseBtnOfMenu}
+                                    />
+                                </div>
+
+                                {/* Hamburger */}
+                                <div className="block lg:hidden z-[1]" onClick={toggleMenu}>
+                                    {isMenuOpen ? (
+                                        <HiX className="w-4 md:w-6 h-4 md:h-6" />
+                                    ) : (
+                                        <HiMenu className="w-6 h-6" />
+                                    )}
+                                </div>
+                            </div>
+                        </div>
                         <div className="site-container">
                             <div className="flex flex-col gap-16 mt-11">
                                 <nav className="flex flex-col gap-16">
