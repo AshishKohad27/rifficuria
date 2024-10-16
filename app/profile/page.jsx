@@ -317,7 +317,7 @@ export default function Profile() {
                         {
                             tabs && tabs === "top reviews" || tabs === "past_reviews" ? (
                                 <div
-                                    className={`mb-[136px] ${tabs === "past_reviews" ? "mb-0" : "mb-20"} md:mt-0`}
+                                    className={`mb-[136px] ${tabs === "past_reviews" ? "mt-0" : "mt-20"} md:mt-0`}
                                 >
                                     <TopRated
                                         title="Top Rated"
