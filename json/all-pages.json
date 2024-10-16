@@ -12,7 +12,7 @@
         "title": "About",
         "url": "/about",
         "isAccessible": true,
-        "warningComment": "Warning: Mobile view not done yet.",
+        "warningComment": "",
         "errorComment": ""
     },
     {
@@ -36,7 +36,7 @@
         "title": "Contact",
         "url": "/contact",
         "isAccessible": true,
-        "warningComment": "Warning: Mobile view not done yet.",
+        "warningComment": "",
         "errorComment": ""
     },
     {
@@ -44,7 +44,7 @@
         "title": "Profile",
         "url": "/profile",
         "isAccessible": true,
-        "warningComment": "Warning: Mobile view not done yet.",
+        "warningComment": "",
         "errorComment": ""
     },
     {
@@ -68,7 +68,7 @@
         "title": "Terms",
         "url": "/terms",
         "isAccessible": true,
-        "warningComment": "Warning: Mobile view not done yet.",
+        "warningComment": "",
         "errorComment": ""
     }
 ]
