@@ -9,7 +9,7 @@ import writereviewavtar from "@/public/write-review/write-rivew-avtar.png";
 //     search_term: "",
 // };
 
-export default function WriteReviewForTrack({ ReviewFor, Title, ButtonClass }) {
+export default function WriteReviewForAlbum({ ReviewFor, Title, ButtonClass }) {
     // const [formData, setFormData] = useState(initialState);
     const [isOpen, setIsOpen] = useState(false);
 

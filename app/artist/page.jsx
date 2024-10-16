@@ -5,7 +5,7 @@ import ArtistBanner from "@/public/artist/artist-cover.png";
 
 // components
 import TopReviews from "@/components/reviews/top-review";
-import MediaSection from "@/components/songs/media-section";
+import MediaSection from "@/components/media/media-section";
 import Newsletter from "@/components/site/newsletter";
 import ArtisInfo from "@/components/artist/artist-info";
 import Dropdown from "@/components/site/dropdown";

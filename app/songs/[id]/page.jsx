@@ -8,15 +8,13 @@ import Newsletter from "@/components/site/newsletter";
 import MediaInfo from "@/components/media/media-info";
 import Dropdown from "@/components/site/dropdown";
 import Header from "@/components/site/site-header";
-import AlbumTrackList from "@/components/album/album-track-list";
 
 // json
 import ReviewsData from "@/json/reviews.json";
 import ArtistData from "@/json/artist.json";
 import DropDownListItem from "@/json/dropdown-listitem.json";
-import AlbumTrackListData from "@/json/album-track-list.json";
 
-export default function Album() {
+export default function Songs() {
     useEffect(() => {
         // console.log("ReviewsData:", ReviewsData);
     }, []);
@@ -27,7 +25,7 @@ export default function Album() {
             <main className="mt-20 lg:mt-16">
                 <div className="site-container">
                     <div>
-                        <MediaInfo hideRating={true} mediaInfoFor="album" />
+                        <MediaInfo hideRating={true} mediaInfoFor="songs" />
                     </div>
 
                     <div className="grid grid-cols-10">
@@ -63,16 +61,6 @@ export default function Album() {
                                         />
                                     </div>
                                 </div>
-
-                                <div className="w-full">
-                                    <AlbumTrackList
-                                        Title="Album Track List"
-                                        AlbumTrackListData={AlbumTrackListData && AlbumTrackListData}
-                                        Limit={10}
-                                        isDataAvailable={AlbumTrackListData && AlbumTrackListData.length}
-                                    />
-                                </div>
-
                             </div>
                         </div>
                     </div>

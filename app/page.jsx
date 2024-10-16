@@ -1,26 +1,29 @@
 "use client";
 import Newsletter from "@/components/site/newsletter";
-import BannerImage from "@/public/home_banner.png";
 
 // Components
-import MediaSection from "@/components/songs/media-section";
+import MediaSection from "@/components/media/media-section";
 import WeeksTop10 from "@/components/site//weeks-top-10";
 import Header from "@/components/site/site-header";
+import SceneSection from "@/components/scene/scene-section";
 
 // json
 import ArtistData from "@/json/artist.json";
+import SceneData from "@/json/scene.json";
 
 export default function Home() {
   return (
     <div className="">
       <div
-        className="flex justify-center items-center h-screen w-full bg-cover bg-no-repeat bg-center bg-textColor "
+        className="flex justify-center items-center h-screen w-full bg-cover bg-no-repeat bg-center bg-textColor 
+        before:bg-black-40 before:absolute before:top-0 before:left-0 before:w-full before:h-full
+        "
         style={{
-          backgroundImage: `url(${BannerImage})`,
+          backgroundImage: `url(https://achieveee.com/riffcuria/home_banner.png)`,
         }}
       >
         <article
-          className="flex justify-center items-center 
+          className="flex justify-center items-center relative z-[10]
         text-seashell text-6xl font-bold leading-[80px] uppercase text-center"
         >
           Tune in with Riffcuria
@@ -54,6 +57,17 @@ export default function Home() {
       </div>
       <div className="mb-22">
         <WeeksTop10 />
+      </div>
+
+      <div className="site-container mb-[156px]">
+        <SceneSection
+          SceneData={SceneData}
+          ViewMoreLink="/"
+          Title="The scene"
+          DesktopLimits={5}
+          MobileLimits={5}
+          isLoadMore={false}
+        />
       </div>
     </div>
   );

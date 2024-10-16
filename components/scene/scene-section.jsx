@@ -3,18 +3,16 @@ import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import MediaCard from "@/components/songs/media-card";
+import SceneCard from "@/components/scene/scene-card";
 import SubSectionHeading from "@/components/site/sub-section-heading";
 
-const MediaSection = ({
-    MediaType,
-    ArtistData,
+const SceneSection = ({
+    SceneData,
     ViewMoreLink,
     Title,
-    GridClass,
-    DesktopLimits,
-    MobileLimits,
-    isLoadMore,
+    DesktopLimits = 5,
+    MobileLimits = 5,
+    isLoadMore = false,
 }) => {
     const settings = {
         dots: true,
@@ -35,7 +33,7 @@ const MediaSection = ({
     };
 
     return (
-        <div data-media-type={MediaType}>
+        <div>
             <article className="flex justify-between items-center gap-7.5 mb-8">
                 <SubSectionHeading SectionTitle={Title && Title} />
                 {ViewMoreLink ? (
@@ -55,23 +53,22 @@ const MediaSection = ({
                     {...settings}
                     className="overflow-hidden flex w-[calc(100%+2*32px)] -ml-8 md:ml-0"
                 >
-                    {ArtistData &&
-                        ArtistData.slice(0, `${MobileLimits ? MobileLimits : "20"}`).map(
+                    {SceneData &&
+                        SceneData.slice(0, `${MobileLimits ? MobileLimits : "20"}`).map(
                             (item, index) => (
-                                <MediaCard key={index} singleartist={item} />
+                                <SceneCard key={index} SingleScene={item} />
                             )
                         )}
                 </Slider>
             </div>
 
             <div
-                className={`hidden md:grid gap-4 lg:gap-y-[72px] ${GridClass ? GridClass : "grid-cols-5"
-                    }`}
+                className={`hidden md:grid gap-4 grid-cols-5`}
             >
-                {ArtistData &&
-                    ArtistData.slice(0, `${DesktopLimits ? DesktopLimits : "20"}`).map(
+                {SceneData &&
+                    SceneData.slice(0, `${DesktopLimits ? DesktopLimits : "20"}`).map(
                         (item, index) => (
-                            <MediaCard key={index} singleartist={item} />
+                            <SceneCard key={index} SingleScene={item} />
                         )
                     )}
             </div>
@@ -90,4 +87,4 @@ const MediaSection = ({
     );
 };
 
-export default MediaSection;
+export default SceneSection;

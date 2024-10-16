@@ -12,7 +12,7 @@ import TopReviews from "@/components/reviews/top-review";
 import TopRated from "@/components/profile/top-rated";
 import RatingsHistory from "@/components/profile/ratings-history";
 import Favourites from "@/components/profile/favourites";
-import MediaSection from "@/components/songs/media-section";
+import MediaSection from "@/components/media/media-section";
 import Newsletter from "@/components/site/newsletter";
 import Header from "@/components/site/site-header";
 
@@ -224,7 +224,7 @@ export default function Profile() {
                                                 <div className="mt-22">
                                                     <MediaSection
                                                         GridClass="grid-cols-3 lg:gap-x-[72px]"
-                                                        Title="Favourite SONGS"
+                                                        Title="Favourite Albums"
                                                         ViewMoreLink=""
                                                         ArtistData={ArtistData}
                                                         isLoadMore="true"

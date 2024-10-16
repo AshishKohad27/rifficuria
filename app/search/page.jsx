@@ -2,7 +2,7 @@
 // import React from "react";
 
 // Components
-import MediaSection from "@/components/songs/media-section";
+import MediaSection from "@/components/media/media-section";
 import Newsletter from "@/components/site/newsletter";
 import WeeksTop10 from "@/components/site//weeks-top-10";
 import Dropdown from "@/components/site/dropdown";

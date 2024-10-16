@@ -93,7 +93,7 @@ const ArtistInfo = () => {
             </div>
             <div>
               <WriteReview
-                ReviewFor="Songs"
+                ReviewFor="album/song"
                 Title="Write Review"
                 ButtonClass="w-full text-seashell bg-indigo uppercase"
               />
@@ -128,7 +128,7 @@ const ArtistInfo = () => {
           onClick={closeModal}
         >
           <div
-            className="bg-snow py-8 md:py-10 px-4 md:px-6 lg:rounded-2xl shadow-lg w-full lg:max-w-[557px] h-full max-h-[715px]
+            className="bg-snow py-8 md:py-10 px-4 md:px-6 lg:rounded-2xl shadow-lg w-full lg:max-w-[557px] h-[calc(100vh-2*32px)] max-h-[715px]
             border-0 lg:border border-textColor relative flex justify-center items-center"
             onClick={(e) => e.stopPropagation()}
           >

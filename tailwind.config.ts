@@ -54,6 +54,8 @@ const config: Config = {
         snow: "#FFFAF9",
         coral: "#FF5F6F",
         midnight: "#FF5F6F",
+        "black-40": "rgba(0, 0, 0, 0.4)",
+        "Lace-50": "rgba(251, 240, 236, 0.50)"
       },
       spacing: {
         "0.75": "0.188rem", // 3px

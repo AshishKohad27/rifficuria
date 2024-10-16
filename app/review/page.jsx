@@ -2,7 +2,7 @@ import React from "react";
 
 // Components
 import Header from "@/components/site/site-header";
-import AlbumInfo from "@/components/album/album-info";
+import MediaInfo from "@/components/media/media-info";
 import Newsletter from "@/components/site/newsletter";
 import TopReviews from "@/components/reviews/top-review";
 import MoreReviews from "@/components/reviews/more-reviews";
@@ -17,7 +17,7 @@ export default function Reviews() {
       <main className="mt-20 lg:mt-16">
         <div className="site-container">
           <div>
-            <AlbumInfo hideRating={false} />
+            <MediaInfo hideRating={false} />
           </div>
 
           <div className="grid grid-cols-10">

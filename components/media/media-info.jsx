@@ -6,7 +6,7 @@ import ArtistProfile from "@/public/review/reviewheroavtar.png";
 
 import ArtistPhoto from "@/public/artist/ArtistPhoto.png";
 import Login from "@/components/site/authentication/login";
-import WriteReviewForTrack from "@/components/album/write-review-for-track";
+import WriteReviewForAlbum from "@/components/album/write-review-for-album";
 
 const ArtistInfoData = {
     artist: {
@@ -26,7 +26,7 @@ const ArtistInfoData = {
     },
 };
 
-const AlbumInfo = ({ hideRating }) => {
+const MediaInfo = ({ hideRating, mediaInfoFor }) => {
     return (
         <div className="flex flex-col gap-8 md:gap-22">
             <div className="flex gap-6 md:gap-8 flex-col lg:flex-row">
@@ -55,6 +55,11 @@ const AlbumInfo = ({ hideRating }) => {
                         <h2 className="text-textColor text-2xl md:text-5xl font-bold leading-7.5 md:leading-13 capitalize">
                             hit me hard and soft
                         </h2>
+                        {mediaInfoFor && mediaInfoFor === "songs" ? (
+                            <h2 className="text-indigo text-2xl font-bold leading-7.5 uppercase mt-2 md:mt-4">
+                                From The Motion Picture &quot;Barbie&quot;
+                            </h2>
+                        ) : null}
                     </div>
                     <div className="mt-8 flex lg:hidden justify-center items-center w-full lg:max-w-[448px] aspect-square rounded-2xl">
                         <Image
@@ -64,7 +69,9 @@ const AlbumInfo = ({ hideRating }) => {
                         />
                     </div>
                     <div className="mt-8 md:mt-4 text-textColor text-base font-normal flex flex-col gap-2 md:gap-0.75">
-                        <p className="">10 Tracks</p>
+                        {mediaInfoFor && mediaInfoFor === "album" ? (
+                            <p className="">10 Tracks</p>
+                        ) : null}
                         <div className="flex gap-1">
                             <p className="font-semibold">Release Date :</p>
                             <p className="font-normal"> May 17, 2024</p>
@@ -75,7 +82,9 @@ const AlbumInfo = ({ hideRating }) => {
                         </div>
                         <div className="flex gap-1">
                             <p className="font-semibold">Genre :</p>
-                            <p className="font-normal">Pop, Alternative, Electronic</p>
+                            <p className="font-normal">
+                                Pop, Alternative, Electronic
+                            </p>
                         </div>
                         <div className="flex gap-1">
                             <p className="font-semibold">Duration : </p>
@@ -84,13 +93,13 @@ const AlbumInfo = ({ hideRating }) => {
                     </div>
                     <div className="mt-7 md:mt-6">
                         <p className="text-textColor text-base font-normal">
-                            Billie Eilish&apos;s third studio album, &quot;HIT ME HARD AND SOFT&quot;,
-                            released via Darkroom/Interscope Records is her most daring body
-                            of work to date, a diverse yet cohesive collection of songs—
-                            ideally listened to in its entirety from beginning to end—does
-                            exactly as the album title suggests; hits you hard and soft both
-                            lyrically and sonically, while bending genres and defying trends
-                            along the way.
+                            Billie Eilish&apos;s third studio album, &quot;HIT ME
+                            HARD AND SOFT&quot;, released via Darkroom/Interscope Records
+                            is her most daring body of work to date, a diverse yet cohesive
+                            collection of songs—ideally listened to in its entirety from
+                            beginning to end—does exactly as the album title suggests; hits
+                            you hard and soft both lyrically and sonically, while bending
+                            genres and defying trends along the way.
                         </p>
                     </div>
                 </div>
@@ -130,8 +139,8 @@ const AlbumInfo = ({ hideRating }) => {
                             />
                         </div>
                         <div>
-                            <WriteReviewForTrack
-                                ReviewFor="track"
+                            <WriteReviewForAlbum
+                                ReviewFor="album"
                                 Title="WRITE A REVIEW"
                                 ButtonClass="w-full text-seashell bg-indigo uppercase"
                             />
@@ -166,4 +175,4 @@ const AlbumInfo = ({ hideRating }) => {
     );
 };
 
-export default AlbumInfo;
+export default MediaInfo;

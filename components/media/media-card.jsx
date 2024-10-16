@@ -4,8 +4,9 @@ import Image from "next/image";
 import star from "@/public/artist/Star.png";
 import likebtn from "@/public/artist/likebutton3.png";
 import defaultArtistImage from "@/public/artist/cardimg1.png"; // Default artist image
+import Link from "next/link";
 
-const MediaCard = ({ singleartist }) => {
+const MediaCard = ({ singleartist, MediaType }) => {
   const [liked, setLiked] = useState(false);
 
   const toggleLike = () => {
@@ -24,7 +25,7 @@ const MediaCard = ({ singleartist }) => {
 
   return (
     <>
-      <div className="card mr-3 md:mr-0">
+      <Link href={`${MediaType && MediaType === "songs" ? `/songs/${singleartist.id}` : `/album/${singleartist.id}`}`} className="card mr-3 md:mr-0">
         <div className="mb-1 relative rounded-2xl overflow-hidden">
           <img
             src={image}
@@ -72,7 +73,7 @@ const MediaCard = ({ singleartist }) => {
             </p>
           </div>
         </div>
-      </div>
+      </Link>
     </>
   );
 };
