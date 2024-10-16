@@ -1,74 +1,254 @@
 [
   {
-      "id": 1,
-      "title": "Home",
-      "url": "/",
-      "isAccessible": true,
-      "warningComment": "Warning: Mobile view not done yet.",
-      "errorComment": ""
+    "id": 1,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg1.png",
+    "songName": "What was i made for",
+    "songDescription": "Barbie (OST)",
+    "stars": 4,
+    "starCount": 4521,
+    "reviewscount": 9972
   },
   {
-      "id": 2,
-      "title": "About",
-      "url": "/about",
-      "isAccessible": true,
-      "warningComment": "",
-      "errorComment": ""
+    "id": 2,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg2.png",
+    "songName": "bad guy",
+    "songDescription": "when we all fall asleep, where do we go?",
+    "stars": 3,
+    "starCount": 41,
+    "reviewscount": 271
   },
   {
-      "id": 3,
-      "title": "Album",
-      "url": "/album",
-      "isAccessible": true,
-      "warningComment": "Warning: The editor in the modal is not functioning correctly in the development environment. Warning: Mobile view not done yet.",
-      "errorComment": ""
+    "id": 3,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg3.png",
+    "songName": "Birds of a feather",
+    "songDescription": "hit me hard and soft",
+    "stars": 4,
+    "starCount": 3241,
+    "reviewscount": 2356
   },
   {
-      "id": 4,
-      "title": "Artist",
-      "url": "/artist",
-      "isAccessible": true,
-      "warningComment": "Warning: The editor in the modal is not functioning correctly in the development environment. Warning: Mobile view not done yet.",
-      "errorComment": ""
+    "id": 4,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg4.png",
+    "songName": "Chihiro",
+    "songDescription": "hit me hard and soft",
+    "stars": 5,
+    "starCount": 412,
+    "reviewscount": 6956
   },
   {
-      "id": 5,
-      "title": "Contact",
-      "url": "/contact",
-      "isAccessible": true,
-      "warningComment": "",
-      "errorComment": ""
+    "id": 5,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg5.png",
+    "songName": "happier than ever",
+    "songDescription": "happier than ever",
+    "stars": 4,
+    "starCount": 412,
+    "reviewscount": 956
   },
   {
-      "id": 6,
-      "title": "Profile",
-      "url": "/profile",
-      "isAccessible": true,
-      "warningComment": "",
-      "errorComment": ""
+    "id": 6,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg6.png",
+    "songName": "billie bossa nova",
+    "songDescription": "happier than ever",
+    "stars": 2,
+    "starCount": 331,
+    "reviewscount": 9972
   },
   {
-      "id": 7,
-      "title": "Review",
-      "url": "/review",
-      "isAccessible": true,
-      "warningComment": "Warning: The editor in the modal is not functioning correctly in the development environment. Warning: Mobile view not done yet.",
-      "errorComment": ""
+    "id": 7,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg1.png",
+    "songName": "bittersuite",
+    "songDescription": "hit me hard and soft",
+    "stars": 3,
+    "starCount": 41,
+    "reviewscount": 92
   },
   {
-      "id": 8,
-      "title": "Search",
-      "url": "/search",
-      "isAccessible": true,
-      "warningComment": "Warning: Mobile view not done yet.",
-      "errorComment": ""
+    "id": 8,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg2.png",
+    "songName": "bury a friend",
+    "songDescription": "when we all fall asleep, where do we go?",
+    "stars": 3,
+    "starCount": 41,
+    "reviewscount": 2356
   },
   {
-      "id": 9,
-      "title": "Terms",
-      "url": "/terms",
-      "isAccessible": true,
-      "warningComment": "",
-      "errorComment": ""
+    "id": 9,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg3.png",
+    "songName": "getting older",
+    "songDescription": "happier than ever",
+    "stars": 4,
+    "starCount": 471,
+    "reviewscount": 932
+  },
+  {
+    "id": 10,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg4.png",
+    "songName": "listen before i go",
+    "songDescription": "when we all fall asleep, where do we go?",
+    "stars": 5,
+    "starCount": 441,
+    "reviewscount": 956
+  },
+  {
+    "id": 1,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg1.png",
+    "songName": "What was i made for",
+    "songDescription": "Barbie (OST)",
+    "stars": 4,
+    "starCount": 4521,
+    "reviewscount": 9972
+  },
+  {
+    "id": 2,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg2.png",
+    "songName": "bad guy",
+    "songDescription": "when we all fall asleep, where do we go?",
+    "stars": 3,
+    "starCount": 41,
+    "reviewscount": 271
+  },
+  {
+    "id": 3,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg3.png",
+    "songName": "Birds of a feather",
+    "songDescription": "hit me hard and soft",
+    "stars": 4,
+    "starCount": 3241,
+    "reviewscount": 2356
+  },
+  {
+    "id": 4,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg4.png",
+    "songName": "Chihiro",
+    "songDescription": "hit me hard and soft",
+    "stars": 5,
+    "starCount": 412,
+    "reviewscount": 6956
+  },
+  {
+    "id": 5,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg5.png",
+    "songName": "happier than ever",
+    "songDescription": "happier than ever",
+    "stars": 4,
+    "starCount": 412,
+    "reviewscount": 956
+  },
+  {
+    "id": 6,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg6.png",
+    "songName": "billie bossa nova",
+    "songDescription": "happier than ever",
+    "stars": 2,
+    "starCount": 331,
+    "reviewscount": 9972
+  },
+  {
+    "id": 7,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg1.png",
+    "songName": "bittersuite",
+    "songDescription": "hit me hard and soft",
+    "stars": 3,
+    "starCount": 41,
+    "reviewscount": 92
+  },
+  {
+    "id": 8,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg2.png",
+    "songName": "bury a friend",
+    "songDescription": "when we all fall asleep, where do we go?",
+    "stars": 3,
+    "starCount": 41,
+    "reviewscount": 2356
+  },
+  {
+    "id": 9,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg3.png",
+    "songName": "getting older",
+    "songDescription": "happier than ever",
+    "stars": 4,
+    "starCount": 471,
+    "reviewscount": 932
+  },
+  {
+    "id": 1,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg1.png",
+    "songName": "What was i made for",
+    "songDescription": "Barbie (OST)",
+    "stars": 4,
+    "starCount": 4521,
+    "reviewscount": 9972
+  },
+  {
+    "id": 2,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg2.png",
+    "songName": "bad guy",
+    "songDescription": "when we all fall asleep, where do we go?",
+    "stars": 3,
+    "starCount": 41,
+    "reviewscount": 271
+  },
+  {
+    "id": 3,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg3.png",
+    "songName": "Birds of a feather",
+    "songDescription": "hit me hard and soft",
+    "stars": 4,
+    "starCount": 3241,
+    "reviewscount": 2356
+  },
+  {
+    "id": 4,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg4.png",
+    "songName": "Chihiro",
+    "songDescription": "hit me hard and soft",
+    "stars": 5,
+    "starCount": 412,
+    "reviewscount": 6956
+  },
+  {
+    "id": 5,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg5.png",
+    "songName": "happier than ever",
+    "songDescription": "happier than ever",
+    "stars": 4,
+    "starCount": 412,
+    "reviewscount": 956
+  },
+  {
+    "id": 6,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg6.png",
+    "songName": "billie bossa nova",
+    "songDescription": "happier than ever",
+    "stars": 2,
+    "starCount": 331,
+    "reviewscount": 9972
+  },
+  {
+    "id": 7,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg1.png",
+    "songName": "bittersuite",
+    "songDescription": "hit me hard and soft",
+    "stars": 3,
+    "starCount": 41,
+    "reviewscount": 92
+  },
+  {
+    "id": 8,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg2.png",
+    "songName": "bury a friend",
+    "songDescription": "when we all fall asleep, where do we go?",
+    "stars": 3,
+    "starCount": 41,
+    "reviewscount": 2356
+  },
+  {
+    "id": 9,
+    "image": "https://achieveee.com/riffcuria/artist/cardimg3.png",
+    "songName": "getting older",
+    "songDescription": "happier than ever",
+    "stars": 4,
+    "starCount": 471,
+    "reviewscount": 932
   }
 ]
