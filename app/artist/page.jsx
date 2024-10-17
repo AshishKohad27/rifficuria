@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useReducer } from "react";
+import { useEffect } from "react";
 import Image from "next/image";
 import ArtistBanner from "@/public/artist/artist-cover.png";
 
