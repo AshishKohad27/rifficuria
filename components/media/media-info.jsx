@@ -3,10 +3,14 @@ import React from "react";
 import Image from "next/image";
 import AlbumBanner from "@/public/review/reviewhero.png";
 import ArtistProfile from "@/public/review/reviewheroavtar.png";
-
 import ArtistPhoto from "@/public/artist/ArtistPhoto.png";
+
+// Components
 import Login from "@/components/site/authentication/login";
 import WriteReviewForAlbum from "@/components/album/write-review-for-album";
+
+// Context
+import { useVisibility } from "@/context/artist-visibility-reducer";
 
 const ArtistInfoData = {
     artist: {
@@ -27,6 +31,8 @@ const ArtistInfoData = {
 };
 
 const MediaInfo = ({ hideRating, mediaInfoFor }) => {
+    const { state } = useVisibility();
+
     return (
         <div className="flex flex-col gap-8 md:gap-22">
             <div className="flex gap-6 md:gap-8 flex-col lg:flex-row">
@@ -56,7 +62,7 @@ const MediaInfo = ({ hideRating, mediaInfoFor }) => {
                             hit me hard and soft
                         </h2>
                         {mediaInfoFor && mediaInfoFor === "songs" ? (
-                            <h2 className="text-indigo text-2xl font-bold leading-7.5 uppercase mt-2 md:mt-4">
+                            <h2 className="text-indigo text-base md:text-2xl font-bold leading-5.5 md:leading-7.5 uppercase mt-2 md:mt-4">
                                 From The Motion Picture &quot;Barbie&quot;
                             </h2>
                         ) : null}
@@ -69,7 +75,7 @@ const MediaInfo = ({ hideRating, mediaInfoFor }) => {
                         />
                     </div>
                     <div className="mt-8 md:mt-4 text-textColor text-base font-normal flex flex-col gap-2 md:gap-0.75">
-                        {mediaInfoFor && mediaInfoFor === "album" ? (
+                        {mediaInfoFor && mediaInfoFor === "album" || mediaInfoFor === "review" ? (
                             <p className="">10 Tracks</p>
                         ) : null}
                         <div className="flex gap-1">
@@ -106,7 +112,7 @@ const MediaInfo = ({ hideRating, mediaInfoFor }) => {
             </div>
 
             <div className="grid grid-cols-10">
-                <div className="col-span-10 lg:col-span-7 mb-22">
+                <div className={`col-span-10 lg:col-span-7 ${state && state.isComponentVisible ? "mb-22" : ""}`}>
                     {hideRating ? (
                         <div className="col-span-12 lg:col-span-3 flex lg:hidden items-end justify-end -ml-8 lg:ml-0 w-[calc(100%+2*32px)] lg:w-full">
                             <div className="overflow-auto w-full lg:max-w-[248px]">
@@ -171,7 +177,7 @@ const MediaInfo = ({ hideRating, mediaInfoFor }) => {
                     </div>
                 ) : null}
             </div>
-        </div>
+        </div >
     );
 };
 

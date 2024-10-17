@@ -1,10 +1,18 @@
 "use client";
 import React from "react";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+
+// Components
 import SceneCard from "@/components/scene/scene-card";
 import SubSectionHeading from "@/components/site/sub-section-heading";
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Grid, Pagination } from "swiper/modules";
+
+// Import Swiper styles
+import "swiper/css/grid";
+import "swiper/css";
+import "swiper/css/pagination";
 
 const SceneSection = ({
     SceneData,
@@ -14,23 +22,6 @@ const SceneSection = ({
     MobileLimits = 5,
     isLoadMore = false,
 }) => {
-    const settings = {
-        dots: true,
-        infinite: false,
-        speed: 500,
-        slidesToShow: 2.1,
-        slidesToScroll: 2.1,
-        centerPadding: "20px",
-        responsive: [
-            {
-                breakpoint: 320,
-                settings: {
-                    slidesToShow: 2.3,
-                    slidesToScroll: 2.3,
-                },
-            },
-        ],
-    };
 
     return (
         <div>
@@ -49,17 +40,31 @@ const SceneSection = ({
             </article>
 
             <div className="block md:hidden">
-                <Slider
-                    {...settings}
-                    className="overflow-hidden flex w-[calc(100%+2*32px)] -ml-8 md:ml-0"
+                <Swiper
+                    spaceBetween={16}
+                    slidesPerView={1}
+                    breakpoints={{
+                        320: {
+                            slidesPerView: 2.1,
+                            spaceBetween: 16,
+                        },
+                        768: {
+                            slidesPerView: 2.8,
+                            spaceBetween: 16,
+                        },
+                    }}
+                    modules={[Grid, Pagination]}
+                    className="overflow-hidden flex w-[calc(100%+2*32px)] lg:w-full !ml-[-32px] lg:!ml-0 !pl-8 lg:!pl-0"
                 >
                     {SceneData &&
                         SceneData.slice(0, `${MobileLimits ? MobileLimits : "20"}`).map(
                             (item, index) => (
-                                <SceneCard key={index} SingleScene={item} />
+                                <SwiperSlide key={index}>
+                                    <SceneCard SingleScene={item} />
+                                </SwiperSlide>
                             )
                         )}
-                </Slider>
+                </Swiper>
             </div>
 
             <div

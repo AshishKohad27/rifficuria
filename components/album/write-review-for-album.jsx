@@ -5,6 +5,8 @@ import Image from "next/image";
 import star from "@/public/artist/Star.png";
 import writereviewavtar from "@/public/write-review/write-rivew-avtar.png";
 
+import { useVisibility } from '@/context/artist-visibility-reducer';
+
 // const initialState = {
 //     search_term: "",
 // };
@@ -13,10 +15,13 @@ export default function WriteReviewForAlbum({ ReviewFor, Title, ButtonClass }) {
     // const [formData, setFormData] = useState(initialState);
     const [isOpen, setIsOpen] = useState(false);
 
-    useEffect(() => { }, []);
+    const { dispatch, state } = useVisibility();
+
+    useEffect(() => { }, [state]);
 
     const toggleModal = () => {
         setIsOpen(!isOpen);
+        dispatch({ type: 'TOGGLE_COMPONENT_TRUE' });
     };
 
     const closeModal = (e) => {
@@ -24,6 +29,7 @@ export default function WriteReviewForAlbum({ ReviewFor, Title, ButtonClass }) {
         if (e.target.id === "modal-overlay") {
             setIsOpen(false);
         }
+        dispatch({ type: 'TOGGLE_COMPONENT_TRUE' });
     };
 
     // const handleOnChange = (e) => {
@@ -41,21 +47,39 @@ export default function WriteReviewForAlbum({ ReviewFor, Title, ButtonClass }) {
 
     // const { search_term } = formData;
 
+    const handleMobileView = () => {
+        dispatch({ type: 'TOGGLE_COMPONENT' });
+    };
+
     return (
         <>
-            <button
-                data-button-type={ReviewFor}
-                onClick={toggleModal}
-                type="button"
-                className={`px-4 pt-2.25 pb-1.75 rounded-3xl flex justify-center items-center ${ButtonClass}`}
-            >
-                <span className="text-base font-normal">{Title && Title}</span>
-            </button>
+            <div>
+                <button
+                    data-button-type={ReviewFor}
+                    onClick={toggleModal}
+                    type="button"
+                    className={`px-4 pt-2.25 pb-1.75 rounded-3xl hidden md:flex justify-center items-center ${ButtonClass}`}
+                >
+                    <span className="text-base font-normal">{Title && Title}</span>
+                </button>
+                <button
+                    data-button-type={ReviewFor}
+                    onClick={() => {
+                        toggleModal();
+                        handleMobileView();
+                    }}
+                    type="button"
+                    className={`px-4 pt-2.25 pb-1.75 rounded-3xl flex md:hidden justify-center items-center ${ButtonClass} 
+                        ${state && !state.isComponentVisible ? "!hidden" : ""}`}
+                >
+                    <span className="text-base font-normal">{Title && Title}</span>
+                </button>
+            </div>
 
             {isOpen && (
                 <div
                     id="modal-overlay"
-                    className="mt-10 md:mt-0 md:fixed inset-0 bg-seashell md:bg-opacity-50 md:backdrop-blur-5 flex items-center justify-center z-[100]"
+                    className="mt-0 md:mt-0 md:fixed inset-0 bg-seashell md:bg-opacity-50 md:backdrop-blur-5 flex items-center justify-center z-[100]"
                     onClick={closeModal}
                 >
                     <div

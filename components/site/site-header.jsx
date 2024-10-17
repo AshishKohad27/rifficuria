@@ -8,7 +8,7 @@ import Image from "next/image";
 import HeaderData from "@/json/header.json";
 import Login from "@/components/site/authentication/login";
 
-const Header = () => {
+const Header = ({ ParentClass = "" }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     useEffect(() => { }, [isMenuOpen]);
 
@@ -23,7 +23,7 @@ const Header = () => {
     return (
         <>
             <header className="mt-0 lg:mt-16">
-                <div className="site-container">
+                <div className={`site-container ${ParentClass}`}>
                     <div className="flex justify-between items-center gap-4">
                         <Link
                             href="/"
@@ -84,7 +84,7 @@ const Header = () => {
                 {/* Dropdown menu for mobile view */}
                 {isMenuOpen && (
 
-                    <section className="fixed h-[100vh] w-full left-0 top-0 bg-[#FBF0ECCC] z-[1] backdrop-blur-5">
+                    <section className="fixed h-[100vh] w-full left-0 top-0 bg-[#FBF0ECCC] z-[100] backdrop-blur-5">
                         <div className="site-container">
                             <div className="flex justify-between items-center gap-4">
                                 <Link

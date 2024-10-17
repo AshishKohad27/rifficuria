@@ -137,11 +137,6 @@ const TopReviews = ({
                                     </div>
 
                                     {showReviewResponses ? (
-                                        <div className="flex justify-center items-center gap-0.5 cursor-pointer">
-                                            <TbMessageCircleFilled className="w-[18px] h-[18px]" />
-                                            <p className="text-xs text-textColor">{item.msgcount}</p>
-                                        </div>
-                                    ) : (
                                         <button
                                             onClick={() => handelSubCommentBox(index)}
                                             className="flex justify-center items-center gap-0.5 cursor-pointer"
@@ -149,6 +144,11 @@ const TopReviews = ({
                                             <TbMessageCircleFilled className="w-[18px] h-[18px]" />
                                             <p className="text-xs text-textColor">{item.msgcount}</p>
                                         </button>
+                                    ) : (
+                                        <div className="flex justify-center items-center gap-0.5 cursor-pointer">
+                                            <TbMessageCircleFilled className="w-[18px] h-[18px]" />
+                                            <p className="text-xs text-textColor">{item.msgcount}</p>
+                                        </div>
                                     )}
 
                                     <div>
@@ -183,57 +183,60 @@ const TopReviews = ({
                                             />
                                         </div>
                                     </form>
-
-                                    {/* Render comments */}
-                                    {comments[index] &&
-                                        comments[index].map((comment, i) => (
-                                            <div key={i} className="w-[calc(100%-114px)] ml-auto">
-                                                <div className="py-4 flex flex-col gap-4">
-                                                    <div className="flex flex-col gap-2">
-                                                        <div className="w-8 h-8 rounded-full">
-                                                            <Image
-                                                                className="w-full h-full rounded-full"
-                                                                src={reviewsmodal}
-                                                                alt="reviewmodal"
-                                                            />
-                                                        </div>
-                                                        <p className="text-textColor text-base font-normal leading-5.5">
-                                                            <span className="text-indigo">User</span> replied:
-                                                        </p>
-                                                    </div>
-                                                    <p className="text-textColor text-base font-normal leading-5.5">
-                                                        {comment}
-                                                    </p>
-                                                    <div className="flex gap-4 mb-6">
-                                                        <MdOutlineIosShare className="w-[18px] h-[18px]" />
-                                                        <IoMdHeart className="w-[18px] h-[18px]" />
-                                                        <IoFlag className="w-[18px] h-[18px]" />
-                                                        <div className="w-[18px] h-[18px] flex justify-center items-center">
-                                                            <svg
-                                                                className="w-[18px] h-[18px]"
-                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                width="16"
-                                                                height="16"
-                                                                viewBox="0 0 16 16"
-                                                                fill="none"
-                                                            >
-                                                                <path
-                                                                    d="M6.67188 2.23982C6.97136 2.37264 7.16667 2.67211 7.16667 3.00024V4.66691H10.0833C12.6146 4.66691 14.6667 6.71899 14.6667 9.25024C14.6667 12.2008 12.5443 13.5185 12.0573 13.7841C11.9922 13.8206 11.9193 13.8336 11.8464 13.8336C11.5625 13.8336 11.3333 13.6018 11.3333 13.3206C11.3333 13.1252 11.4453 12.9456 11.5885 12.8127C11.8333 12.5836 12.1667 12.1252 12.1667 11.3362C12.1667 9.95597 11.0469 8.83618 9.66667 8.83618H7.16667V10.5028C7.16667 10.831 6.97396 11.1304 6.67188 11.2633C6.36979 11.3961 6.02084 11.3414 5.77604 11.1226L1.60938 7.37264C1.4349 7.21118 1.33334 6.98722 1.33334 6.75024C1.33334 6.51326 1.4349 6.2893 1.60938 6.13045L5.77604 2.38045C6.02084 2.15909 6.3724 2.10441 6.67188 2.23982Z"
-                                                                    fill="#221C3D"
-                                                                />
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        ))}
                                 </div>
                             ) : null}
+
+                            {/* Render comments */}
+                            {showReviewResponses && comments[index] &&
+                                comments[index].map((comment, i) => (
+                                    <div key={i} className="w-[calc(100%-114px)] ml-auto">
+                                        <div className="py-4 flex flex-col gap-4">
+                                            <div className="flex flex-col gap-2">
+                                                <div className="w-8 h-8 rounded-full">
+                                                    <Image
+                                                        className="w-full h-full rounded-full"
+                                                        src={reviewsmodal}
+                                                        alt="reviewmodal"
+                                                    />
+                                                </div>
+                                                <p className="text-textColor text-base font-normal leading-5.5">
+                                                    <span className="text-indigo">User</span> replied:
+                                                </p>
+                                            </div>
+                                            <p className="text-textColor text-base font-normal leading-5.5">
+                                                {comment}
+                                            </p>
+                                            <div className="flex gap-4 mb-6">
+                                                <MdOutlineIosShare className="w-[18px] h-[18px]" />
+                                                <div className="flex justify-center items-center gap-0.5">
+                                                    <IoMdHeart className="w-[18px] h-[18px]" />
+                                                    <p className="text-xs text-textColor">{item.likecount}</p>
+                                                </div>
+                                                <IoFlag className="w-[18px] h-[18px]" />
+                                                <div className="w-[18px] h-[18px] flex justify-center items-center">
+                                                    <svg
+                                                        className="w-[18px] h-[18px]"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        width="16"
+                                                        height="16"
+                                                        viewBox="0 0 16 16"
+                                                        fill="none"
+                                                    >
+                                                        <path
+                                                            d="M6.67188 2.23982C6.97136 2.37264 7.16667 2.67211 7.16667 3.00024V4.66691H10.0833C12.6146 4.66691 14.6667 6.71899 14.6667 9.25024C14.6667 12.2008 12.5443 13.5185 12.0573 13.7841C11.9922 13.8206 11.9193 13.8336 11.8464 13.8336C11.5625 13.8336 11.3333 13.6018 11.3333 13.3206C11.3333 13.1252 11.4453 12.9456 11.5885 12.8127C11.8333 12.5836 12.1667 12.1252 12.1667 11.3362C12.1667 9.95597 11.0469 8.83618 9.66667 8.83618H7.16667V10.5028C7.16667 10.831 6.97396 11.1304 6.67188 11.2633C6.36979 11.3961 6.02084 11.3414 5.77604 11.1226L1.60938 7.37264C1.4349 7.21118 1.33334 6.98722 1.33334 6.75024C1.33334 6.51326 1.4349 6.2893 1.60938 6.13045L5.77604 2.38045C6.02084 2.15909 6.3724 2.10441 6.67188 2.23982Z"
+                                                            fill="#221C3D"
+                                                        />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
                         </div>
                     ))}
             </div>
 
-            <div className="py-4 flex flex-col gap-8 my-[88px]">
+            <div className="md:py-4 flex flex-col gap-8 mt-10 mb-20 md:my-[88px]">
                 {visibleReviews < ReviewsData.length && (
                     <button
                         onClick={loadMore}

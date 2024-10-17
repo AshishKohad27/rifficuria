@@ -5,7 +5,7 @@ const SceneCard = ({ SingleScene }) => {
 
 
   return (
-    <div className="rounded-2xl h-[352px] bg-center bg-no-repeat bg-cover flex flex-col justify-end px-4 py-5 bg-red-500"
+    <div className="rounded-2xl h-[352px] bg-center bg-no-repeat bg-cover flex flex-col justify-end px-4 py-5"
       style={{
         backgroundImage: `url(${SingleScene && SingleScene.image})`,
       }}

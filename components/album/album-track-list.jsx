@@ -11,6 +11,10 @@ import SubSectionHeading from "@/components/site/sub-section-heading";
 import Stars from "@/components/site/stars";
 // import Richtexteditor from "@/components/richtexteditor";
 
+// Context
+import { useVisibility } from '@/context/artist-visibility-reducer';
+
+
 export default function AlbumTrackList({
     Title,
     AlbumTrackListData,
@@ -18,12 +22,16 @@ export default function AlbumTrackList({
     isDataAvailable = false,
 }) {
 
+
+    const { dispatch, state } = useVisibility();
+
     const [isOpen, setIsOpen] = useState(false);
 
-    useEffect(() => { }, []);
+    useEffect(() => { }, [state]);
 
     const toggleModal = () => {
         setIsOpen(!isOpen);
+        dispatch({ type: 'TOGGLE_COMPONENT' });
     };
 
     const closeModal = (e) => {
@@ -31,11 +39,12 @@ export default function AlbumTrackList({
         if (e.target.id === "modal-overlay") {
             setIsOpen(false);
         }
+        dispatch({ type: 'TOGGLE_COMPONENT_TRUE' });
     };
 
     return (
         <>
-            {isDataAvailable ? (
+            {isDataAvailable && state && state.isComponentVisible ? (
                 <section className="mb-20 md:mb-22 -ml-2.625 md:ml-0 w-[calc(100%+2*10.5px)] md:w-full lg:max-w-[616px]">
                     <div className="mb-6 md:mb-8">
                         <SubSectionHeading SectionTitle={Title} />
@@ -72,7 +81,7 @@ export default function AlbumTrackList({
             {isOpen && (
                 <div
                     id="modal-overlay"
-                    className="mt-10 md:mt-0 md:fixed inset-0 bg-seashell md:bg-opacity-50 md:backdrop-blur-5 flex items-center justify-center z-[100]"
+                    className="mt-0 md:mt-0 md:fixed inset-0 bg-seashell md:bg-opacity-50 md:backdrop-blur-5 flex items-center justify-center z-[100]"
                     onClick={closeModal}
                 >
                     <div

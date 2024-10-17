@@ -23,7 +23,7 @@ export default function Home() {
         }}
       >
         <article
-          className="flex justify-center items-center relative z-[10]
+          className="hidden md:flex justify-center items-center relative z-[10]
         text-seashell text-6xl font-bold leading-[80px] uppercase text-center"
         >
           Tune in with Riffcuria
@@ -34,7 +34,7 @@ export default function Home() {
         </article>
       </div>
       <div>
-        <Header />
+        <Header ParentClass="absolute md:static top-0 left-0" />
       </div>
 
       <div className="site-container">

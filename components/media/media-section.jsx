@@ -51,11 +51,11 @@ export default function MediaSection({
                     slidesPerView={1}
                     breakpoints={{
                         320: {
-                            slidesPerView: 1.3,
+                            slidesPerView: 2.1,
                             spaceBetween: 16,
                         },
                         768: {
-                            slidesPerView: 2.3,
+                            slidesPerView: 2.8,
                             spaceBetween: 16,
                         }, 
                     }}
@@ -72,7 +72,7 @@ export default function MediaSection({
             </div>
 
             <div
-                className={`hidden md:grid gap-4 lg:gap-y-[72px] ${GridClass ? GridClass : "grid-cols-5"
+                className={`hidden lg:grid gap-4 lg:gap-y-[72px] ${GridClass ? GridClass : "grid-cols-5"
                     }`}
             >
                 {ArtistData &&

@@ -20,7 +20,7 @@
         "title": "Album",
         "url": "/album",
         "isAccessible": true,
-        "warningComment": "Warning: The editor in the modal is not functioning correctly in the development environment. Warning: Mobile view not done yet.",
+        "warningComment": "The editor in the modal is not functioning correctly in the development environment.",
         "errorComment": ""
     },
     {
@@ -28,11 +28,19 @@
         "title": "Artist",
         "url": "/artist",
         "isAccessible": true,
-        "warningComment": "Warning: The editor in the modal is not functioning correctly in the development environment. Warning: Mobile view not done yet.",
+        "warningComment": "The editor in the modal is not functioning correctly in the development environment.",
         "errorComment": ""
     },
     {
         "id": 5,
+        "title": "Songs",
+        "url": "/songs",
+        "isAccessible": true,
+        "warningComment": "The editor in the modal is not functioning correctly in the development environment.",
+        "errorComment": ""
+    },
+    {
+        "id": 6,
         "title": "Contact",
         "url": "/contact",
         "isAccessible": true,
@@ -40,7 +48,7 @@
         "errorComment": ""
     },
     {
-        "id": 6,
+        "id": 7,
         "title": "Profile",
         "url": "/profile",
         "isAccessible": true,
@@ -48,15 +56,15 @@
         "errorComment": ""
     },
     {
-        "id": 7,
+        "id": 8,
         "title": "Review",
         "url": "/review",
         "isAccessible": true,
-        "warningComment": "Warning: The editor in the modal is not functioning correctly in the development environment. Warning: Mobile view not done yet.",
+        "warningComment": "Warning: The editor in the modal is not functioning correctly in the development environment.",
         "errorComment": ""
     },
     {
-        "id": 8,
+        "id": 9,
         "title": "Search",
         "url": "/search",
         "isAccessible": true,
@@ -64,7 +72,7 @@
         "errorComment": ""
     },
     {
-        "id": 9,
+        "id": 10,
         "title": "Terms",
         "url": "/terms",
         "isAccessible": true,
