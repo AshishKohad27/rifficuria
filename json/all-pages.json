@@ -36,7 +36,7 @@
         "title": "Review",
         "url": "/review",
         "isAccessible": true,
-        "warningComment": "Warning: ",
+        "warningComment": "",
         "errorComment": ""
     },
     {
