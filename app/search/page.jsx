@@ -26,7 +26,7 @@ export default function Search() {
 
         // Set up a new debounce timeout
         const timeout = setTimeout(() => {
-            console.log("searchTerms:", searchTerms);
+            // console.log("searchTerms:", searchTerms);
         }, 300);
 
         setDebounceTimeout(timeout);
@@ -36,7 +36,7 @@ export default function Search() {
             // Always clear the timeout to prevent memory leaks
             clearTimeout(timeout);
         };
-    }, [searchTerms]);
+    }, [searchTerms, debounceTimeout]);
 
     const handleOnChange = (event) => {
         setSearchTerms(event.target.value);

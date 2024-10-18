@@ -42,11 +42,11 @@ export default function WriteReview({ ReviewFor, Title, ButtonClass }) {
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        console.log("Login Form Submitted!", formData);
+        // console.log("Login Form Submitted!", formData);
     };
 
     const handleModalChange = (value) => {
-        console.log("value:", value);
+        // console.log("value:", value);
         setModalHeight(value);
     }
 

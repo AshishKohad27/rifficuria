@@ -13,7 +13,7 @@ const Newsletter = () => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    console.log("Subscribe:", userEmail);
+    // console.log("Subscribe:", userEmail);
   };
 
   return (

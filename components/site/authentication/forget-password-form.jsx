@@ -20,7 +20,7 @@ export default function ForgetPasswordForm({ childHandleTabs }) {
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        console.log("Login Form Submitted!", formData);
+        // console.log("Login Form Submitted!", formData);
     };
 
     const handleTabsButton = (val) => {

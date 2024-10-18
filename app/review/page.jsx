@@ -18,7 +18,7 @@ export default function Reviews() {
   const { state } = useVisibility();
 
   useEffect(() => {
-    console.log("state:", state.isComponentVisible);
+    // console.log("state:", state.isComponentVisible);
   }, [state]);
 
   return (

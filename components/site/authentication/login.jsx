@@ -28,7 +28,7 @@ export default function Login({ Title, ButtonClass, ChildToggleMenu }) {
     };
 
     const closeModalOnCrossBtn = () => {
-        console.log("closeModalOnCrossBtn:", closeModalOnCrossBtn);
+        // console.log("closeModalOnCrossBtn:", closeModalOnCrossBtn);
         setIsOpen(false);
         ChildToggleMenu();
     };

@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import AlbumBanner from "@/public/review/reviewhero.png";
+import SongBanner from "@/public/artist/cardimg1.png";
 import ArtistProfile from "@/public/review/reviewheroavtar.png";
 import ArtistPhoto from "@/public/artist/ArtistPhoto.png";
 
@@ -12,33 +13,33 @@ import WriteReviewForAlbum from "@/components/album/write-review-for-album";
 // Context
 import { useVisibility } from "@/context/artist-visibility-reducer";
 
-const ArtistInfoData = {
-    artist: {
-        name: "Billie Eilish",
-        photo: ArtistPhoto,
-        description:
-            "With the release of her highly anticipated sophomore album Happier Than Ever, the 21-year-old Los Angeles native remains one of the biggest stars to emerge in the 21st century. Since the release of her debut single “ocean eyes” in 2015, Eilish continues to shatter the ceiling of music with her genre-defying sound. Fast forward from her humble breakout, her album WHEN WE ALL FALL ASLEEP, WHERE DO WE GO? debuted at No. 1 on the Billboard 200 in the U.S. as well as 17 additional countries around the world upon release in 2019, and was the most streamed album of that year.",
-        artistRatings: [
-            { value: "4521", label: "Total Ratings" },
-            { value: "4.5/5", label: "Avg. Ratings" },
-            { value: "956", label: "Reviews" },
-        ],
-    },
-    cta: {
-        signInText: "Sign in to rate and review",
-        readMoreText: "Read more",
-    },
-};
-
 const MediaInfo = ({ hideRating, mediaInfoFor }) => {
     const { state } = useVisibility();
+    const ArtistInfoData = {
+        BannerImage: mediaInfoFor === "songs" ? SongBanner : AlbumBanner,
+        artist: {
+            name: "Billie Eilish",
+            photo: ArtistPhoto,
+            description:
+                "With the release of her highly anticipated sophomore album Happier Than Ever, the 21-year-old Los Angeles native remains one of the biggest stars to emerge in the 21st century. Since the release of her debut single 'ocean eyes' in 2015, Eilish continues to shatter the ceiling of music with her genre-defying sound. Fast forward from her humble breakout, her album WHEN WE ALL FALL ASLEEP, WHERE DO WE GO? debuted at No. 1 on the Billboard 200 in the U.S. as well as 17 additional countries around the world upon release in 2019, and was the most streamed album of that year.",
+            artistRatings: [
+                { value: "4521", label: "Total Ratings" },
+                { value: "4.5/5", label: "Avg. Ratings" },
+                { value: "956", label: "Reviews" },
+            ],
+        },
+        cta: {
+            signInText: "Sign in to rate and review",
+            readMoreText: "Read more",
+        },
+    };
 
     return (
         <div className="flex flex-col gap-8 md:gap-22">
             <div className="flex gap-6 md:gap-8 flex-col lg:flex-row">
                 <div className="hidden lg:flex justify-center items-center w-full lg:max-w-[448px] aspect-square rounded-2xl">
                     <Image
-                        src={AlbumBanner}
+                        src={ArtistInfoData['BannerImage']}
                         alt="Album Banner"
                         className="w-full h-full rounded-2xl"
                     />
@@ -69,7 +70,7 @@ const MediaInfo = ({ hideRating, mediaInfoFor }) => {
                     </div>
                     <div className="mt-8 flex lg:hidden justify-center items-center w-full lg:max-w-[448px] aspect-square rounded-2xl">
                         <Image
-                            src={AlbumBanner}
+                            src={ArtistInfoData['BannerImage']}
                             alt="Album Banner"
                             className="w-full h-full rounded-2xl"
                         />

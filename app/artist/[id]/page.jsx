@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import ArtistBanner from "@/public/artist/artist-cover.png";
 
@@ -21,10 +21,36 @@ import DropDownListItem from "@/json/dropdown-listitem.json";
 
 export default function Artist() {
   const { state } = useVisibility();
+  const [debounceTimeout, setDebounceTimeout] = useState(null);
+  const [generFilter, setGenerFilter] = useState(DropDownListItem ? DropDownListItem["genre"] : []);
+
+  useEffect(() => { }, [state]);
 
   useEffect(() => {
-    console.log("state:", state.isComponentVisible);
-  }, [state]);
+    // Clear the existing timeout if any
+    if (debounceTimeout) {
+      clearTimeout(debounceTimeout);
+    }
+
+    // Set up a new debounce timeout
+    const timeout = setTimeout(() => {
+      console.log("generFilter:", generFilter);
+    }, 300);
+
+    setDebounceTimeout(timeout);
+
+    // Cleanup function to clear the timeout on unmount or before the next effect
+    return () => {
+      // Always clear the timeout to prevent memory leaks
+      clearTimeout(timeout);
+    };
+  }, [generFilter, debounceTimeout]);
+
+  const handleGetSelectedItems = (dropDownItems, type) => {
+    if (type === "genre") {
+      setGenerFilter(dropDownItems);
+    }
+  };
 
   return (
     <>
@@ -56,6 +82,9 @@ export default function Artist() {
                             DropDownId="GenreId"
                             DropDownListItem={
                               DropDownListItem && DropDownListItem["genre"]
+                            }
+                            getSelectedItems={(items) =>
+                              handleGetSelectedItems(items, "genre")
                             }
                           />
                         </div>

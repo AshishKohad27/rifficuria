@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 // components
 import TopReviews from "@/components/reviews/top-review";
@@ -19,9 +19,36 @@ import { useVisibility } from '@/context/artist-visibility-reducer';
 
 export default function Songs() {
     const { state } = useVisibility();
+    const [debounceTimeout, setDebounceTimeout] = useState(null);
+    const [generFilter, setGenerFilter] = useState(DropDownListItem ? DropDownListItem["genre"] : []);
+
+    useEffect(() => { }, [state]);
+
     useEffect(() => {
-        // console.log("ReviewsData:", ReviewsData);
-    }, [state]);
+        // Clear the existing timeout if any
+        if (debounceTimeout) {
+            clearTimeout(debounceTimeout);
+        }
+
+        // Set up a new debounce timeout
+        const timeout = setTimeout(() => {
+            console.log("generFilter:", generFilter);
+        }, 300);
+
+        setDebounceTimeout(timeout);
+
+        // Cleanup function to clear the timeout on unmount or before the next effect
+        return () => {
+            // Always clear the timeout to prevent memory leaks
+            clearTimeout(timeout);
+        };
+    }, [generFilter, debounceTimeout]);
+
+    const handleGetSelectedItems = (dropDownItems, type) => {
+        if (type === "genre") {
+            setGenerFilter(dropDownItems);
+        }
+    };
 
     return (
         <>
@@ -31,7 +58,7 @@ export default function Songs() {
                     <div>
                         <MediaInfo hideRating={true} mediaInfoFor="songs" />
                     </div>
-                    
+
                     {state && state.isComponentVisible ? (
                         <>
                             <div className="grid grid-cols-10">
@@ -49,6 +76,9 @@ export default function Songs() {
                                                         DropDownId="GenreId"
                                                         DropDownListItem={
                                                             DropDownListItem && DropDownListItem["genre"]
+                                                        }
+                                                        getSelectedItems={(items) =>
+                                                            handleGetSelectedItems(items, "genre")
                                                         }
                                                     />
                                                 </div>

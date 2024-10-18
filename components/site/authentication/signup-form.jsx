@@ -25,11 +25,11 @@ export default function SignUpForm({ childHandleTabs }) {
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        console.log("Login Form Submitted!", formData);
+        // console.log("Login Form Submitted!", formData);
     };
 
     const handleTabsButton = (val) => {
-        console.log("val from login:", val);
+        // console.log("val from login:", val);
         childHandleTabs(val);
     }
     return (

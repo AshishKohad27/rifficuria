@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 const Dropdown = ({ Title, DropDownId, Variant, DropDownListItem, getSelectedItems }) => {
     const [propClass, setPropClass] = useState("");
     const [isOpen, setIsOpen] = useState(false);
-    const [dropdownItems, setDropdownItems] = useState(DropDownListItem); // Initialize with the provided items
+    const [dropdownItems, setDropdownItems] = useState(DropDownListItem);
     const dropdownRef = useRef(null);
 
     const toggleDropdown = () => {
@@ -21,21 +21,15 @@ const Dropdown = ({ Title, DropDownId, Variant, DropDownListItem, getSelectedIte
             const updatedItems = prevItems.map((item) =>
                 item.name === name ? { ...item, isSelected: !item.isSelected } : item
             );
-
-            getSelectedItems(updatedItems);
-
-            return updatedItems;
-        }
-        );
+            return updatedItems; // Return the updated items instead of calling getSelectedItems here
+        });
     };
 
     const clearCheckedItems = () => {
         setDropdownItems((prevItems) => {
             const updatedItems = prevItems.map((item) => ({ ...item, isSelected: false }));
-            getSelectedItems(updatedItems);
-            return updatedItems;
-        }
-        );
+            return updatedItems; // Return the updated items instead of calling getSelectedItems here
+        });
     };
 
     useEffect(() => {
@@ -55,7 +49,12 @@ const Dropdown = ({ Title, DropDownId, Variant, DropDownListItem, getSelectedIte
         };
     }, []);
 
-    const hasCheckedItems = dropdownItems.some(item => item.isSelected); // Check if any item is selected
+    // Use useEffect to call getSelectedItems whenever dropdownItems change
+    useEffect(() => {
+        getSelectedItems(dropdownItems);
+    }, [dropdownItems, getSelectedItems]);
+
+    const hasCheckedItems = dropdownItems.some(item => item.isSelected);
 
     return (
         <div className="relative inline-block text-left" ref={dropdownRef}>
