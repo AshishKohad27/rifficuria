@@ -79,7 +79,7 @@ const Header = ({ ParentClass = "" }) => {
                         </div>
 
                         {/* Hamburger */}
-                        <div className="block lg:hidden z-[1]" onClick={toggleMenu}>
+                        <div className="block lg:hidden z-[1] cursor-pointer" onClick={toggleMenu}>
                             {isMenuOpen ? (
                                 <HiX className="w-4 md:w-6 h-4 md:h-6" />
                             ) : (
