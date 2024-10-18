@@ -44,14 +44,14 @@ export const authSlice = createSlice({
             };
         },
         startLoading: (state) => {
-            console.log("startLoading");
+            // console.log("startLoading");
             return state = {
                 ...state,
                 loading: true,
             };
         },
         stopLoading: (state) => {
-            console.log("stopLoading");
+            // console.log("stopLoading");
             return state = {
                 ...state,
                 loading: false
@@ -64,7 +64,7 @@ export const authSlice = createSlice({
 export const { clearState, logout, login, startLoading, stopLoading } = authSlice.actions;
 
 export const checkAuth = () => (dispatch) => {
-    console.log("checkAuth");
+    // console.log("checkAuth");
     dispatch(startLoading());
     setTimeout(() => {
         dispatch(stopLoading());

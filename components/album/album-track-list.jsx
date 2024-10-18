@@ -9,7 +9,7 @@ import writereviewavtar from "@/public/write-review/write-rivew-avtar.png";
 // Components
 import SubSectionHeading from "@/components/site/sub-section-heading";
 import Stars from "@/components/site/stars";
-// import Richtexteditor from "@/components/richtexteditor";
+import TinyMCEEditor from "@/components/TinyMCEEditor";
 
 // Context
 import { useVisibility } from '@/context/artist-visibility-reducer';
@@ -156,7 +156,7 @@ export default function AlbumTrackList({
                                     <p className="text-textColor text-sm font-normal leading-4.5">
                                         Add a review
                                     </p>
-                                    {/* <Richtexteditor /> */}
+                                    <TinyMCEEditor />
                                 </div>
                                 <div className="flex justify-center">
                                     <button

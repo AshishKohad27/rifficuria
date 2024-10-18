@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { HiXMark } from "react-icons/hi2";
 import Image from "next/image";
-// import Richtexteditor from "@/components/richtexteditor";
-// import TinyMCEEditor from "@/components/TinyMCEEditor";
+import TinyMCEEditor from "@/components/TinyMCEEditor";
 import star from "@/public/artist/Star.png";
 import writereviewavtar from "@/public/write-review/write-rivew-avtar.png";
 
@@ -158,8 +157,7 @@ export default function WriteReviewForAlbum({ ReviewFor, Title, ButtonClass }) {
                                     <p className="text-textColor text-sm font-normal leading-4.5">
                                         Add a review
                                     </p>
-                                    {/* <Richtexteditor /> */}
-                                    {/* <TinyMCEEditor /> */}
+                                    <TinyMCEEditor />
                                 </div>
                                 <div className="flex justify-center">
                                     <button

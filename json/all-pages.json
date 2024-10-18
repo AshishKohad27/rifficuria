@@ -12,7 +12,7 @@
         "title": "Album",
         "url": "/album",
         "isAccessible": true,
-        "warningComment": "The editor in the modal is not functioning correctly in the development environment.",
+        "warningComment": "",
         "errorComment": ""
     },
     {
@@ -20,7 +20,7 @@
         "title": "Artist",
         "url": "/artist",
         "isAccessible": true,
-        "warningComment": "The editor in the modal is not functioning correctly in the development environment.",
+        "warningComment": "",
         "errorComment": ""
     },
     {
@@ -28,7 +28,7 @@
         "title": "Songs",
         "url": "/songs",
         "isAccessible": true,
-        "warningComment": "The editor in the modal is not functioning correctly in the development environment.",
+        "warningComment": "",
         "errorComment": ""
     },
     {
@@ -36,7 +36,7 @@
         "title": "Review",
         "url": "/review",
         "isAccessible": true,
-        "warningComment": "Warning: The editor in the modal is not functioning correctly in the development environment.",
+        "warningComment": "Warning: ",
         "errorComment": ""
     },
     {

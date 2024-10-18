@@ -29,12 +29,12 @@ export default function Login({ Title, ButtonClass, ChildToggleMenu = null }) {
 
     useEffect(() => {
         dispatch(stopLoading());
-        console.log("Initial Load");
+        // console.log("Initial Load");
     }, []);
 
-    useEffect(() => {
-        console.log("State:", "L:", loading);
-    }, []);
+    // useEffect(() => {
+    //     console.log("State:", "L:", loading);
+    // }, []);
 
     useEffect(() => {
         if (isAuth) {

@@ -22,7 +22,7 @@ export default function Songs() {
     const [generFilter, setGenerFilter] = useState(DropDownListItem ? DropDownListItem["genre"] : []);
 
     useEffect(() => {
-        console.log("generFilter:", generFilter);
+        // console.log("generFilter:", generFilter);
       }, [generFilter]);
 
     const handleGetSelectedItems = (dropDownItems, type) => {

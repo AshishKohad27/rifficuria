@@ -38,12 +38,12 @@ export const testSlice = createSlice({
             };
         },
         logout: (state) => {
-            console.log("Logout!!");
+            // console.log("Logout!!");
             state.isAuth = false;
             localStorage.setItem("isAuth", "false"); // Update localStorage
         },
         login: (state, action) => {
-            console.log("Login!!");
+            // console.log("Login!!");
             state.loading = false;
             state.error = false;
             state.isAuth = true;

@@ -10,13 +10,13 @@ export default function Logout() {
     };
 
     return (
-        <div className="fixed top-4 right-4">
+        <div className="fixed top-4 right-4 z-[1000]">
             <button
                 onClick={handleLogout}
                 className="relative bg-red-500 text-white px-4 py-2 w-32 h-12 rounded-lg shadow-lg hover:bg-red-600 transition-all"
             >
                 <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-b-8 border-l-transparent border-r-transparent border-b-red-500"></div>
-                <span className="text-md">Logout</span>
+                <span className="text-2xl">Logout</span>
             </button>
         </div>
     );

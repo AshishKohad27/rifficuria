@@ -10,27 +10,27 @@ export default function Counter() {
 
     useEffect(() => {
         // Uncomment for debugging
-        console.log("isAuth:", isAuth);
+        // console.log("isAuth:", isAuth);
         // console.log("loading:", loading);
     }, [loading, error, data, isAuth]);
 
     const handleIncrement = () => {
-        console.log("Increment");
+        // console.log("Increment");
         dispatch(increment());
     };
 
     const handleDecrement = () => {
-        console.log("Decrement");
+        // console.log("Decrement");
         dispatch(decrement());
     };
 
     const handleLogin = () => {
-        console.log("Logging in");
+        // console.log("Logging in");
         dispatch(login()); // Trigger login action
     };
 
     const handleLogout = () => {
-        console.log("Logging out");
+        // console.log("Logging out");
         dispatch(logout()); // Trigger logout action
     };
 

@@ -4,7 +4,7 @@ import ArtistPhoto from "@/public/artist/ArtistPhoto.png";
 import star from "@/public/artist/Star.png";
 import writereviewavtar from "@/public/write-review/write-rivew-avtar.png";
 import Image from "next/image";
-// import Richtexteditor from "@/components/richtexteditor";
+import TinyMCEEditor from "@/components/TinyMCEEditor";
 import { useVisibility } from '@/context/artist-visibility-reducer';
 
 const initialState = {
@@ -216,7 +216,7 @@ export default function WriteReview({ ReviewFor, Title, ButtonClass }) {
                                         <p className="text-textColor text-sm font-normal leading-4.5">
                                             Add a review
                                         </p>
-                                        {/* <Richtexteditor /> */}
+                                        <TinyMCEEditor />
                                     </div>
                                     <div className="flex justify-center">
                                         <button
