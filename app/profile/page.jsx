@@ -90,8 +90,8 @@ export default function Profile() {
                                                     key={tab.value}
                                                     onClick={() => handleTabs(tab.value)}
                                                     className={`px-4 pt-1.875 pb-1.375 flex justify-center 
-                                                            items-center text-white text-base font-bold leading-5.5 uppercase ${tabs === tab.value
-                                                            ? "active"
+                                                            items-center text-white text-base font-bold leading-5.5 uppercase hover:text-indigo ${tabs === tab.value
+                                                            ? "!text-indigo underline underline-offset-[6px] decoration-2"
                                                             : ""
                                                         }`}
                                                 >
@@ -201,15 +201,15 @@ export default function Profile() {
                                     </div>
                                     <div
                                         className={`mt-22 ${tabs === TABS.RATINGS_HISTORY
-                                                ? "hidden md:block"
+                                                ? "hidden lg:block"
                                                 : "hidden"
                                             }`}
                                     >
                                         <Favourites
                                             title="Favourites"
                                             limit={12}
-                                            isDataAvailable={TopRatedData.length > 0}
-                                            FavouritesData={TopRatedData}
+                                            isDataAvailable={ArtistData.length > 0}
+                                            FavouritesData={ArtistData}
                                         />
                                     </div>
                                 </div>

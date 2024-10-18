@@ -6,13 +6,17 @@ import MobileLogo from "@/public/mobile-logo.png";
 import { HiMenu, HiX } from "react-icons/hi";
 import Image from "next/image";
 import HeaderData from "@/json/header.json";
+import { usePathname } from 'next/navigation'
 
 // Components
 import Login from "@/components/site/authentication/login";
 import Logout from "@/components/site/authentication/logout";
 
 const Header = ({ ParentClass = "" }) => {
+    const pathname = usePathname()
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     useEffect(() => { }, [isMenuOpen]);
 
     const toggleMenu = () => {
@@ -56,8 +60,8 @@ const Header = ({ ParentClass = "" }) => {
                                                 <Link
                                                     key={index}
                                                     href={`${url}`}
-                                                    className={`text-textColor text-base font-bold leading-5.5 uppercase py-2 block w-auto ${hasXPadding ? "px-4" : "px-0"
-                                                        }`}
+                                                    className={`text-textColor text-base font-bold leading-5.5 uppercase py-2 block w-auto hover:text-indigo ${hasXPadding ? "px-4" : "px-0"
+                                                        } ${pathname === url ? "!text-indigo underline underline-offset-[6px] decoration-2" : ""}}`}
                                                     title={`${title}`}
                                                 >
                                                     {title}
@@ -88,7 +92,7 @@ const Header = ({ ParentClass = "" }) => {
                 {/* Dropdown menu for mobile view */}
                 {isMenuOpen && (
 
-                    <section className="fixed h-[100vh] w-full left-0 top-0 bg-[#FBF0ECCC] z-[100] backdrop-blur-5">
+                    <section className="lg:hidden fixed h-[100vh] w-full left-0 top-0 bg-[#FBF0ECCC] z-[100] backdrop-blur-5">
                         <div className="site-container">
                             <div className="flex justify-between items-center gap-4">
                                 <Link
@@ -108,7 +112,7 @@ const Header = ({ ParentClass = "" }) => {
                                         className="w-full h-full md:hidden"
                                     />
                                 </Link>
-
+                                {/* 
                                 <div className="hidden lg:flex gap-4 xl:gap-7.5 ">
                                     <nav className="flex gap-4 xl:gap-7.5">
                                         {HeaderData &&
@@ -118,8 +122,8 @@ const Header = ({ ParentClass = "" }) => {
                                                         <Link
                                                             key={index}
                                                             href={`${url}`}
-                                                            className={`text-textColor text-base font-bold leading-5.5 uppercase py-2 block w-auto ${hasXPadding ? "px-4" : "px-0"
-                                                                }`}
+                                                            className={`text-textColor text-base font-bold leading-5.5 uppercase py-2 block w-auto hover:text-indigo ${hasXPadding ? "px-4" : "px-0"
+                                                                } ${pathname === url ? "!text-indigo underline underline-offset-[6px] decoration-2" : ""}`}
                                                             title={`${title}`}
                                                         >
                                                             {title}
@@ -134,10 +138,10 @@ const Header = ({ ParentClass = "" }) => {
                                         ButtonClass="text-seashell bg-indigo uppercase"
                                         ChildToggleMenu={HandelCloseBtnOfMenu}
                                     />
-                                </div>
+                                </div> */}
 
                                 {/* Hamburger */}
-                                <div className="block lg:hidden z-[1]" onClick={toggleMenu}>
+                                <div className="block lg:hidden z-[1] cursor-pointer" onClick={toggleMenu}>
                                     {isMenuOpen ? (
                                         <HiX className="w-4 md:w-6 h-4 md:h-6" />
                                     ) : (
@@ -156,7 +160,9 @@ const Header = ({ ParentClass = "" }) => {
                                                     onClick={toggleMenu}
                                                     key={index}
                                                     href={`${url}`}
-                                                    className={`text-textColor text-2xl font-semibold leading-7.5 uppercase block w-auto`}
+                                                    className={`text-textColor text-2xl font-semibold leading-7.5 uppercase block w-auto hover:text-indigo
+                                                        ${pathname === url ? "!text-indigo underline underline-offset-[6px] decoration-2" : ""}
+                                                        `}
                                                     title={`${title}`}
                                                 >
                                                     {title}

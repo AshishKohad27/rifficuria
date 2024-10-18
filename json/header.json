@@ -16,7 +16,7 @@
     {
         "id": "3",
         "title": "The scene",
-        "url": "/",
+        "url": "#",
         "isVisible": true,
         "hasXPadding": false
     },
