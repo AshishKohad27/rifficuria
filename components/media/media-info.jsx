@@ -13,8 +13,13 @@ import WriteReviewForAlbum from "@/components/album/write-review-for-album";
 // Context
 import { useVisibility } from "@/context/artist-visibility-reducer";
 
+// Redux
+import { useAppSelector } from "@/redux/hooks";
+
 const MediaInfo = ({ hideRating, mediaInfoFor }) => {
+    const { isAuth, loading } = useAppSelector((state) => state.auth);
     const { state } = useVisibility();
+
     const ArtistInfoData = {
         BannerImage: mediaInfoFor === "songs" ? SongBanner : AlbumBanner,
         artist: {
@@ -139,18 +144,19 @@ const MediaInfo = ({ hideRating, mediaInfoFor }) => {
                     ) : null}
 
                     <div className="lg:max-w-[800px]">
-                        <div className="hidden">
-                            <Login
-                                Title="Sign in to rate and review"
-                                ButtonClass="w-full bg-lavender text-[#FBF0EC80]"
-                            />
-                        </div>
                         <div>
-                            <WriteReviewForAlbum
-                                ReviewFor="album"
-                                Title="WRITE A REVIEW"
-                                ButtonClass="w-full text-seashell bg-indigo uppercase"
-                            />
+                            {
+                                !loading && isAuth ? (
+                                    <WriteReviewForAlbum
+                                        ReviewFor="album"
+                                        Title="WRITE A REVIEW"
+                                        ButtonClass="w-full text-seashell bg-indigo uppercase"
+                                    />) : (
+                                    <Login
+                                        Title="Sign in to rate and review"
+                                        ButtonClass="w-full bg-lavender text-[#FBF0EC80]"
+                                    />
+                                )}
                         </div>
                     </div>
                 </div>

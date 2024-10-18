@@ -254,7 +254,7 @@ export default function Search() {
                                         </button>
                                     </li>
                                     <li className="flex justify-center items-center">
-                                        <button className="text-texxtColor text-sm font-normal leading-4.5 capitalize !text-indigo !font-bold">
+                                        <button className="text-texxtColor text-sm leading-4.5 capitalize !text-indigo !font-bold">
                                             Pop
                                         </button>
                                     </li>
@@ -264,7 +264,7 @@ export default function Search() {
                                         </button>
                                     </li>
                                     <li className="flex justify-center items-center">
-                                        <button className="text-texxtColor text-sm font-normal leading-4.5 capitalize !text-indigo !font-bold">
+                                        <button className="text-texxtColor text-sm leading-4.5 capitalize !text-indigo !font-bold">
                                             Electronic
                                         </button>
                                     </li>

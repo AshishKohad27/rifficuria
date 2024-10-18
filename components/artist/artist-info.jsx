@@ -1,29 +1,36 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ArtistPhoto from "@/public/artist/ArtistPhoto.png";
 import Image from "next/image";
 import { HiXMark } from "react-icons/hi2";
 import Login from "@/components/site/authentication/login";
 import WriteReview from "@/components/artist/write-review";
 
-const ArtistInfoData = {
-  artist: {
-    name: "Billie Eilish",
-    photo: ArtistPhoto,
-    description:
-      "With the release of her highly anticipated sophomore album &lsquo;Happier Than Ever,&rsquo; the 21-year-old Los Angeles native remains one of the biggest stars to emerge in the 21st century. Since the release of her debut single &lsquo;ocean eyes&rsquo; in 2015, Eilish continues to shatter the ceiling of music with her genre-defying sound. Fast forward from her humble breakout, her album WHEN WE ALL FALL ASLEEP, WHERE DO WE GO? debuted at No. 1 on the Billboard 200 in the U.S as well as 17 additional countries around the world upon release in 2019, and was the most streamed album of that year.",
-    artistRatings: [
-      { value: "4521", label: "Total Ratings" },
-      { value: "4.5/5", label: "Avg. Ratings" },
-      { value: "956", label: "Reviews" },
-    ],
-  },
-  cta: {
-    signInText: "Sign in to rate and review",
-    readMoreText: "Read more",
-  },
-};
+// Redux
+import { useAppSelector } from "@/redux/hooks";
 
 const ArtistInfo = () => {
+  const { isAuth, loading } = useAppSelector((state) => state.auth);
+  useEffect(() => {
+
+  }, [loading]);
+
+  const ArtistInfoData = {
+    artist: {
+      name: "Billie Eilish",
+      photo: ArtistPhoto,
+      description:
+        "With the release of her highly anticipated sophomore album &lsquo;Happier Than Ever,&rsquo; the 21-year-old Los Angeles native remains one of the biggest stars to emerge in the 21st century. Since the release of her debut single &lsquo;ocean eyes&rsquo; in 2015, Eilish continues to shatter the ceiling of music with her genre-defying sound. Fast forward from her humble breakout, her album WHEN WE ALL FALL ASLEEP, WHERE DO WE GO? debuted at No. 1 on the Billboard 200 in the U.S as well as 17 additional countries around the world upon release in 2019, and was the most streamed album of that year.",
+      artistRatings: [
+        { value: "4521", label: "Total Ratings" },
+        { value: "4.5/5", label: "Avg. Ratings" },
+        { value: "956", label: "Reviews" },
+      ],
+    },
+    cta: {
+      signInText: "Sign in to rate and review",
+      readMoreText: "Read more",
+    },
+  };
   const { artist, cta } = ArtistInfoData;
   const [isOpen, setIsOpen] = useState(false);
 
@@ -85,19 +92,23 @@ const ArtistInfo = () => {
                 </ul>
               </div>
             </div>
-            <div className="hidden">
-              <Login
-                Title={cta.signInText}
-                ButtonClass="w-full bg-lavender text-[#FBF0EC80]"
-              />
-            </div>
             <div>
-              <WriteReview
-                ReviewFor="album/song"
-                Title="Write Review"
-                ButtonClass="w-full text-seashell bg-indigo uppercase"
-              />
+              {
+                !loading && isAuth ? (
+                  <WriteReview
+                    ReviewFor="album/song"
+                    Title="Write Review"
+                    ButtonClass="w-full text-seashell bg-indigo uppercase"
+                  />
+                ) : (
+                  <Login
+                    Title={cta.signInText}
+                    ButtonClass="w-full bg-lavender text-[#FBF0EC80]"
+                  />
+                )
+              }
             </div>
+
           </div>
         </div>
         <div className="col-span-12 lg:col-span-3 hidden lg:flex items-end justify-end -ml-8 lg:ml-0 w-[calc(100%+2*32px)] lg:w-full">

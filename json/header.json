@@ -9,7 +9,7 @@
     {
         "id": "2",
         "title": "music",
-        "url": "/",
+        "url": "/songs",
         "isVisible": true,
         "hasXPadding": true
     },

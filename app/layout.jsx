@@ -5,6 +5,9 @@ import "./globals.css";
 // Context
 import { VisibilityProvider } from '@/context/artist-visibility-reducer';
 
+// Redux
+import { StoreProvider } from "@/redux/StoreProvider";
+
 // Components
 import Footer from "@/components/site/site-footer";
 
@@ -30,10 +33,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body suppressHydrationWarning={true} className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <VisibilityProvider>
-          {children}
-          <Footer />
-        </VisibilityProvider>
+        <StoreProvider>
+          <VisibilityProvider>
+            {children}
+            <Footer />
+          </VisibilityProvider>
+        </StoreProvider>
       </body>
     </html>
   );

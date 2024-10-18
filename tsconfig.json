@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages-old/login/page.js", "app/test/page.js", "app/layout.jsx", "app/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages-old/login/page.js", "app/test/page.js", "app/layout.jsx", "app/page.jsx", "redux/hooks.js", "redux/StoreProvider.jsx", "redux/store.js"],
   "exclude": ["node_modules"]
 }

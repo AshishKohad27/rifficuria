@@ -52,7 +52,7 @@ const Dropdown = ({ Title, DropDownId, Variant, DropDownListItem, getSelectedIte
     // Use useEffect to call getSelectedItems whenever dropdownItems change
     useEffect(() => {
         getSelectedItems(dropdownItems);
-    }, [dropdownItems, getSelectedItems]);
+    }, [dropdownItems]);
 
     const hasCheckedItems = dropdownItems.some(item => item.isSelected);
 

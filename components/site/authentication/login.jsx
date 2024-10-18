@@ -16,10 +16,31 @@ import ForgetPasswordForm from "@/components/site/authentication/forget-password
 import ForgetPasswordMessage from "@/components/site/authentication/forget-password-message";
 import EmailVerification from "@/components/site/authentication/email-verification";
 
-export default function Login({ Title, ButtonClass, ChildToggleMenu }) {
+// Redux
+import { stopLoading } from "@/redux/auth/auth-slice";
+import { useAppSelector, useAppDispatch } from "@/redux/hooks";
+
+export default function Login({ Title, ButtonClass, ChildToggleMenu = null }) {
+    const { isAuth, loading } = useAppSelector((state) => state.auth);
+    const dispatch = useAppDispatch();
     const [isOpen, setIsOpen] = useState(false);
     const [tabs, setTabs] = useState("login_tab");
     const [maxWidth, setMaxWidth] = useState("445px");
+
+    useEffect(() => {
+        dispatch(stopLoading());
+        console.log("Initial Load");
+    }, []);
+
+    useEffect(() => {
+        console.log("State:", "L:", loading);
+    }, []);
+
+    useEffect(() => {
+        if (isAuth) {
+            setIsOpen(false);
+        }
+    }, [isAuth]);
 
     useEffect(() => { }, [tabs, maxWidth]);
 
@@ -30,7 +51,9 @@ export default function Login({ Title, ButtonClass, ChildToggleMenu }) {
     const closeModalOnCrossBtn = () => {
         // console.log("closeModalOnCrossBtn:", closeModalOnCrossBtn);
         setIsOpen(false);
-        ChildToggleMenu();
+        if (ChildToggleMenu) {
+            ChildToggleMenu();
+        };
     };
 
     const closeModal = (e) => {
@@ -60,7 +83,7 @@ export default function Login({ Title, ButtonClass, ChildToggleMenu }) {
     return (
         <>
             <div>
-                {false ? (
+                {!loading && isAuth ? (
                     <Link href="/profile" className="px-4 w-auto block">
                         <Image
                             src={UserIcon}
@@ -123,7 +146,10 @@ export default function Login({ Title, ButtonClass, ChildToggleMenu }) {
                                         />
                                     </Link>
                                     {/* Hamburger */}
-                                    <div className="block lg:hidden z-[1]" onClick={closeModalOnCrossBtn}>
+                                    <div
+                                        className="block lg:hidden z-[1]"
+                                        onClick={closeModalOnCrossBtn}
+                                    >
                                         <HiX className="w-4 md:w-6 h-4 md:h-6" />
                                     </div>
                                 </div>

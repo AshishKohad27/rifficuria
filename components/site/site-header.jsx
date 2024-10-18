@@ -6,7 +6,10 @@ import MobileLogo from "@/public/mobile-logo.png";
 import { HiMenu, HiX } from "react-icons/hi";
 import Image from "next/image";
 import HeaderData from "@/json/header.json";
+
+// Components
 import Login from "@/components/site/authentication/login";
+import Logout from "@/components/site/authentication/logout";
 
 const Header = ({ ParentClass = "" }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,6 +25,7 @@ const Header = ({ ParentClass = "" }) => {
 
     return (
         <>
+            <Logout />
             <header className="mt-0 lg:mt-16">
                 <div className={`site-container ${ParentClass}`}>
                     <div className="flex justify-between items-center gap-4">

@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
 
+// Redux
+import { login } from "@/redux/auth/auth-slice";
+import { useAppDispatch } from "@/redux/hooks";
+
 const initialState = {
-    username: "",
-    password: "",
+    username: "test",
+    password: "test",
 };
 
 export default function LoginForm({ childHandleTabs }) {
+    const dispatch = useAppDispatch();
     const [formData, setFormData] = useState(initialState);
     const { username, password } = formData;
 
@@ -22,6 +27,7 @@ export default function LoginForm({ childHandleTabs }) {
     const handleOnSubmit = (e) => {
         e.preventDefault();
         // console.log("Login Form Submitted!", formData);
+        dispatch(login());
     };
 
     const handleTabsButton = (val) => {
