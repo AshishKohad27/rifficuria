@@ -4,19 +4,11 @@
         "title": "Home",
         "url": "/",
         "isAccessible": true,
-        "warningComment": "Warning: Mobile view not done yet.",
-        "errorComment": ""
-    },
-    {
-        "id": 2,
-        "title": "About",
-        "url": "/about",
-        "isAccessible": true,
         "warningComment": "",
         "errorComment": ""
     },
     {
-        "id": 3,
+        "id": 2,
         "title": "Album",
         "url": "/album",
         "isAccessible": true,
@@ -24,7 +16,7 @@
         "errorComment": ""
     },
     {
-        "id": 4,
+        "id": 3,
         "title": "Artist",
         "url": "/artist",
         "isAccessible": true,
@@ -32,7 +24,7 @@
         "errorComment": ""
     },
     {
-        "id": 5,
+        "id": 4,
         "title": "Songs",
         "url": "/songs",
         "isAccessible": true,
@@ -40,9 +32,17 @@
         "errorComment": ""
     },
     {
+        "id": 5,
+        "title": "Review",
+        "url": "/review",
+        "isAccessible": true,
+        "warningComment": "Warning: The editor in the modal is not functioning correctly in the development environment.",
+        "errorComment": ""
+    },
+    {
         "id": 6,
-        "title": "Contact",
-        "url": "/contact",
+        "title": "Search",
+        "url": "/search",
         "isAccessible": true,
         "warningComment": "",
         "errorComment": ""
@@ -57,18 +57,18 @@
     },
     {
         "id": 8,
-        "title": "Review",
-        "url": "/review",
+        "title": "About",
+        "url": "/about",
         "isAccessible": true,
-        "warningComment": "Warning: The editor in the modal is not functioning correctly in the development environment.",
+        "warningComment": "",
         "errorComment": ""
     },
     {
         "id": 9,
-        "title": "Search",
-        "url": "/search",
+        "title": "Contact",
+        "url": "/contact",
         "isAccessible": true,
-        "warningComment": "Warning: Mobile view not done yet.",
+        "warningComment": "",
         "errorComment": ""
     },
     {

@@ -1,11 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 
-const initialClassName = "";
-
-const Dropdown = ({ Title, DropDownId, Variant, DropDownListItem }) => {
-    const [propClass, setPropClass] = useState(initialClassName);
+const Dropdown = ({ Title, DropDownId, Variant, DropDownListItem, getSelectedItems }) => {
+    const [propClass, setPropClass] = useState("");
     const [isOpen, setIsOpen] = useState(false);
-    const [checkedItems, setCheckedItems] = useState({});
+    const [dropdownItems, setDropdownItems] = useState(DropDownListItem); // Initialize with the provided items
     const dropdownRef = useRef(null);
 
     const toggleDropdown = () => {
@@ -18,15 +16,26 @@ const Dropdown = ({ Title, DropDownId, Variant, DropDownListItem }) => {
         }
     };
 
-    const handleItemClick = (item) => {
-        setCheckedItems((prev) => ({
-            ...prev,
-            [item]: !prev[item],
-        }));
+    const handleItemClick = (name) => {
+        setDropdownItems((prevItems) => {
+            const updatedItems = prevItems.map((item) =>
+                item.name === name ? { ...item, isSelected: !item.isSelected } : item
+            );
+
+            getSelectedItems(updatedItems);
+
+            return updatedItems;
+        }
+        );
     };
 
     const clearCheckedItems = () => {
-        setCheckedItems({});
+        setDropdownItems((prevItems) => {
+            const updatedItems = prevItems.map((item) => ({ ...item, isSelected: false }));
+            getSelectedItems(updatedItems);
+            return updatedItems;
+        }
+        );
     };
 
     useEffect(() => {
@@ -35,7 +44,6 @@ const Dropdown = ({ Title, DropDownId, Variant, DropDownListItem }) => {
         } else if (Variant === "Outline") {
             setPropClass("bg-transparent text-indigo");
         } else {
-            // Default State
             setPropClass("bg-indigo text-seashell");
         }
     }, [Variant]);
@@ -47,16 +55,15 @@ const Dropdown = ({ Title, DropDownId, Variant, DropDownListItem }) => {
         };
     }, []);
 
-    const hasCheckedItems = Object.values(checkedItems).some(Boolean); // Check if any item is checked
+    const hasCheckedItems = dropdownItems.some(item => item.isSelected); // Check if any item is selected
 
     return (
         <div className="relative inline-block text-left" ref={dropdownRef}>
             <button
                 onClick={toggleDropdown}
-                className={`flex justify-center items-center gap-2 px-4 py-2 rounded-[80px] border border-indigo box-border ${propClass} ${hasCheckedItems ? "!bg-indigo !text-seashell" : ""
-                    }`}
+                className={`flex justify-center items-center gap-2 px-4 py-2 rounded-[80px] border border-indigo box-border ${propClass} ${hasCheckedItems ? "!bg-indigo !text-seashell" : ""}`}
             >
-                <span className={`text-base font-medium leading-5.25 capitalize`}>
+                <span className="text-base font-medium leading-5.25 capitalize">
                     {Title}
                 </span>
                 {hasCheckedItems ? (
@@ -95,26 +102,21 @@ const Dropdown = ({ Title, DropDownId, Variant, DropDownListItem }) => {
 
             {isOpen && (
                 <div className="origin-top-right absolute right-0 mt-2 w-auto min-w-[119px] rounded-md shadow-lg bg-snow ring-1 ring-black ring-opacity-5 focus:outline-none z-[100]">
-                    <ul
-                        className="py-4 text-sm text-indigo border border-indigo rounded-lg"
-                        aria-labelledby={DropDownId}
-                    >
-                        {DropDownListItem &&
-                            DropDownListItem.map((item, index) => (
-                                <li key={index}>
-                                    <label className="flex items-center px-4 py-2 hover:bg-background2 cursor-pointer">
-                                        <input
-                                            type="checkbox"
-                                            className="mr-2 custom-checkbox w-3.5 h-3.5"
-                                            checked={checkedItems[item] || false}
-                                            onChange={() => handleItemClick(item)}
-                                        />
-                                        {item}
-                                    </label>
-                                </li>
-                            ))}
+                    <ul className="py-4 text-sm text-indigo border border-indigo rounded-lg" aria-labelledby={DropDownId}>
+                        {dropdownItems.map(({ name, isSelected }, index) => (
+                            <li key={index}>
+                                <label className="flex items-center px-4 py-2 hover:bg-background2 cursor-pointer">
+                                    <input
+                                        type="checkbox"
+                                        className="mr-2 custom-checkbox w-3.5 h-3.5"
+                                        checked={isSelected}
+                                        onChange={() => handleItemClick(name)}
+                                    />
+                                    {name}
+                                </label>
+                            </li>
+                        ))}
                     </ul>
-                    {/* Render cross SVG if there are checked items */}
                 </div>
             )}
         </div>

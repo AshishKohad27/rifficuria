@@ -18,7 +18,8 @@ export default function TopRated({ isDataAvailable, TopRatedData, title }) {
                     <div className="mt-4">
                         <FeaturedItems
                             FeaturedItemsData={TopRatedData}
-                            limit={4}
+                            DesktopLimit={4}
+                            MobileLimit={4}
                             ParentClass="gap-0 -ml-8 lg:ml-0 w-[calc(100%+2*32px)] lg:w-full"
                             ChildClass="px-8 py-4 lg:p-4 md:flex-col even:bg-seashell"
                             ImgClass="w-16 h-16"

@@ -1,7 +1,7 @@
 "use client";
-import Newsletter from "@/components/site/newsletter";
 
 // Components
+import Newsletter from "@/components/site/newsletter";
 import MediaSection from "@/components/media/media-section";
 import WeeksTop10 from "@/components/site//weeks-top-10";
 import Header from "@/components/site/site-header";
@@ -52,9 +52,10 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mt-22">
+      <div className="mt-22 hidden md:block">
         <Newsletter />
       </div>
+
       <div className="mb-22">
         <WeeksTop10 />
       </div>

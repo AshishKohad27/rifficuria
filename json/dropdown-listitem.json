@@ -1,16 +1,46 @@
 {
     "genre": [
-        "Rock",
-        "Pop",
-        "Hip Hop",
-        "Electronic",
-        "Jazz"
+        {
+            "name": "Rock",
+            "isSelected": false
+        },
+        {
+            "name": "Pop",
+            "isSelected": false
+        },
+        {
+            "name": "Hip Hop",
+            "isSelected": false
+        },
+        {
+            "name": "Electronic",
+            "isSelected": false
+        },
+        {
+            "name": "Jazz",
+            "isSelected": false
+        }
     ],
     "language": [
-        "English",
-        "Spanish",
-        "French",
-        "German",
-        "Italian"
+        {
+            "name": "English",
+            "isSelected": false
+        },
+        {
+            "name": "Spanish",
+            "isSelected": false
+        },
+        {
+            "name": "French",
+            "isSelected": false
+        },
+        {
+            "name": "German",
+            "isSelected": false
+        },
+        {
+            "name": "Italian",
+            "isSelected": false
+        }
     ]
 }

@@ -25,7 +25,7 @@ const SceneSection = ({
 
     return (
         <div>
-            <article className="flex justify-between items-center gap-7.5 mb-8">
+            <article className="flex justify-between items-center gap-7.5 mb-6 md:mb-8">
                 <SubSectionHeading SectionTitle={Title && Title} />
                 {ViewMoreLink ? (
                     <button
@@ -39,22 +39,22 @@ const SceneSection = ({
                 )}
             </article>
 
-            <div className="block md:hidden">
+            <div className="block lg:hidden">
                 <Swiper
                     spaceBetween={16}
                     slidesPerView={1}
                     breakpoints={{
                         320: {
-                            slidesPerView: 2.1,
+                            slidesPerView: 1.47,
                             spaceBetween: 16,
                         },
                         768: {
-                            slidesPerView: 2.8,
+                            slidesPerView: 3.3,
                             spaceBetween: 16,
                         },
                     }}
                     modules={[Grid, Pagination]}
-                    className="overflow-hidden flex w-[calc(100%+2*32px)] lg:w-full !ml-[-32px] lg:!ml-0 !pl-8 lg:!pl-0"
+                    className="overflow-hidden flex w-[calc(100%+2*32px)] lg:w-full !ml-[-32px] lg:!ml-0 !px-8 lg:!px-0"
                 >
                     {SceneData &&
                         SceneData.slice(0, `${MobileLimits ? MobileLimits : "20"}`).map(
@@ -68,7 +68,7 @@ const SceneSection = ({
             </div>
 
             <div
-                className={`hidden md:grid gap-4 grid-cols-5`}
+                className={`hidden lg:grid gap-4 grid-cols-5`}
             >
                 {SceneData &&
                     SceneData.slice(0, `${DesktopLimits ? DesktopLimits : "20"}`).map(
