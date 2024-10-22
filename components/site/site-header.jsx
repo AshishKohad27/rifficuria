@@ -1,23 +1,46 @@
 "use client";
-import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from 'next/navigation'
+import Link from "next/link";
+import Image from "next/image";
 import DesktopLogo from "@/public/Logo.png";
 import MobileLogo from "@/public/mobile-logo.png";
+import UserIcon from "@/public/icon/user-icon.png";
 import { HiMenu, HiX } from "react-icons/hi";
-import Image from "next/image";
-import HeaderData from "@/json/header.json";
-import { usePathname } from 'next/navigation'
 
 // Components
 import Login from "@/components/site/authentication/login";
 import Logout from "@/components/site/authentication/logout";
+import ProfileTabsButton from "@/components/profile/profile-tabs-btn";
 
-const Header = ({ ParentClass = "" }) => {
+// Redux
+import { useAppSelector, useAppDispatch } from "@/redux/hooks";
+
+// Json
+import HeaderData from "@/json/header.json";
+
+const Header = ({ svgClass = "", ParentClass = "" }) => {
+    const { isAuth, loading } = useAppSelector((state) => state.auth);
     const pathname = usePathname()
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    useEffect(() => { }, [isMenuOpen]);
+    useEffect(() => { }, [isMenuOpen, isAuth]);
+
+    useEffect(() => {
+        // Function to update maxWidth based on window width
+        const handleResize = () => {
+            // setIsMenuOpen(false);
+        };
+
+        // Initialize on component mount
+        handleResize();
+
+        // Update maxWidth when the window is resized
+        window.addEventListener('resize', handleResize);
+        // Cleanup event listener on component unmount
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -78,13 +101,24 @@ const Header = ({ ParentClass = "" }) => {
                             />
                         </div>
 
-                        {/* Hamburger */}
-                        <div className="block lg:hidden z-[1] cursor-pointer" onClick={toggleMenu}>
-                            {isMenuOpen ? (
-                                <HiX className="w-4 md:w-6 h-4 md:h-6" />
-                            ) : (
-                                <HiMenu className="w-6 h-6" />
-                            )}
+                        <div className="flex lg:hidden gap-4">
+                            <Link href="/profile" className={`w-auto justify-center items-center ${!loading && isAuth && pathname !=="/" ? "flex lg:hidden" : "hidden"}`}>
+                                <Image
+                                    src={UserIcon}
+                                    alt="logo"
+                                    title="logo"
+                                    className="w-6 h-6"
+                                />
+                            </Link>
+
+                            {/* Hamburger */}
+                            <div className="block lg:hidden z-[1] cursor-pointer" onClick={toggleMenu}>
+                                {isMenuOpen ? (
+                                    <HiX className="w-4 md:w-6 h-4 md:h-6" />
+                                ) : (
+                                    <HiMenu className={`w-6 h-6 ${svgClass}`} />
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -145,13 +179,13 @@ const Header = ({ ParentClass = "" }) => {
                                     {isMenuOpen ? (
                                         <HiX className="w-4 md:w-6 h-4 md:h-6" />
                                     ) : (
-                                        <HiMenu className="w-6 h-6" />
+                                        <HiMenu className={`w-6 h-6 ${svgClass}`} />
                                     )}
                                 </div>
                             </div>
                         </div>
-                        <div className="site-container">
-                            <div className="flex flex-col gap-16 mt-11">
+                        <div className="site-container pb-16 lg:pb-0 h-[calc(100%-92px)] md:h-[calc(100%-126px)] lg:h-auto overflow-auto">
+                            <div className="flex flex-col gap-16 mt-11 pb-8">
                                 <nav className="flex flex-col gap-16">
                                     {HeaderData &&
                                         HeaderData.map(({ title, url, isVisible }, index) =>
@@ -177,6 +211,9 @@ const Header = ({ ParentClass = "" }) => {
                                     ButtonClass="text-seashell bg-indigo uppercase"
                                     ChildToggleMenu={HandelCloseBtnOfMenu}
                                 />
+                                <div className={`block md:hidden -mt-6 ${pathname !== "/profile" ? "!hidden" : ""}`}>
+                                    <ProfileTabsButton location="header" />
+                                </div>
                             </div>
                         </div>
                     </section>

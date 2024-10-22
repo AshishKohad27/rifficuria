@@ -26,15 +26,34 @@ export default function Login({ Title, ButtonClass, ChildToggleMenu = null }) {
     const [isOpen, setIsOpen] = useState(false);
     const [tabs, setTabs] = useState("login_tab");
     const [maxWidth, setMaxWidth] = useState("445px");
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         dispatch(stopLoading());
         // console.log("Initial Load");
     }, []);
 
-    // useEffect(() => {
-    //     console.log("State:", "L:", loading);
-    // }, []);
+    useEffect(() => {
+        // Function to update maxWidth based on window width
+        const handleResize = () => {
+            // setIsOpen(false);
+            if (window.innerWidth <= 1024) {
+                setIsMobile(true);
+                setMaxWidth("100%");
+            } else {
+                setIsMobile(false);
+                setMaxWidth("445px");
+            }
+        };
+
+        // Initialize on component mount
+        handleResize();
+
+        // Update maxWidth when the window is resized
+        window.addEventListener('resize', handleResize);
+        // Cleanup event listener on component unmount
+        return () => window.removeEventListener('resize', handleResize);
+    }, [isMobile]);
 
     useEffect(() => {
         if (isAuth) {
@@ -75,8 +94,10 @@ export default function Login({ Title, ButtonClass, ChildToggleMenu = null }) {
         };
 
         const newMaxWidth = maxWidthMap[val];
-        if (newMaxWidth) {
+        if (!isMobile && newMaxWidth) {
             setMaxWidth(newMaxWidth); // Fixed the typo here
+        } else {
+            setMaxWidth("100%")
         }
     };
 
@@ -84,13 +105,17 @@ export default function Login({ Title, ButtonClass, ChildToggleMenu = null }) {
         <>
             <div>
                 {!loading && isAuth ? (
-                    <Link href="/profile" className="px-4 w-auto block">
+                    <Link href="/profile" className="lg:px-4 w-auto flex justify-start items-center gap-4">
                         <Image
                             src={UserIcon}
                             alt="logo"
                             title="logo"
-                            className="w-[37px] h-[37px]"
+                            className="w-8 lg:w-[37px] h-8 lg:h-[37px]"
                         />
+
+                        <h3 className="lg:hidden text-indigo text-2xl font-medium leading-6.5 capitalize">
+                            Benjamin Tillman
+                        </h3>
                     </Link>
                 ) : (
                     <button

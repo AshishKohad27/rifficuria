@@ -34,7 +34,7 @@ export default function Home() {
         </article>
       </div>
       <div>
-        <Header ParentClass="absolute md:static top-0 left-0" />
+        <Header svgClass="text-white md:text-textColor" ParentClass="absolute md:static top-0 left-0" />
       </div>
 
       <div className="site-container">

@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 // components
 import UserConnectionsDesk from "@/components/profile/user-connections-desk";
@@ -13,6 +13,10 @@ import MediaSection from "@/components/media/media-section";
 import Newsletter from "@/components/site/newsletter";
 import Header from "@/components/site/site-header";
 import ProfileDetails from "@/components/profile/profile-details";
+import ProfileTabsButton from "@/components/profile/profile-tabs-btn";
+
+// redux
+import { useAppSelector } from "@/redux/hooks";
 
 // json
 import UserConnectionsData from "@/json/user-connection.json";
@@ -20,30 +24,14 @@ import ReviewsData from "@/json/reviews.json";
 import TopRatedData from "@/json/top-rated.json";
 import RatingsHistoryData from "@/json/top-rated.json";
 import ArtistData from "@/json/artist.json";
-
-const TABS = {
-    TOP_REVIEWS: "top reviews",
-    PAST_REVIEWS: "past_reviews",
-    RATINGS_HISTORY: "ratings_history",
-    FAVOURITES: "favourites",
-};
-
-const tabButtons = [
-    { label: "Past Reviews", value: TABS.PAST_REVIEWS },
-    { label: "Ratings History", value: TABS.RATINGS_HISTORY },
-    { label: "Favourites", value: TABS.FAVOURITES },
-];
+import TABS from "@/json/profile";
 
 export default function Profile() {
-    const [tabs, setTabs] = useState("top reviews");
+    const { profileTabs } = useAppSelector((state) => state.global);
 
     useEffect(() => {
-        // console.log("ReviewsData:", ReviewsData);
-    }, [tabs]);
-
-    const handleTabs = (val) => {
-        setTabs(val);
-    };
+        console.log("profileTabs:", profileTabs);
+    }, [profileTabs]);
 
     return (
         <>
@@ -84,36 +72,22 @@ export default function Profile() {
 
                                     {/* Prolile Tabs */}
                                     <div className="hidden md:block mt-8.125">
-                                        <div className="bg-lavender flex justify-center items-center gap-10 p-2 rounded-lg">
-                                            {tabButtons.map((tab) => (
-                                                <button
-                                                    key={tab.value}
-                                                    onClick={() => handleTabs(tab.value)}
-                                                    className={`px-4 pt-1.875 pb-1.375 flex justify-center 
-                                                            items-center text-white text-base font-bold leading-5.5 uppercase hover:text-indigo ${tabs === tab.value
-                                                            ? "!text-indigo underline underline-offset-[6px] decoration-2"
-                                                            : ""
-                                                        }`}
-                                                >
-                                                    {tab.label}
-                                                </button>
-                                            ))}
-                                        </div>
+                                        <ProfileTabsButton location="profile" />
                                     </div>
 
                                     {/* Section of Tabs for Reviews, Ratings History, Favourties */}
                                     <div>
                                         <div
-                                            className={`mt-16 pb-4 ${tabs === TABS.FAVOURITES ? "hidden" : ""
+                                            className={`mt-16 pb-4 ${profileTabs === TABS.FAVOURITES ? "hidden" : ""
                                                 }`}
                                         >
-                                            <SubSectionHeading SectionTitle={`${tabs && tabs}`} />
+                                            <SubSectionHeading SectionTitle={`${profileTabs && profileTabs}`} />
                                         </div>
 
                                         <div
-                                            className={`${tabs === TABS.TOP_REVIEWS || tabs === TABS.PAST_REVIEWS
-                                                    ? "block"
-                                                    : "hidden"
+                                            className={`${profileTabs === TABS.TOP_REVIEWS || profileTabs === TABS.PAST_REVIEWS
+                                                ? "block"
+                                                : "hidden"
                                                 }`}
                                         >
                                             <TopReviews
@@ -125,7 +99,7 @@ export default function Profile() {
                                             />
                                         </div>
                                         <div
-                                            className={`${tabs === TABS.RATINGS_HISTORY ? "block" : "hidden"
+                                            className={`${profileTabs === TABS.RATINGS_HISTORY ? "block" : "hidden"
                                                 }`}
                                         >
                                             <RatingsHistory
@@ -133,7 +107,7 @@ export default function Profile() {
                                                 isDataAvailable={RatingsHistoryData.length > 0}
                                             />
                                         </div>
-                                        {tabs === TABS.FAVOURITES ? (
+                                        {profileTabs === TABS.FAVOURITES ? (
                                             <>
                                                 <div className="mt-16">
                                                     <MediaSection
@@ -188,8 +162,8 @@ export default function Profile() {
                                         />
                                     </div>
                                     <div className="hidden md:block">
-                                        {(tabs && tabs === TABS.TOP_REVIEWS) ||
-                                            tabs === TABS.PAST_REVIEWS ? (
+                                        {(profileTabs && profileTabs === TABS.TOP_REVIEWS) ||
+                                            profileTabs === TABS.PAST_REVIEWS ? (
                                             <div className="mb-[136px] md:mb-0 mt-22">
                                                 <TopRated
                                                     title="Top Rated"
@@ -200,9 +174,9 @@ export default function Profile() {
                                         ) : null}
                                     </div>
                                     <div
-                                        className={`mt-22 ${tabs === TABS.RATINGS_HISTORY
-                                                ? "hidden lg:block"
-                                                : "hidden"
+                                        className={`mt-22 ${profileTabs === TABS.RATINGS_HISTORY
+                                            ? "hidden lg:block"
+                                            : "hidden"
                                             }`}
                                     >
                                         <Favourites
@@ -218,8 +192,8 @@ export default function Profile() {
                     </div>
 
                     <div>
-                        {(tabs && tabs === TABS.TOP_REVIEWS) ||
-                            tabs === TABS.PAST_REVIEWS ? (
+                        {(profileTabs && profileTabs === TABS.TOP_REVIEWS) ||
+                            profileTabs === TABS.PAST_REVIEWS ? (
                             <div className="flex flex-col gap-20 md:gap-22">
                                 <MediaSection
                                     GridClass=""
@@ -244,10 +218,10 @@ export default function Profile() {
                     </div>
 
                     <div className="block md:hidden">
-                        {(tabs && tabs === TABS.TOP_REVIEWS) ||
-                            tabs === TABS.PAST_REVIEWS ? (
+                        {(profileTabs && profileTabs === TABS.TOP_REVIEWS) ||
+                            profileTabs === TABS.PAST_REVIEWS ? (
                             <div
-                                className={`mb-[136px] ${tabs === TABS.PAST_REVIEWS ? "mt-0" : "mt-20"
+                                className={`mb-[136px] ${profileTabs === TABS.PAST_REVIEWS ? "mt-0" : "mt-20"
                                     } md:mt-0`}
                             >
                                 <TopRated
