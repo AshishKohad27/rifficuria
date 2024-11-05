@@ -44,7 +44,7 @@ const TopReviews = ({
         }));
     };
 
-    console.log("ReviewsData",artistProfileData?.reviews)
+    // console.log("ReviewsData",artistProfileData?.reviews)
 
     // Handler for submitting a new comment
     const handleSubmitComment = (index) => {
@@ -123,7 +123,7 @@ const TopReviews = ({
                                         </div>
                                         <div className="flex-grow">
                                             <p className="text-textColor text-xs font-normal">
-                                                {item?.created_at?(moment(item?.created_at).format('MMMM Do YYYY')):item.date}
+                                                {item.created_at?(moment(item.created_at).format('MMMM Do YYYY')):item.date}
                                             </p>
                                             <p
                                                 className={`text-textColor text-base font-bold capitalize ${hasQuotes === "true" ? "hidden" : ""

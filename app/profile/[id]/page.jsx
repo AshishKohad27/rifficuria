@@ -12,13 +12,12 @@ import Favourites from "@/components/profile/favourites";
 import MediaSection from "@/components/media/media-section";
 import Newsletter from "@/components/site/newsletter";
 import Header from "@/components/site/site-header";
-import ProfileDetailsSkeleton from "@/components/profile/profile-details-skeleton";
 import ProfileDetails from "@/components/profile/profile-details";
 import ProfileTabsButton from "@/components/profile/profile-tabs-btn";
 
 // Redux
-import { GetUser } from "@/redux/user/user-action";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+// import { GetUser } from "@/redux/user/user-action";
+import {  useAppSelector } from "@/redux/hooks";
 
 // json
 import UserConnectionsData from "@/json/user-connection.json";
@@ -30,27 +29,11 @@ import TABS from "@/json/profile";
 
 export default function Profile() {
     const { profileTabs } = useAppSelector((state) => state.global);
-    const { loading } = useAppSelector((store) => store.auth);
-    const {
-        userData,
-        isUserLoading,
-        // isUserError,
-        // userSuccessMessage,
-        // userErrorMessage
-    } = useAppSelector((store) => store.user);
-    const dispatch = useAppDispatch();
-
-    useEffect(() => {
-        dispatch(GetUser());
-    }, [loading]);
+    
 
     useEffect(() => {
         console.log("profileTabs:", profileTabs);
     }, [profileTabs]);
-
-    useEffect(() => {
-        console.log("userData:", userData);
-    }, [isUserLoading]);
 
     return (
         <>
@@ -61,31 +44,16 @@ export default function Profile() {
                         <div className="grid grid-cols-10">
                             <div className="col-span-10 lg:col-span-7">
                                 <div className="lg:max-w-[794px]">
-                                    {
-                                        isUserLoading ?
-                                            <ProfileDetailsSkeleton /> :
-                                            <ProfileDetails />
-                                    }
+                                    <ProfileDetails />
 
                                     {/* Followers and Followings in Mobile View */}
                                     <div className="flex lg:hidden flex-col gap-11 mt-8 mb-20">
                                         <div className="">
-                                            {
-                                                (userData && userData?.followers?.length == 0) && (
-                                                    <div className="">
-                                                        <div className="py-4 pb-15 px-3 flex flex-col gap-8">
-                                                            <div className="d">No followers found</div>
-                                                        </div>
-                                                    </div>
-
-                                                )
-                                            }
                                             <UserConnectionsMobile
-                                                isDataAvailable={userData ? (userData?.followers?.length) : UserConnectionsData.length > 0}
+                                                isDataAvailable={UserConnectionsData.length > 0}
                                                 connectionsTitle="followers"
                                                 UserConnectionsData={
-                                                    userData ? (userData.followers) :
-                                                        (UserConnectionsData)
+                                                    UserConnectionsData && UserConnectionsData
                                                 }
                                                 limit={16}
                                                 isLoadMore={true}
@@ -176,21 +144,11 @@ export default function Profile() {
                                 <div className="w-100 lg:max-w-[225px] ml-auto">
                                     {/* Follower, Following, Top Rated, favourites */}
                                     <div className="hidden lg:block">
-                                        {/* {
-                                            (userData && userData?.followers?.length == 0) && (
-                                                <div className="">
-                                                    <div className="py-4 pb-15 px-3 flex flex-col gap-8">
-                                                        <div className="d">No followers found</div>
-                                                    </div>
-                                                </div>
-
-                                            )
-                                        } */}
                                         <UserConnectionsDesk
-                                            isDataAvailable={userData ? userData?.followers?.length : UserConnectionsData.length > 0}
+                                            isDataAvailable={UserConnectionsData.length > 0}
                                             connectionsTitle="followers"
-                                            UserConnectionsData={userData ? userData.followers :
-                                                UserConnectionsData
+                                            UserConnectionsData={
+                                                UserConnectionsData && UserConnectionsData
                                             }
                                             limit={16}
                                         />
@@ -243,41 +201,20 @@ export default function Profile() {
                                     GridClass=""
                                     Title="Favourite songs"
                                     ViewMoreLink="haveLink"
-                                    ArtistData={userData?(userData?.tracks??[]):ArtistData}
+                                    ArtistData={ArtistData}
                                     isLoadMore={false}
                                     DesktopLimits={10}
                                     MobileLimits={10}
                                 />
-                                {
-                                    (userData && userData?.followers?.length == 0) && (
-                                        <div className="">
-                                            <div className=" pb-15 px-3 flex flex-col gap-8">
-                                                <div className="d">No Favourite Songs found</div>
-                                            </div>
-                                        </div>
-
-                                    )
-                                }
                                 <MediaSection
                                     GridClass=""
                                     Title="Favourite albums"
                                     ViewMoreLink=""
-                                    ArtistData={userData?(userData?.albums??[]):ArtistData}
+                                    ArtistData={ArtistData}
                                     isLoadMore={false}
                                     DesktopLimits={3}
                                     MobileLimits={10}
                                 />
-
-{
-                                    (userData && userData?.followers?.length == 0) && (
-                                        <div className="">
-                                            <div className=" px-3 flex flex-col gap-8">
-                                                <div className="d">No Favourite Albums found</div>
-                                            </div>
-                                        </div>
-
-                                    )
-                                }
                             </div>
                         ) : null}
                     </div>

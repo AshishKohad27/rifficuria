@@ -21,7 +21,11 @@ import { stopLoading } from "@/redux/auth/auth-slice";
 import { useAppSelector, useAppDispatch } from "@/redux/hooks";
 
 export default function Login({ Title, ButtonClass, ChildToggleMenu = null }) {
-    const { isAuth, loading } = useAppSelector((state) => state.auth);
+    const { loading,
+        // error,
+        // successMessage,
+        // errorMessage,
+        isAuth } = useAppSelector((state) => state.auth);
     const dispatch = useAppDispatch();
     const [isOpen, setIsOpen] = useState(false);
     const [tabs, setTabs] = useState("login_tab");
@@ -30,7 +34,13 @@ export default function Login({ Title, ButtonClass, ChildToggleMenu = null }) {
 
     useEffect(() => {
         dispatch(stopLoading());
-        // console.log("Initial Load");
+        // console.log({
+        //     loading,
+        //     error,
+        //     successMessage,
+        //     errorMessage,
+        //     isAuth
+        // })
     }, []);
 
     useEffect(() => {

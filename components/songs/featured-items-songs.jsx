@@ -22,7 +22,7 @@ export default function FeaturedItemsSongs({
             <div className={`w-full hidden lg:flex flex-col ${ParentClass && ParentClass}`}>
                 {FeaturedItemsData &&
                     FeaturedItemsData.slice(0, `${limit ? limit : "1000"}`).map(
-                        ({ image, title, subtitle }, index) => (
+                        ({ track_img_url, name, subtitle }, index) => (
                             <div
                                 key={index}
                                 className="flex flex-col gap-[14px] pr-5"
@@ -32,10 +32,10 @@ export default function FeaturedItemsSongs({
                                         <img
                                             className="w-full h-full rounded-xl object-cover"
                                             src={
-                                                image ||
-                                                defaultProfileImage
+                                                track_img_url ||
+                                                defaultProfileImage.src
                                             }
-                                            alt={title}
+                                            alt={name}
                                         />
                                     </div>
                                     <div className="flex-grow flex items-start justify-center flex-col">
@@ -47,7 +47,7 @@ export default function FeaturedItemsSongs({
                                         <p
                                             className={`text-textColor text-base font-bold leading-5.5 capitalize`}
                                         >
-                                            {title && title}
+                                            {name && name}
                                         </p>
                                         <p className="text-textColor text-sm font-normal leading-4.5 capitalize">
                                             {subtitle && subtitle}

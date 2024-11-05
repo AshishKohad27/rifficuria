@@ -33,21 +33,31 @@ export default function FeaturedItems({
         <div className={`flex flex-col ${ParentClass && ParentClass}`}>
             {FeaturedItemsData &&
                 FeaturedItemsData.slice(0, limit).map(
-                    ({ image, title, subtitle }, index) => (
+                    ({ track_img_url, name, subtitle }, index) => (
                         <div
                             key={index}
                             className={`w-full flex gap-4 ${ChildClass && ChildClass}`}
                         >
                             <div className={`${ImgClass} rounded-xl`}>
+                              {
+                                track_img_url?(
+                                    <img
+                                    className="w-full h-full rounded-xl object-cover"
+                                    src={track_img_url}
+                                    alt={name}
+                                />
+                                ):(
                                 <img
                                     className="w-full h-full rounded-xl object-cover"
-                                    src={image || defaultProfileImage}
-                                    alt={title}
+                                    src={defaultProfileImage.src}
+                                    alt={name}
                                 />
+                                )
+                              }
                             </div>
                             <div className="flex-grow">
                                 <p className="text-textColor text-sm md:text-base font-bold leading-4.5 md:leading-5.5 capitalize">
-                                    {title && title}
+                                    {name && name}
                                 </p>
                                 <p className="mt-1 md:mt-0 text-textColor text-sm md:text-base font-normal leading-4.5 md:leading-5.5 capitalize">
                                     {subtitle && subtitle}

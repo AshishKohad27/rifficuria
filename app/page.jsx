@@ -8,10 +8,35 @@ import Header from "@/components/site/site-header";
 import SceneSection from "@/components/scene/scene-section";
 
 // json
-import ArtistData from "@/json/artist.json";
+// import ArtistData from "@/json/artist.json";
 import SceneData from "@/json/scene.json";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useParams } from "next/navigation";
+import { useEffect } from "react";
+import { GetArtistProfile } from "@/redux/artist/artist-action";
 
 export default function Home() {
+
+  const {
+    artistProfileData,
+    // isArtistProfileLoading,
+    // isArtistProfileError,
+    // artistProfileSuccessMessage,
+    // artistProfileErrorMessage,
+  } = useAppSelector((store) => store.artist);
+
+  const params = useParams();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+      // if (params.id) {
+      //     dispatch(GetTrackProfile({ trackId: params.id }));
+      // }
+      dispatch(GetArtistProfile({ artistId: 9 }));
+
+      // console.log("generFilter:", generFilter);
+  }, [ params]);
+
   return (
     <div className="">
       <div
@@ -43,7 +68,7 @@ export default function Home() {
             MediaType="songs"
             Title="new songs on riffcuria"
             ViewMoreLink="haveLink"
-            ArtistData={ArtistData}
+            ArtistData={artistProfileData?.tracks??[]}
             GridClass=""
             DesktopLimits={5}
             MobileLimits={5}
@@ -57,7 +82,7 @@ export default function Home() {
       </div>
 
       <div className="mb-22">
-        <WeeksTop10 />
+        <WeeksTop10 weekData={artistProfileData?.tracks??null}/>
       </div>
 
       <div className="site-container mb-[156px]">

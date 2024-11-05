@@ -1,17 +1,20 @@
-import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useAppDispatch } from "@/redux/hooks";
+import { RegisterAuth } from "@/redux/auth/auth-action";
 
 const initialState = {
-    full_name: "",
-    email: "",
-    password: "",
-    subscribeToNewsletter: false,
-    agreeToTerms: false,
+    name: "test-name",
+    username: "test-username",
+    email: "test@gmail.com",
+    password: "123456789",
+    // subscribeToNewsletter: false,
+    // agreeToTerms: false,
 };
 
 export default function SignUpForm({ childHandleTabs }) {
     const [formData, setFormData] = useState(initialState);
-    const { full_name, email, password } = formData;
+    const { name, username, email, password } = formData;
+    const dispatch = useAppDispatch();
 
     useEffect(() => { }, [formData]);
 
@@ -25,7 +28,8 @@ export default function SignUpForm({ childHandleTabs }) {
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        // console.log("Login Form Submitted!", formData);
+        // console.log("Register Form Submitted!", formData);
+        dispatch(RegisterAuth({ payload: formData }));
     };
 
     const handleTabsButton = (val) => {
@@ -40,16 +44,33 @@ export default function SignUpForm({ childHandleTabs }) {
         >
             <div className="w-full flex flex-col justify-center items-start gap-2 md:gap-4">
                 <label
-                    htmlFor="#full_name"
+                    htmlFor="#name"
                     className="text-textColor text-sm font-normal leading-4.5 capitalize"
                 >
                     full name
                 </label>
                 <input
-                    id="full_name"
+                    id="name"
                     type="text"
-                    name="full_name"
-                    value={full_name}
+                    name="name"
+                    value={name}
+                    onChange={handleOnChange}
+                    className="text-textColor text-sm font-normal leading-4.5 rounded-full bg-seashell py-2.75 md:py-3.75 px-5 w-full"
+                    required
+                />
+            </div>
+            <div className="w-full flex flex-col justify-center items-start gap-2 md:gap-4">
+                <label
+                    htmlFor="#name"
+                    className="text-textColor text-sm font-normal leading-4.5 capitalize"
+                >
+                    username
+                </label>
+                <input
+                    id="username"
+                    type="text"
+                    name="username"
+                    value={username}
                     onChange={handleOnChange}
                     className="text-textColor text-sm font-normal leading-4.5 rounded-full bg-seashell py-2.75 md:py-3.75 px-5 w-full"
                     required
@@ -89,7 +110,7 @@ export default function SignUpForm({ childHandleTabs }) {
                     required
                 />
             </div>
-            <div className="w-full flex flex-col justify-center items-start gap-2 md:gap-4">
+            {/* <div className="w-full flex flex-col justify-center items-start gap-2 md:gap-4">
                 <label className="flex items-start gap-2 hover:bg-seahell cursor-pointer">
                     <input
                         id="subscribeToNewsletter"
@@ -123,7 +144,7 @@ export default function SignUpForm({ childHandleTabs }) {
                         </Link>
                     </p>
                 </label>
-            </div>
+            </div> */}
             <div className="w-full flex flex-col justify-center items-start gap-2 md:gap-4">
                 <input
                     className="w-full px-6 py-3.25 lg:py-3.5 bg-indigo rounded-full flex justify-center items-center text-seashell text-base font-normal uppercase cursor-pointer"

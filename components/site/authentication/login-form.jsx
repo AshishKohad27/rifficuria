@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
 
 // Redux
-import { login } from "@/redux/auth/auth-slice";
 import { useAppDispatch } from "@/redux/hooks";
+import { LoginAuth } from "@/redux/auth/auth-action";
 
 const initialState = {
-    username: "test",
-    password: "test",
+    email: "ashishkohad@gmail.com",
+    password: "ashishkohad",
 };
 
 export default function LoginForm({ childHandleTabs }) {
     const dispatch = useAppDispatch();
     const [formData, setFormData] = useState(initialState);
-    const { username, password } = formData;
+    const { email, password } = formData;
 
     useEffect(() => { }, [formData]);
 
@@ -26,8 +26,8 @@ export default function LoginForm({ childHandleTabs }) {
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        // console.log("Login Form Submitted!", formData);
-        dispatch(login());
+        console.log("Login Form Submitted!", formData);
+        dispatch(LoginAuth({ payload: formData }));
     };
 
     const handleTabsButton = (val) => {
@@ -42,16 +42,16 @@ export default function LoginForm({ childHandleTabs }) {
         >
             <div className="w-full flex flex-col justify-center items-start gap-2 md:gap-4">
                 <label
-                    htmlFor="#username"
+                    htmlFor="#email"
                     className="text-textColor text-sm font-normal leading-4.5 capitalize"
                 >
-                    username
+                    email
                 </label>
                 <input
-                    id="username"
-                    type="text"
-                    name="username"
-                    value={username}
+                    id="email"
+                    type="email"
+                    name="email"
+                    value={email}
                     onChange={handleOnChange}
                     className="text-textColor text-sm font-normal leading-4.5 rounded-full bg-seashell py-2.75 md:py-3.75 px-5 w-full"
                     required

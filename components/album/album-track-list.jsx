@@ -52,7 +52,7 @@ export default function AlbumTrackList({
                     <div className="rounded-2xl border border-indigo">
                         {AlbumTrackListData &&
                             AlbumTrackListData.slice(0, Limit ? Limit : "").map(
-                                ({ title, time, stars }, index) => (
+                                ({ name, duration, total_ratings }, index) => (
                                     <button
                                         onClick={toggleModal}
                                         key={index}
@@ -65,10 +65,10 @@ export default function AlbumTrackList({
                                                 {index + 1}
                                             </p>
                                         </div>
-                                        <div className="w-full max-w-[400px] text-start">{title}</div>
-                                        <div className="hidden md:block">{time}</div>
+                                        <div className="w-full max-w-[400px] text-start">{name}</div>
+                                        <div className="hidden md:block">{duration}</div>
                                         <div className="col-span-2 md:col-span-2 flex justify-start items-center">
-                                            <Stars StarCount={stars} ParentClass="" ChildClass="" />
+                                            <Stars StarCount={total_ratings} ParentClass="" ChildClass="" />
                                         </div>
                                     </button>
                                 )
@@ -170,8 +170,8 @@ export default function AlbumTrackList({
                                 </div>
                             </div>
                         </section>
-                    </div >
-                </div >
+                    </div>
+                </div>
             )}
         </>
     )

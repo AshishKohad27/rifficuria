@@ -102,7 +102,7 @@ const Header = ({ svgClass = "", ParentClass = "" }) => {
                         </div>
 
                         <div className="flex lg:hidden gap-4">
-                            <Link href="/profile" className={`w-auto justify-center items-center ${!loading && isAuth && pathname !== "/" ? "flex lg:hidden" : "hidden"}`}>
+                            <Link href="/profile" className={`w-auto justify-center items-center ${!loading && isAuth && pathname !=="/" ? "flex lg:hidden" : "hidden"}`}>
                                 <Image
                                     src={UserIcon}
                                     alt="logo"

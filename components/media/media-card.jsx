@@ -17,19 +17,19 @@ const MediaCard = ({ singleartist, MediaType }) => {
   const {
     image = defaultArtistImage, // Provide default image in case it's undefined
     songName = "Unknown Song",
-    songDescription = "Unknown Description",
-    stars = 0,
+    // songDescription = "Unknown Description",
+    // stars = 0,
     starCount = 0,
     reviewscount = 0,
   } = singleartist || {}; // Destructure with default values
 
   return (
     <>
-      <Link href={`${MediaType && MediaType === "songs" ? `/songs/${singleartist.id}` : `/album/${singleartist.id}`}`} className="card mr-3 md:mr-0">
+      <Link href={`${MediaType && MediaType === "songs" ? `/songs/${singleartist.id}` :(MediaType === "artists"?`/artist/${singleartist.id}` : `/album/${singleartist.id}`)}`} className="card mr-3 md:mr-0">
         <div className="mb-1 relative rounded-2xl overflow-hidden">
           <img
-            src={image}
-            alt={songName}
+            src={`${MediaType && MediaType === "songs" ? `${singleartist?.track_img_url??image.src}` :( MediaType === "artists"? `${singleartist.profile_img_url??image.src}`:`${singleartist.cover_pic_url??image.src}`)}`}
+            alt={singleartist?.name}
             className="rounded-2xl relative w-full hover:scale-110 transition-all ease-out duration-500 aspect-square"
           />
 
@@ -39,6 +39,7 @@ const MediaCard = ({ singleartist, MediaType }) => {
               className={`w-6 h-6 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 ${liked ? "bg-red-500" : ""
                 }`}
             >
+
               <Image
                 src={likebtn}
                 className="w-full h-full rounded-full"
@@ -49,27 +50,27 @@ const MediaCard = ({ singleartist, MediaType }) => {
         </div>
         <div className="text-box mt-3 mb-2 md:mb-1 flex flex-col gap-1 md:gap-0">
           <p className="text-textColor text-sm md:font-base leading-4.5 md:leading-5.5 font-bold capitalize">
-            {songName}
+            {singleartist?.name??songName}
           </p>
           <p className="text-textColor text-sm leading-4.5 font-normal capitalize">
-            {songDescription}
+            {/* {singleartist?.description??songDescription} */}
           </p>
         </div>
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-1.25 md:gap-2 mr-2">
           <div className="rating flex items-center gap-1">
             <p className="text-textColor text-sm leading-4.5 font-bold">
-              {stars}
+              {singleartist?.avg_ratings??0}
             </p>
             <div className="flex justify-center items-center">
               <Image src={star} alt="star" />
             </div>
             <p className="text-textColor text-sm leading-4.5 font-bold">
-              ({starCount})
+              ({singleartist?.total_ratings??starCount})
             </p>
           </div>
           <div className="ratingtext flex items-center">
             <p className="text-textColor text-sm leading-4.5 font-normal">
-              <span className="font-bold">{reviewscount}</span> Reviews
+              <span className="font-bold">{singleartist?.review_count??reviewscount}</span> Reviews
             </p>
           </div>
         </div>

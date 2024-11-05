@@ -9,7 +9,8 @@ import SubSectionHeading from "@/components/site/sub-section-heading";
 // json
 import TopRatedData from "@/json/top-rated.json";
 
-export default function WeeksTop10() {
+export default function WeeksTop10({weekData}) {
+
     return (
         <div className="site-container">
             <div className="mt-20 lg:mt-22 lg:grid grid-cols-12 gap-4">
@@ -20,7 +21,7 @@ export default function WeeksTop10() {
                     <div className="absolute cust-scrollbar-track hidden lg:block"></div>
                     <div className="mt-2 lg:mt-6 lg:h-[calc(100%-62px-24px)] lg:overflow-auto cust-scrollbar lg:mr-6">
                         <FeaturedItems
-                            FeaturedItemsData={TopRatedData}
+                            FeaturedItemsData={weekData??TopRatedData}
                             DesktopLimit={10}
                             MobileLimit={5}
                             ParentClass="lg:gap-6"
@@ -40,7 +41,7 @@ export default function WeeksTop10() {
                     <div className="absolute cust-scrollbar-track hidden lg:block"></div>
                     <div className="mt-2 lg:mt-6 lg:h-[calc(100%-62px-24px)] lg:overflow-auto cust-scrollbar lg:mr-6">
                         <FeaturedItemsSongs
-                            FeaturedItemsData={TopRatedData}
+                            FeaturedItemsData={weekData??TopRatedData}
                             limit=""
                             ParentClass="lg:gap-6"
                             ChildClass="lg:px-6 lg:py-4 flex-row"
