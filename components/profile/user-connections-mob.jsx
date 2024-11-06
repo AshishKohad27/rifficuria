@@ -37,7 +37,7 @@ export default function UserConnectionsMobile({
                             <div className="w-[calc(768px+240px+16px)] lg:w-auto mt-8 flex lg:grid grid-cols-4 gap-x-4 lg:gap-x-7.5 gap-y-4">
                                 {UserConnectionsData &&
                                     UserConnectionsData.slice(0, `${limit ? limit : 16}`).map(
-                                        ({ profileImage, name }, index) => {
+                                        (item, index) => {
                                             return (
                                                 <div
                                                     className="w-12 h-12 rounded-full"
@@ -49,9 +49,9 @@ export default function UserConnectionsMobile({
                                                         height={48}
                                                         className="w-12 lg:w-8 h-12 lg:h-8 rounded-full"
                                                         src={
-                                                            profileImage || defaultProfileImage
+                                                            (item?.follower_user?.profile_pic ||item?.profileImage) || defaultProfileImage
                                                         }
-                                                        alt={name}
+                                                        alt={item?.follower_user?.name || item?.name}
                                                     />
                                                 </div>
                                             );

@@ -12,10 +12,10 @@ export const GetArtistProfile = createAsyncThunk(
         console.log("artistId:", artistId, access_token);
         try {
             const response = await axios.get(
-                `https://riffcuria.achieveee.com/api/v1/artist/profile/${artistId}`,
+                `https://riffcuria.achieveee.com/api/v1/artist/${artistId}`,
                 {
                     headers: {
-                        Authorization: `Bearer ${access_token}`, // Pass the token in the Authorization header
+                        // Authorization: `Bearer ${access_token}`, // Pass the token in the Authorization header
                         Accept: "application/json" // Set the Accept header
                     }
                 }

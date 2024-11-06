@@ -32,7 +32,7 @@ export default function Home() {
       // if (params.id) {
       //     dispatch(GetTrackProfile({ trackId: params.id }));
       // }
-      dispatch(GetArtistProfile({ artistId: 9 }));
+      dispatch(GetArtistProfile({ artistId: 'shashaa-tirupati' }));
 
       // console.log("generFilter:", generFilter);
   }, [ params]);

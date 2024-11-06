@@ -25,7 +25,7 @@ const MediaCard = ({ singleartist, MediaType }) => {
 
   return (
     <>
-      <Link href={`${MediaType && MediaType === "songs" ? `/songs/${singleartist.id}` :(MediaType === "artists"?`/artist/${singleartist.id}` : `/album/${singleartist.id}`)}`} className="card mr-3 md:mr-0">
+      <Link href={`${MediaType && MediaType === "songs" ? `/songs/${singleartist.slug}` :(MediaType === "artists"?`/artist/${singleartist.slug}` : `/album/${singleartist.slug}`)}`} className="card mr-3 md:mr-0">
         <div className="mb-1 relative rounded-2xl overflow-hidden">
           <img
             src={`${MediaType && MediaType === "songs" ? `${singleartist?.track_img_url??image.src}` :( MediaType === "artists"? `${singleartist.profile_img_url??image.src}`:`${singleartist.cover_pic_url??image.src}`)}`}

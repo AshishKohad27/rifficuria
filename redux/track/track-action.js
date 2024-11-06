@@ -15,7 +15,7 @@ export const GetTrackProfile = createAsyncThunk(
                 `https://riffcuria.achieveee.com/api/v1/track/${trackId}`,
                 {
                     headers: {
-                        Authorization: `Bearer ${access_token}`, // Pass the token in the Authorization header
+                        // Authorization: `Bearer ${access_token}`, // Pass the token in the Authorization header
                         Accept: "application/json" // Set the Accept header
                     }
                 }

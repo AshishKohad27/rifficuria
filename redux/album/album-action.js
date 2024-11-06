@@ -15,7 +15,7 @@ export const GetAlbum = createAsyncThunk(
                 `https://riffcuria.achieveee.com/api/v1/album/${albumId}`,
                 {
                     headers: {
-                        Authorization: `Bearer ${access_token}`, // Pass the token in the Authorization header
+                        // Authorization: `Bearer ${access_token}`, // Pass the token in the Authorization header
                         Accept: "application/json" // Set the Accept header
                     }
                 }

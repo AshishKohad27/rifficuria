@@ -66,9 +66,9 @@ export default function Artist() {
       <main className="mt-15.5">
         <div className="h-[456px]">
           {
-            artistProfileData?.cover_pic ? (
+            artistProfileData?.cover_pic_url ? (
               <img
-                src={artistProfileData?.cover_pic}
+                src={artistProfileData?.cover_pic_url}
                 alt="ArtistBanner"
                 className="w-full h-full object-cover"
               />

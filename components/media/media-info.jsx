@@ -107,7 +107,7 @@ const MediaInfo = ({ mediaData, hideRating, mediaInfoFor }) => {
                     </div>
                     <div className="mt-2 md:mt-4">
                         <h2 className="text-textColor text-2xl md:text-5xl font-bold leading-7.5 md:leading-13 capitalize">
-                            {mediaData?.name ?? "Artist Name"}
+                            {mediaData?.name ?? "Name"}
                         </h2>
                         {mediaInfoFor && mediaInfoFor === "songs" ? (
                             <h2 className="text-indigo text-base md:text-2xl font-bold leading-5.5 md:leading-7.5 uppercase mt-2 md:mt-4">

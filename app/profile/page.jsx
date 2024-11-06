@@ -70,7 +70,7 @@ export default function Profile() {
                                     {/* Followers and Followings in Mobile View */}
                                     <div className="flex lg:hidden flex-col gap-11 mt-8 mb-20">
                                         <div className="">
-                                            {
+                                            {/* {
                                                 (userData && userData?.followers?.length == 0) && (
                                                     <div className="">
                                                         <div className="py-4 pb-15 px-3 flex flex-col gap-8">
@@ -79,7 +79,7 @@ export default function Profile() {
                                                     </div>
 
                                                 )
-                                            }
+                                            } */}
                                             <UserConnectionsMobile
                                                 isDataAvailable={userData ? (userData?.followers?.length) : UserConnectionsData.length > 0}
                                                 connectionsTitle="followers"
